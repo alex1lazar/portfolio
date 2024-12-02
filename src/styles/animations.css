@@ -1,0 +1,32 @@
+.tooltip-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.tooltip-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms ease-in, transform 200ms ease-out;
+}
+
+.tooltip-exit {
+  opacity: 1;
+}
+
+.tooltip-exit-active {
+  opacity: 0;
+  transition: opacity 2000ms ease-out;
+}
+
+.tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+} 
