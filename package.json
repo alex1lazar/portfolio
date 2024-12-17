@@ -7,21 +7,26 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-scripts": "5.0.1",
+    "cross-spawn": "^7.0.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "react-transition-group": "^4.4.5",
     "web-vitals": "^2.1.4",
-    "react-transition-group": "^4.4.5"
+    "which": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "REACT_APP_BUILD_TIME=$(date -u +\"%Y-%m-%dT%H:%M:%SZ\") react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "netlify deploy --prod",
+    "deploy:github": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
+      "react-app",  
       "react-app/jest"
     ]
   },
@@ -38,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.2.0",
     "tailwindcss": "^3.4.15"
   }
 }

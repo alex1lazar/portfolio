@@ -8,6 +8,10 @@ module.exports = {
   theme: {
     extend: {
       colors: colors,
+      fontFamily: {
+        serif: ['Lastik', 'serif'],
+        sans: ['Geist', 'sans-serif'],
+      },
     },
   },
   plugins: [],

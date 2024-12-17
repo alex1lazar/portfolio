@@ -65,16 +65,17 @@ export const spacing = {
 // Typography styles
 export const typography = {
   heading: {
-    h1: 'text-4xl font-serif mb-8',
+    h1: 'text-4xl font-serif font-bold mb-8',
     h2: 'text-3xl font-serif mb-6',
     h3: 'text-2xl font-serif mb-4',
     h4: 'text-xl font-serif mb-3',
   },
   body: {
-    large: 'text-lg text-text-primary',
-    regular: 'text-base text-text-primary',
+    large: 'text-xl text-text-primary',
+    medium: 'text-lg text-text-secondary',
+    regular: 'text-base text-text-secondary',
     small: 'text-sm text-text-secondary',
-    tiny: 'text-xs text-text-muted',
+    tiny: 'text-xs text-text-tertiary',
   },
 };
 

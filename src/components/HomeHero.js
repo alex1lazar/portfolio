@@ -16,10 +16,10 @@ function HomeHero() {
   };
 
   return (
-    <div className="pt-32 px-4">
-      <h1 className={typography.heading.h1}>Product Designer</h1>
-      <p className="mb-5 text-text-tertiary">Based in Timisoara, Romania.</p>
-      <p className="mb-5 text-text-secondary">
+    <div className="pt-32 px-4 font-serif mb-16">
+      <h1 className={typography.heading.h1}>Alex Lazar</h1>
+      <p className="mb-5 text-text-tertiary text-lg">Product Desginer based in Timisoara, Romania.</p>
+      <p className="mb-5 text-lg text-text-secondary">
         Currently leading all design efforts at{' '}
         <a 
           href="https://www.kota.io" 
@@ -31,18 +31,17 @@ function HomeHero() {
         </a>
         .
       </p>
-      <p className="mb-5 text-text-secondary">
+      <p className="mb-5 text-lg text-text-secondary">
         I work with start-ups that genuinely care about their customers' experience.
-        My main role is to create clean, functional software solutions for their most
-        important problems.
+        My focus is on creating clean, functional software solutions that 
       </p>
-      <p className="mb-8 text-text-tertiary">
+      <p className="mb-8 text-lg text-text-tertiary">
         Otherwise, I'm all about different types of design, reading, writing, running, and traveling Europe.
       </p>
       <div className="relative inline-block">
         <button
           onClick={copyEmail}
-          className="bg-button-primary-bg text-button-primary-text px-4 py-2 rounded hover:bg-button-primary-hover transition-colors"
+          className="bg-button-primary-bg text-button-primary-text px-4 py-2 rounded hover:bg-button-primary-hover transition-colors font-sans"
         >
           Copy my email
         </button>
@@ -61,7 +60,7 @@ function HomeHero() {
           </div>
         </CSSTransition>
 
-        <span className="ml-4 text-text-muted">
+        <span className="ml-4 text-text-muted font-sans">
           At times open to freelance work
         </span>
       </div>

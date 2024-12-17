@@ -3,6 +3,8 @@ import HomeHero from './components/HomeHero';
 import NarrowContainer from './components/containers/NarrowContainer';
 import './App.css';
 import WideContainer from './components/containers/WideContainer';
+import Slider from './components/Slider';
+import LastPublished from './components/LastPublished';
 
 function App() {
   return (
@@ -11,6 +13,10 @@ function App() {
         <WideContainer>
           <NarrowContainer>
             <HomeHero />
+          </NarrowContainer>
+        <Slider />
+        <NarrowContainer>
+        <LastPublished />
         </NarrowContainer>
         </WideContainer>
       </main>
