@@ -33,7 +33,7 @@ function HomeHero() {
       </p>
       <p className="mb-5 text-lg text-text-secondary">
         I work with start-ups that genuinely care about their customers' experience.
-        My focus is on creating clean, functional software solutions that 
+        My focus is on creating clean, functional software that delights the users and helps companies grow.
       </p>
       <p className="mb-8 text-lg text-text-tertiary">
         Otherwise, I'm all about different types of design, reading, writing, running, and traveling Europe.
