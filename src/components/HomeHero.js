@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { buttons, typography } from '../styles/theme';
+import { typography } from '../styles/theme';
 import { CSSTransition } from 'react-transition-group';
 import '../styles/animations.css';
 

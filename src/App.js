@@ -1,4 +1,3 @@
-import Navbar from './components/common/Navbar';
 import HomeHero from './components/HomeHero';
 import NarrowContainer from './components/containers/NarrowContainer';
 import './App.css';
