@@ -13,9 +13,6 @@ function LastPublished() {
       month: 'short',
       day: 'numeric',
       year: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-      hour12: true,
       timeZone: 'UTC'
     }).format(date);
 

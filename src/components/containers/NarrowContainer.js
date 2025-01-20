@@ -2,7 +2,7 @@ import React from 'react';
 
 function NarrowContainer({ children, className = '' }) {
   return (
-    <div className={`max-w-[640px] mx-auto px-4 ${className}`}>
+    <div className={`max-w-[640px] px-4 ${className}`}>
       {children}
     </div>
   );
