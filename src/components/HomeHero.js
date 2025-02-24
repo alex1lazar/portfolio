@@ -17,8 +17,7 @@ function HomeHero() {
 
   return (
     <div className="pt-32 px-4 font-serif mb-16">
-      <h1 className={typography.heading.h1}>Alex Lazar</h1>
-      <p className="mb-5 text-text-tertiary text-lg">Product Desginer based in Timisoara, Romania.</p>
+      <h1 className={typography.heading.h1}>Product Designer from Romania</h1>
       <p className="mb-5 text-lg text-text-secondary">
         Currently leading all design efforts at{' '}
         <a 
@@ -36,7 +35,7 @@ function HomeHero() {
         My focus is on creating clean, functional software that delights the users and helps companies grow.
       </p>
       <p className="mb-8 text-lg text-text-tertiary">
-        Otherwise, I'm all about different types of design, reading, writing, running, and traveling Europe.
+        Otherwise, I'm all about different fields of design, reading, writing, running, and traveling Europe.
       </p>
       <div className="relative inline-block">
         <button

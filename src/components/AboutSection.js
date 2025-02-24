@@ -15,7 +15,7 @@ const AboutSection = () => {
       Now, I can't get rid of these lenses that design gave me. And I wouldn't want it any other way.
       </p>
 
-      <p className="mb-5">
+      <p className="mb-5 text-lg text-text-secondary">
         This website is my attempt to document my work, thoughts, and experiments more often.
       </p>
     </div>

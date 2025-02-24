@@ -4,9 +4,9 @@ import ProgressItem from './ProgressItem';
 const ProgressList = () => {
   const features = [
     { id: 1, name: 'To-do list', completed: true},
-    { id: 2, name: 'Simple blog page', completed: false },
-    { id: 3, name: 'New logo', completed: false },
-    { id: 4, name: 'Short about section on homepage', completed: false },
+    { id: 2, name: 'Better showcase section animation', completed: true },
+    { id: 3, name: 'Simple blog page', completed: false },
+    { id: 4, name: 'Short about section on homepage', completed: true },
     { id: 5, name: 'Project section on homepage', completed: false },
     { id: 6, name: 'Reading page with collection of books read', completed: false },
   ];

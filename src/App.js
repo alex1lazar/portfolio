@@ -5,6 +5,8 @@ import WideContainer from './components/containers/WideContainer';
 import Slider from './components/Slider';
 import LastPublished from './components/LastPublished';
 import ProgressList from './components/ProgressList/ProgressList';
+import AboutSection from './components/AboutSection';
+
 function App() {
   return (
     <div className="App">
@@ -15,6 +17,7 @@ function App() {
           </NarrowContainer>
           <Slider />
           <NarrowContainer>
+            <AboutSection />
             <ProgressList />
           </NarrowContainer>
           <LastPublished />

@@ -12,6 +12,7 @@ import heroImg11 from '../assets/hero/Hero Img 11.png';
 import heroImg12 from '../assets/hero/Hero Gif 12.png';
 import heroImg13 from '../assets/hero/Hero Img 13.png';
 import React, { useState, useEffect } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const Slider = () => {
   // List of image URLs (replace these with your actual PNG file paths or URLs)
@@ -38,31 +39,38 @@ const Slider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 1500); // Change slide every 1.5 seconds
+    }, 2400);
 
     // Cleanup interval on component unmount
     return () => clearInterval(interval);
   }, [slides.length]);
 
   return (
-    <div className="relative w-full max-h-[640px] overflow-hidden mb-16 rounded-3xl shadow"> 
-      <div
-        className="flex transition-transform duration-700"
-        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-      >
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className="w-full h-full flex-shrink-0"
-            style={{ backgroundImage: `url(${slide})` }}
+    <div className="relative w-full h-[600px] overflow-hidden mb-16 rounded-3xl shadow">
+      <div className="absolute inset-0">
+        <TransitionGroup>
+          <CSSTransition
+            key={currentSlide}
+            timeout={1000}
+            classNames={{
+              enter: 'opacity-0',
+              enterActive: 'opacity-100 transition-all duration-1000 ease-in-out',
+              enterDone: 'opacity-100',
+              exit: 'opacity-100',
+              exitActive: 'opacity-0 transition-all duration-1000 ease-in-out',
+              exitDone: 'opacity-0'
+            }}
           >
-            <img
-              src={slide}
-              alt={`Slide ${index + 1}`}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        ))}
+            <div className="absolute inset-0">
+              <img
+                src={slides[currentSlide]}
+                alt={`Slide ${currentSlide + 1}`}
+                className="w-full h-full object-cover"
+                style={{ willChange: 'opacity' }}
+              />
+            </div>
+          </CSSTransition>
+        </TransitionGroup>
       </div>
     </div>
   );
