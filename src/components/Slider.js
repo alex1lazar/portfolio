@@ -56,7 +56,7 @@ const Slider = () => {
               enter: 'opacity-0',
               enterActive: 'opacity-100 transition-all duration-1000 ease-in-out',
               enterDone: 'opacity-100',
-              exit: 'opacity-100',
+              exit: 'opacity-320',
               exitActive: 'opacity-0 transition-all duration-1000 ease-in-out',
               exitDone: 'opacity-0'
             }}

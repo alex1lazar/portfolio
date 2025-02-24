@@ -59,7 +59,7 @@ function HomeHero() {
           </div>
         </CSSTransition>
 
-        <span className="ml-4 text-text-muted font-sans">
+        <span className="ml-4 text-text-tertiary text-sm font-sans">
           At times open to freelance work
         </span>
       </div>
