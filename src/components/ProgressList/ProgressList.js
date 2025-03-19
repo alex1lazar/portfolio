@@ -5,10 +5,12 @@ const ProgressList = () => {
   const features = [
     { id: 1, name: 'To-do list', completed: true},
     { id: 2, name: 'Better showcase section animation', completed: true },
-    { id: 3, name: 'Simple blog page', completed: false },
+    { id: 3, name: 'Simple blog page', completed: true },
     { id: 4, name: 'Short about section on homepage', completed: true },
     { id: 5, name: 'Project section on homepage', completed: false },
-    { id: 6, name: 'Reading page with collection of books read', completed: false },
+    { id: 6, name: 'Reading page with collection of books read', completed: true },
+    { id: 7, name: 'Add covers for books', completed: false },
+    { id: 6, name: 'Fetch & show blog posts', completed: false },
   ];
 
   return (

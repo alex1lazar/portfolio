@@ -16,7 +16,7 @@ function HomeHero() {
   };
 
   return (
-    <div className="pt-32 px-4 font-serif mb-16">
+    <div className="pt-32 font-serif mb-16">
       <h1 className={typography.heading.h1}>Product Designer from Romania</h1>
       <p className="mb-5 text-lg text-text-secondary">
         Currently leading all design efforts at{' '}
