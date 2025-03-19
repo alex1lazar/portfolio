@@ -7,6 +7,7 @@ import LastPublished from './components/LastPublished';
 import ProgressList from './components/ProgressList/ProgressList';
 import AboutSection from './components/AboutSection';
 import Reading from './pages/Reading';
+import Writing from './pages/Writing';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -14,9 +15,10 @@ function App() {
     <Router>
       <div className="App max-w-[1440px] mx-auto">
         <Routes>
+          <Route path="/writing" element={<Writing />} />
           <Route path="/reading" element={<Reading />} />
           <Route path="/" element={
-            <main className="mx-auto">
+            <main>
               <WideContainer>
                 <NarrowContainer>
                   <HomeHero />
