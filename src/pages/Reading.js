@@ -24,22 +24,7 @@ const Reading = () => {
           throw error;
         }
 
-        // Get the public URL for each book cover
-        const booksWithCovers = await Promise.all(
-          data.map(async (book) => {
-            const { data: coverUrl } = supabase
-              .storage
-              .from('book-covers')
-              .getPublicUrl(`${book.ID}.jpg`);
-            
-            return {
-              ...book,
-              coverUrl: coverUrl.publicUrl
-            };
-          })
-        );
-
-        setBooks(booksWithCovers || []);
+        setBooks(data || []);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -108,7 +93,7 @@ const Reading = () => {
                     <div key={book.ID} className="flex flex-row gap-4">
                       <div className="flex-shrink-0 w-[156px]">
                         <img
-                          src={book.coverUrl}
+                          src={book.Covers}
                           alt={`Cover of ${book.Title}`}
                           className="w-full h-[234px] rounded-lg shadow-md object-cover bg-gray-200"
                           onError={(e) => {
