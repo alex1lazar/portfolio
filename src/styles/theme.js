@@ -11,16 +11,16 @@ export const colors = {
   text: {
     primary: '#1A2322',    // Main text
     secondary: '#323736',   // Secondary text
-    tertiary: '#525A59',      // Tertiary text
-    link: '#D64A0E',       // Link color from your design
+    tertiary: '#525A59',   // Tertiary text
+    link: '#D64A0E',       // Link color
   },
   
   // Button Colors
   button: {
     primary: {
-      bg: '#0A705E',       // Default button background
-      hover: '#085D4E',    // Button hover state
-      text: '#FFFFFF',     // Button text
+      bg: '#0A705E',
+      hover: '#085D4E',
+      text: '#FFFFFF',
     },
     secondary: {
       bg: '#F5F5F5',
@@ -34,6 +34,8 @@ export const colors = {
     primary: '#FFFFFF',
     secondary: '#F7F7F7',
     tertiary: '#F3F3F3',
+    dark: '#1A1A1A',
+    accent: '#E6FAF9',     // Light version of primary color
   },
   
   // Border Colors
@@ -50,6 +52,14 @@ export const colors = {
     warning: '#F59E0B',
     info: '#3B82F6',
   },
+
+  // Surface Colors (for cards, modals, etc.)
+  surface: {
+    light: '#FFFFFF',
+    DEFAULT: '#F7F7F7',
+    dark: '#1A1A1A',
+  },
+
 };
 
 // Common spacing values

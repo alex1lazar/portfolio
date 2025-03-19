@@ -19,7 +19,7 @@ function App() {
           <Route path="/reading" element={<Reading />} />
           <Route path="/" element={
             <main>
-              <WideContainer>
+              <WideContainer className="pt-24">
                 <NarrowContainer>
                   <HomeHero />
                 </NarrowContainer>
