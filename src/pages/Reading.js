@@ -72,7 +72,7 @@ const Reading = () => {
   const booksByYear = groupBooksByYear();
 
   return (
-    <div className="pt-32 max-w-[1440px] mx-auto">
+    <div className="pt-32">
       <WideContainer>
         <NarrowContainer>
           <h1 className="text-4xl font-serif mb-4">Reading</h1>
