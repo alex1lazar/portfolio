@@ -1,0 +1,30 @@
+name: Sync Notion to Supabase
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # Runs every month
+  workflow_dispatch:     # Allows manual trigger
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set Up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
+    - name: Install Dependencies
+      run: npm install @notionhq/client @supabase/supabase-js
+
+    - name: Run Sync Script
+      run: node scripts/syncNotionToSupabase.js
+      env:
+        NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+        SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
