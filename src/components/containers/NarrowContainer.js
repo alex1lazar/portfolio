@@ -1,11 +1,11 @@
 import React from 'react';
 
-function NarrowContainer({ children, className = '' }) {
+const NarrowContainer = ({ children }) => {
   return (
-    <div className={`max-w-[640px] px-4 ${className}`}>
+    <div className="max-w-[640px]">
       {children}
     </div>
   );
-}
+};
 
 export default NarrowContainer; 
