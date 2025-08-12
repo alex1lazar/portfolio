@@ -2,6 +2,91 @@
   text-align: left;
 }
 
+/* New homepage styles with updated color palette */
+.homepage-background {
+  background-color: #FAF7F2;
+  min-height: 100vh;
+}
+
+/* Text color classes */
+.text-muted {
+  color: #6D5950;
+}
+
+.text-dark {
+  color: #4E220F;
+}
+
+.text-normal {
+  color: #3D2F28;
+}
+
+.text-accent {
+  color: #D64A0E;
+}
+
+/* Background color classes */
+.bg-accent {
+  background-color: #D64A0E;
+}
+
+/* Navbar styles */
+.navbar-name {
+  font-size: 1.75rem; /* 28px */
+  line-height: 2.25rem; /* 36px */
+  color: #4E220F;
+  font-family: 'Lastik', serif;
+}
+
+.navbar-link {
+  font-size: 1.75rem; /* 28px */
+  line-height: 2.25rem; /* 36px */
+  color: #4E220F;
+  text-decoration: none;
+  font-family: 'Lastik', serif;
+}
+
+.navbar-link:hover {
+  color: #D64A0E;
+}
+
+.navbar-link.active {
+  text-decoration: underline;
+  text-decoration-color: #D64A0E;
+}
+
+/* Tooltip styles */
+.tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 12px);
+  transform: translateX(-50%);
+  background-color: #4E220F;
+  color: #FAF7F2;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  min-width: 120px;
+  text-align: center;
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #4E220F;
+}
+
+/* Legacy styles */
 .App-logo {
   height: 40vmin;
   pointer-events: none;

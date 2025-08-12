@@ -7,7 +7,16 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: colors,
+      colors: {
+        ...colors,
+        // Add the new color palette as Tailwind classes
+        'text-muted': '#6D5950',
+        'text-dark': '#4E220F',
+        'text-normal': '#3D2F28',
+        'text-accent': '#D64A0E',
+        'color-accent': '#D64A0E',
+        'bg-accent': '#D64A0E',
+      },
       fontFamily: {
         serif: ['Lastik', 'serif'],
         sans: ['Geist', 'sans-serif'],
