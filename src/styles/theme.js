@@ -1,41 +1,44 @@
 export const colors = {
-  // Brand Colors
-  primary: {
-    DEFAULT: '#00C7BD', // Your turquoise dot color
-    hover: '#00B0A7',
-    light: '#E6FAF9',
-    dark: '#00A49B',
+  // Text Colors (from the image)
+  text: {
+    muted: '#6D5950',      // Brownish-grey
+    dark: '#4E220F',       // Dark reddish-brown  
+    normal: '#3D2F28',     // Dark brown
+    accent: '#D64A0E',     // Vibrant orange
   },
   
-  // Text Colors
-  text: {
-    primary: '#1A2322',    // Main text
-    secondary: '#323736',   // Secondary text
-    tertiary: '#525A59',   // Tertiary text
-    link: '#D64A0E',       // Link color
+  // General Colors (from the image)
+  color: {
+    accent: '#D64A0E',     // Same vibrant orange
+  },
+  
+  // Background Colors
+  background: {
+    primary: '#FAF7F2',    // Light beige background
+    secondary: '#F7F7F7',
+    tertiary: '#F3F3F3',
+  },
+  
+  // Legacy colors (keeping for compatibility)
+  primary: {
+    DEFAULT: '#D64A0E',    // Updated to match accent
+    hover: '#B83A0A',
+    light: '#FDF2F0',
+    dark: '#A83208',
   },
   
   // Button Colors
   button: {
     primary: {
-      bg: '#0A705E',
-      hover: '#085D4E',
+      bg: '#D64A0E',
+      hover: '#B83A0A',
       text: '#FFFFFF',
     },
     secondary: {
       bg: '#F5F5F5',
       hover: '#E5E5E5',
-      text: '#1A1A1A',
+      text: '#3D2F28',
     },
-  },
-  
-  // Background Colors
-  background: {
-    primary: '#FFFFFF',
-    secondary: '#F7F7F7',
-    tertiary: '#F3F3F3',
-    dark: '#1A1A1A',
-    accent: '#E6FAF9',     // Light version of primary color
   },
   
   // Border Colors
@@ -53,13 +56,12 @@ export const colors = {
     info: '#3B82F6',
   },
 
-  // Surface Colors (for cards, modals, etc.)
+  // Surface Colors
   surface: {
     light: '#FFFFFF',
     DEFAULT: '#F7F7F7',
     dark: '#1A1A1A',
   },
-
 };
 
 // Common spacing values
@@ -75,34 +77,34 @@ export const spacing = {
 // Typography styles
 export const typography = {
   heading: {
-    h1: 'text-4xl font-serif font-bold mb-8',
-    h2: 'text-3xl font-serif mb-6',
-    h3: 'text-2xl font-serif mb-4',
-    h4: 'text-xl font-serif mb-3',
+    h1: 'text-4xl font-serif font-bold mb-8 text-text-dark',
+    h2: 'text-3xl font-serif mb-6 text-text-dark',
+    h3: 'text-2xl font-serif mb-4 text-text-dark',
+    h4: 'text-xl font-serif mb-3 text-text-dark',
   },
   body: {
-    large: 'text-xl text-text-primary',
-    medium: 'text-lg text-text-secondary',
-    regular: 'text-base text-text-secondary',
-    small: 'text-sm text-text-secondary',
-    tiny: 'text-xs text-text-tertiary',
+    large: 'text-xl text-text-normal',
+    medium: 'text-lg text-text-normal',
+    regular: 'text-base text-text-normal',
+    small: 'text-sm text-text-muted',
+    tiny: 'text-xs text-text-muted',
   },
 };
 
 // Common button styles
 export const buttons = {
   primary: `
-    bg-button-primary-bg
-    text-button-primary-text
+    bg-color-accent
+    text-white
     px-4
     py-2
     rounded
-    hover:bg-button-primary-hover
+    hover:bg-primary-hover
     transition-colors
   `,
   secondary: `
     bg-button-secondary-bg
-    text-button-secondary-text
+    text-text-normal
     px-4
     py-2
     rounded

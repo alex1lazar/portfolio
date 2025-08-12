@@ -46,31 +46,34 @@ const Slider = () => {
   }, [slides.length]);
 
   return (
-    <div className="relative w-full h-[600px] overflow-hidden mb-16 rounded-3xl shadow">
-      <div className="absolute inset-0">
-        <TransitionGroup>
-          <CSSTransition
-            key={currentSlide}
-            timeout={1000}
-            classNames={{
-              enter: 'opacity-0',
-              enterActive: 'opacity-100 transition-all duration-1000 ease-in-out',
-              enterDone: 'opacity-100',
-              exit: 'opacity-320',
-              exitActive: 'opacity-0 transition-all duration-1000 ease-in-out',
-              exitDone: 'opacity-0'
-            }}
-          >
-            <div className="absolute inset-0">
-              <img
-                src={slides[currentSlide]}
-                alt={`Slide ${currentSlide + 1}`}
-                className="w-full h-full object-cover"
-                style={{ willChange: 'opacity' }}
-              />
-            </div>
-          </CSSTransition>
-        </TransitionGroup>
+    <div className="relative w-full max-w-4xl mb-16">
+      {/* Container with 915:518 aspect ratio (approximately 16:9) */}
+      <div className="relative w-full" style={{ aspectRatio: '915/518' }}>
+        <div className="absolute inset-0 overflow-hidden rounded">
+          <TransitionGroup>
+            <CSSTransition
+              key={currentSlide}
+              timeout={1000}
+              classNames={{
+                enter: 'opacity-0',
+                enterActive: 'opacity-100 transition-all duration-1000 ease-in-out',
+                enterDone: 'opacity-100',
+                exit: 'opacity-320',
+                exitActive: 'opacity-0 transition-all duration-1000 ease-in-out',
+                exitDone: 'opacity-0'
+              }}
+            >
+              <div className="absolute inset-0">
+                <img
+                  src={slides[currentSlide]}
+                  alt={`Slide ${currentSlide + 1}`}
+                  className="w-full h-full object-cover"
+                  style={{ willChange: 'opacity' }}
+                />
+              </div>
+            </CSSTransition>
+          </TransitionGroup>
+        </div>
       </div>
     </div>
   );
