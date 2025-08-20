@@ -21,6 +21,14 @@ code {
 }
 
 @font-face {
+  font-family: 'Geist';
+  src: url('../public/fonts/GeistVF.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Lastik';
   src: url('../public/fonts/LastikFamily-Regular.otf') format('opentype');
   font-weight: 400;

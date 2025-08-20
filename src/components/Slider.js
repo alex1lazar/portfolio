@@ -1,16 +1,13 @@
-import heroImg1 from '../assets/hero/Hero Img 1.png';
-import heroImg2 from '../assets/hero/Hero Img 2.png';
-import heroImg3 from '../assets/hero/Hero Img 3.png';
-import heroImg4 from '../assets/hero/Hero Img 4.png';
-import heroImg5 from '../assets/hero/Hero Img 5.png';
-import heroImg6 from '../assets/hero/Hero Img 6.png';
-import heroImg7 from '../assets/hero/Hero Img 7.png';
-import heroImg8 from '../assets/hero/Hero Img 8.png';
-import heroImg9 from '../assets/hero/Hero Img 9.png';
-import heroImg10 from '../assets/hero/Hero Gif 10.png';
-import heroImg11 from '../assets/hero/Hero Img 11.png';
-import heroImg12 from '../assets/hero/Hero Gif 12.png';
-import heroImg13 from '../assets/hero/Hero Img 13.png';
+import heroImg1 from '../assets/hero/Slider 1.png';
+import heroImg2 from '../assets/hero/Slider 2.png';
+import heroImg3 from '../assets/hero/Slider 3.png';
+import heroImg4 from '../assets/hero/Slider 4.png';
+import heroImg5 from '../assets/hero/Slider 5.png';
+import heroImg6 from '../assets/hero/Slider 6.png';
+import heroImg7 from '../assets/hero/Slider 7.png';
+import heroImg8 from '../assets/hero/Slider 8.png';
+import heroImg9 from '../assets/hero/Slider 9.png';
+import heroImg10 from '../assets/hero/Slider 10.png';
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
@@ -26,10 +23,7 @@ const Slider = () => {
     heroImg7,
     heroImg8,
     heroImg9,
-    heroImg10,
-    heroImg11,
-    heroImg12,
-    heroImg13,
+    heroImg10
   ];
 
   // State to track the current slide index
