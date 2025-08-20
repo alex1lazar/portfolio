@@ -20,22 +20,22 @@ function Homepage() {
     <div className="homepage-background min-h-screen pt-16">
       <XLContainer>
         {/* 4-column description row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          <div className="text-normal">
-            <p className="text-base leading-normal font-medium">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-12 max-w-[32rem] lg:max-w-none lg:mx-0">
+          <div className="text-normal font-medium">
+            <p className="text-base leading-normal">
               Romanian software designer creating unique experiences for modern startups. Currently working at <a href="https://www.kota.io" className="text-accent underline">Kota</a> where we shape the future of how companies and their employees interact with benefits.
             </p>
           </div>
           
           <div className="text-normal">
             <p className="text-base leading-normal">
-              During my bachelor's in Computer Engineering, I sensed that I'm too removed from the human side. Without any idea about what it means, I started learning more about design.
+            During my bachelor’s in Computer Engineering, I felt too disconnected from the human and visual side. Without any idea about what it meant, I started learning more about design.
             </p>
           </div>
           
           <div className="text-normal">
             <p className="text-base leading-normal">
-              It's how I realized that this field has a great balance between people and their behaviour, visuals and their importance, and innovation. All subjects that spark a deep curiosity in me.
+              It's how I realized that design has a great balance between people and their behaviour, visuals and their importance, and innovation. All subjects that spark a deep curiosity in me.
             </p>
           </div>
           
@@ -60,7 +60,7 @@ function Homepage() {
               in={showTooltip}
               timeout={{
                 enter: 200,
-                exit: 2000
+                exit: 1000
               }}
               classNames="tooltip"
               unmountOnExit

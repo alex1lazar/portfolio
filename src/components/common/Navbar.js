@@ -16,7 +16,7 @@ function Navbar() {
       
 
         {/* Right side - Navigation Links */}
-        <div className="flex items-center space-x-4">
+        <div className="hidden sm:flex items-center space-x-4">
           {/* Work link with tooltip */}
           <div className="relative inline-block">
             <span 
