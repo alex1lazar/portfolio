@@ -47,13 +47,13 @@ const Slider = () => {
           <TransitionGroup>
             <CSSTransition
               key={currentSlide}
-              timeout={1000}
+              timeout={800}
               classNames={{
                 enter: 'opacity-0',
-                enterActive: 'opacity-100 transition-all duration-1000 ease-in-out',
+                enterActive: 'opacity-100 transition-opacity duration-700 ease-out',
                 enterDone: 'opacity-100',
-                exit: 'opacity-320',
-                exitActive: 'opacity-0 transition-all duration-1000 ease-in-out',
+                exit: 'opacity-100',
+                exitActive: 'opacity-0 transition-opacity duration-800 ease-in',
                 exitDone: 'opacity-0'
               }}
             >
