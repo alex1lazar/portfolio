@@ -19,8 +19,9 @@ function Homepage() {
   return (
     <div className="homepage-background min-h-screen pt-16">
       <XLContainer>
-        {/* 4-column description row */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-12 max-w-[32rem] lg:max-w-none lg:mx-0">
+        <div className="flex flex-col">
+          {/* 4-column description row */}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-12 max-w-[32rem] lg:max-w-none lg:mx-0 order-2 lg:order-1">
           <div className="text-normal font-medium">
             <p className="text-base leading-normal">
               Romanian software designer creating unique experiences for modern startups. Currently working at <a href="https://www.kota.io" className="text-accent underline">Kota</a> where we shape the future of how companies and their employees interact with benefits.
@@ -44,10 +45,10 @@ function Homepage() {
               These days, I work with startups that genuinely care about their digital products and about their customers' experience with them.
             </p>
           </div>
-        </div>
+          </div>
 
-        {/* Email button */}
-        <div className="mb-12">
+          {/* Email button */}
+          <div className="mb-12 order-3 lg:order-2">
           <div className="relative inline-block">
             <button
               onClick={copyEmail}
@@ -70,15 +71,15 @@ function Homepage() {
               </div>
             </CSSTransition>
           </div>
-        </div>
+          </div>
 
-        {/* Carousel/Slider */}
-        <div className="flex-1 mb-16">
-          <Slider />
-        </div>
+          {/* Carousel/Slider */}
+          <div className="flex-1 mb-16 order-1 lg:order-3">
+            <Slider />
+          </div>
 
-        {/* Footer */}
-        <div className="flex justify-between items-center py-8">
+          {/* Footer */}
+          <div className="flex justify-between items-center py-8">
           <div className="text-normal">
             <span className="text-base">Timisoara, Romania</span>
           </div>
@@ -110,6 +111,7 @@ function Homepage() {
             >
               Are.na
             </a>
+          </div>
           </div>
         </div>
       </XLContainer>

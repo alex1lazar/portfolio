@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   const [showWorkTooltip, setShowWorkTooltip] = useState(false);
-  const [showWritingTooltip, setShowWritingTooltip] = useState(false);
   const [showReadingTooltip, setShowReadingTooltip] = useState(false);
 
   return (
@@ -10,7 +10,9 @@ function Navbar() {
       <div className="max-w-[1440px] mx-auto px-8 flex flex-row justify-between items-center">
         {/* Left side - Name */}
         <div className="flex items-center">
-          <span className="navbar-name font-serif">Alex Lazar</span>
+          <Link to="/" className="navbar-name font-serif hover:text-text-accent transition-colors">
+            Alex Lazar
+          </Link>
         </div>
 
       
@@ -36,22 +38,10 @@ function Navbar() {
 
           <span className="navbar-name font-serif">/</span>
           
-          {/* Writing link with tooltip */}
-          <div className="relative inline-block">
-            <span 
-              className="navbar-link font-serif text-muted cursor-not-allowed"
-              onMouseEnter={() => setShowWritingTooltip(true)}
-              onMouseLeave={() => setShowWritingTooltip(false)}
-            >
-              Writing
-            </span>
-            {showWritingTooltip && (
-              <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 bg-text-dark text-white text-sm rounded shadow-lg z-10 whitespace-nowrap">
-                Coming soon
-                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-text-dark"></div>
-              </div>
-            )}
-          </div>
+          {/* Writing link */}
+          <Link to="/writing" className="navbar-link font-serif hover:text-text-primary transition-colors">
+            Writing
+          </Link>
 
           <span className="navbar-name font-serif">/</span>
           
