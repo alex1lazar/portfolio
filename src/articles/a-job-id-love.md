@@ -1,10 +1,10 @@
 ---
 title: "A job I'd love"
-description: "In the first months of 2023 I wrote a simple list of requirements for a job I'd love"
+description: "In the first months of 2023 I wrote a simple list of requirements for a job I'd love."
 date: "2023"
 tags: ["job","career","startups"]
-
-# A job I’d love
+slug: "a-job-id-love"
+---
 
 A job I'd love would offer plenty of creative freedom with some constraints.
 
