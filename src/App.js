@@ -2,7 +2,6 @@ import Navbar from './components/common/Navbar';
 import Homepage from './components/Homepage'; 
 import Writing from './pages/Writing';
 import Article from './pages/Article';
-import CarturestiCaseStudy from './pages/CarturestiCaseStudy';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
