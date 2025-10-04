@@ -17,7 +17,7 @@ function Homepage() {
   };
 
   return (
-    <div className="homepage-background min-h-screen pt-16 flex flex-col">
+    <div className="homepage-background pt-16 flex flex-col">
       <XLContainer className="flex flex-col">
         <div className="flex flex-col">
           {/* 4-column description row */}
@@ -74,13 +74,13 @@ function Homepage() {
           </div>
 
           {/* Carousel/Slider */}
-          <div className="mb-8 order-1 lg:order-3">
+          <div className="mb-4 order-1 lg:order-3">
             <Slider />
           </div>
         </div>
 
         {/* Footer */}
-        <div className="flex justify-between items-center py-8 mt-auto">
+        <div className="flex justify-between items-center pt-8 pb-2 mt-auto">
         <div className="text-normal">
           <span className="text-base">Timisoara, Romania</span>
         </div>

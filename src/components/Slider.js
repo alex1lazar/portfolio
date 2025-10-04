@@ -40,7 +40,7 @@ const Slider = () => {
   }, [slides.length]);
 
   return (
-    <div className="relative w-full max-w-4xl mb-16">
+    <div className="relative w-full max-w-4xl">
       {/* Container with 915:518 aspect ratio (approximately 16:9) */}
       <div className="relative w-full" style={{ aspectRatio: '915/518' }}>
         <div className="absolute inset-0 overflow-hidden rounded">

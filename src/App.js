@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={
-            <main className="homepage-background min-h-screen">
+            <main className="homepage-background">
               <Navbar />
               <Homepage />
             </main>
