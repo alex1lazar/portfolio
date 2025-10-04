@@ -1,6 +1,7 @@
 import Navbar from './components/common/Navbar';
 import Homepage from './components/Homepage'; 
 import Writing from './pages/Writing';
+import Article from './pages/Article';
 import CarturestiCaseStudy from './pages/CarturestiCaseStudy';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -22,10 +23,10 @@ function App() {
               <Writing />
             </main>
           } />
-          <Route path="/writing/carturesti-case-study" element={
-            <main className="min-h-screen">
+          <Route path="/writing/:slug" element={
+            <main className="homepage-background min-h-screen">
               <Navbar />
-              <CarturestiCaseStudy />
+              <Article />
             </main>
           } />
         </Routes>

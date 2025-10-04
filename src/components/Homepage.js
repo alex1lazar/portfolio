@@ -17,8 +17,8 @@ function Homepage() {
   };
 
   return (
-    <div className="homepage-background min-h-screen pt-16">
-      <XLContainer>
+    <div className="homepage-background min-h-screen pt-16 flex flex-col">
+      <XLContainer className="flex flex-col">
         <div className="flex flex-col">
           {/* 4-column description row */}
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-12 max-w-[32rem] lg:max-w-none lg:mx-0 order-2 lg:order-1">
@@ -30,7 +30,7 @@ function Homepage() {
           
           <div className="text-normal">
             <p className="text-base leading-normal">
-            During my bachelor’s in Computer Engineering, I felt too disconnected from the human and visual side. Without any idea about what it meant, I started learning more about design.
+            During my bachelor's in Computer Engineering, I felt too disconnected from the human and visual side. Without any idea about what it meant, I started learning more about design.
             </p>
           </div>
           
@@ -48,7 +48,7 @@ function Homepage() {
           </div>
 
           {/* Email button */}
-          <div className="mb-12 order-3 lg:order-2">
+          <div className="mb-8 order-3 lg:order-2">
           <div className="relative inline-block">
             <button
               onClick={copyEmail}
@@ -74,45 +74,45 @@ function Homepage() {
           </div>
 
           {/* Carousel/Slider */}
-          <div className="flex-1 mb-16 order-1 lg:order-3">
+          <div className="mb-8 order-1 lg:order-3">
             <Slider />
           </div>
+        </div>
 
-          {/* Footer */}
-          <div className="flex justify-between items-center py-8">
-          <div className="text-normal">
-            <span className="text-base">Timisoara, Romania</span>
-          </div>
-          
-          <div className="flex items-center space-x-4">
-            <a 
-              href="https://x.com/alexvlazar" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-normal underline hover:text-accent transition-colors text-base"
-            >
-              X
-            </a>
-            <span className="text-normal">/</span>
-            <a 
-              href="https://www.linkedin.com/in/alexvlazar" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-normal underline hover:text-accent transition-colors text-base"
-            >
-              LinkedIn
-            </a>
-            <span className="text-normal">/</span>
-            <a 
-              href="https://www.are.na/alex-lazar/channels" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-normal underline hover:text-muted transition-colors text-base"
-            >
-              Are.na
-            </a>
-          </div>
-          </div>
+        {/* Footer */}
+        <div className="flex justify-between items-center py-8 mt-auto">
+        <div className="text-normal">
+          <span className="text-base">Timisoara, Romania</span>
+        </div>
+        
+        <div className="flex items-center space-x-4">
+          <a 
+            href="https://x.com/alexvlazar" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-normal underline hover:text-accent transition-colors text-base"
+          >
+            X
+          </a>
+          <span className="text-normal">/</span>
+          <a 
+            href="https://www.linkedin.com/in/alexvlazar" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-normal underline hover:text-accent transition-colors text-base"
+          >
+            LinkedIn
+          </a>
+          <span className="text-normal">/</span>
+          <a 
+            href="https://www.are.na/alex-lazar/channels" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-normal underline hover:text-muted transition-colors text-base"
+          >
+            Are.na
+          </a>
+        </div>
         </div>
       </XLContainer>
     </div>
