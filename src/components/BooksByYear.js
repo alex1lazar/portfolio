@@ -1,5 +1,4 @@
 import React from 'react';
-import BlogPostCard from './BlogPostCard';
 
 const BooksByYear = ({ books }) => {
   // Group books by year
