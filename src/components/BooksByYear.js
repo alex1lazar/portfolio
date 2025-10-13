@@ -57,7 +57,7 @@ const BooksByYear = ({ books }) => {
                       <img 
                         src={book.coverImage} 
                         alt={`${book.title} cover`}
-                        className="w-full h-auto object-cover rounded shadow-md"
+                        className="w-full object-cover rounded shadow-md"
                         loading="lazy"
                       />
                     </div>

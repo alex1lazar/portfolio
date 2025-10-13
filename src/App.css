@@ -41,9 +41,25 @@
 .navbar-link {
   font-size: 1.75rem; /* 28px */
   line-height: 2.25rem; /* 36px */
-  color: #4E220F;
   text-decoration: none;
   font-family: 'Lastik', serif;
+}
+
+/* Mobile responsive navbar styles */
+@media (max-width: 639px) {
+  .navbar-name {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.5rem; /* 24px */
+  }
+  
+  .navbar-link {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.25rem; /* 20px */
+    padding: 4px 2px; /* Touch-friendly tap targets */
+    min-height: 44px; /* Minimum touch target size */
+    display: flex;
+    text-align: right; /* Right-align text for vertical stack */
+  }
 }
 
 .navbar-link:hover {
