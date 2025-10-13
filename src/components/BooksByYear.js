@@ -48,23 +48,24 @@ const BooksByYear = ({ books }) => {
           </div>
 
           {/* Books for this year */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             {grouped[year].map((book) => (
               <div key={book.id} className="group">
-                <div className="flex items-center gap-4">
-                  {/* Book cover */}
+                <div className="grid grid-cols-[auto_1fr] gap-4 items-center">
+                  {/* Book cover - maintains original aspect ratio */}
                   {book.coverImage && (
-                    <div className="flex-shrink-0">
-                      <img
+                    <div className="w-20 flex-shrink-0">
+                      <img 
                         src={book.coverImage} 
                         alt={`${book.title} cover`}
-                        className="w-16 h-24 object-cover rounded shadow-md"
+                        className="w-full h-auto object-cover rounded shadow-md"
+                        loading="lazy"
                       />
                     </div>
                   )}
                   
-                  {/* Book info */}
-                  <div className="flex-1 min-w-0">
+                  {/* Book info - aligned to top */}
+                  <div className="min-w-0">
                     <h2 className="text-text-dark mb-1">
                       {book.title}
                     </h2>
