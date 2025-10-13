@@ -4,6 +4,7 @@ import Writing from './pages/Writing';
 import Article from './pages/Article';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Reading from './pages/Reading';
 
 function App() {
   return (
@@ -26,6 +27,12 @@ function App() {
             <main className="homepage-background min-h-screen">
               <Navbar />
               <Article />
+            </main>
+          } />
+          <Route path="/reading" element={
+            <main className="homepage-background">
+              <Navbar />
+              <Reading />
             </main>
           } />
         </Routes>

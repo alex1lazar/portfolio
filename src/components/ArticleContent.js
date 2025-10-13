@@ -10,7 +10,7 @@ const ArticleContent = ({ content }) => {
           h2: ({children}) => <h2 className="text-3xl font-serif text-text-dark mb-4 mt-10">{children}</h2>,
           h3: ({children}) => <h3 className="text-2xl font-serif text-text-dark mb-3 mt-8">{children}</h3>,
           p: ({children}) => <p className="text-text-secondary mb-4 leading-relaxed text-base">{children}</p>,
-          a: ({href, children}) => <a href={href} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">{children}</a>,
+          a: ({href, children}) => <a href={href} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent-hover underline">{children}</a>,
           hr: () => <hr className="my-8 border-gray-300" />,
           blockquote: ({children}) => <blockquote className="border-l-4 border-gray-300 pl-4 italic text-text-secondary my-4">{children}</blockquote>,
         }}

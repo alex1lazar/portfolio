@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@mdx-js/rollup": "^3.1.1",
+    "@notionhq/client": "^2.2.15",
     "@portabletext/react": "^3.2.1",
     "@sanity/client": "^6.28.4",
     "@supabase/supabase-js": "^2.49.1",
@@ -12,6 +13,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "buffer": "^6.0.3",
+    "dotenv": "^17.2.3",
     "gray-matter": "^4.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -28,7 +30,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "netlify deploy --prod",
-    "deploy:github": "gh-pages -d build"
+    "deploy:github": "gh-pages -d build",
+    "fetch-books": "node scripts/fetch-books.js"
   },
   "eslintConfig": {
     "extends": [
