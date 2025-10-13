@@ -1,29 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function Navbar() {
   const [showWorkTooltip, setShowWorkTooltip] = useState(false);
+  const [tooltipTimeout, setTooltipTimeout] = useState(null);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (tooltipTimeout) {
+        clearTimeout(tooltipTimeout);
+      }
+    };
+  }, [tooltipTimeout]);
 
   return (
-    <nav className="w-full py-6">
-      <div className="max-w-[1440px] mx-auto px-8 flex flex-row justify-between items-center">
+    <nav className="w-full py-4 sm:py-6">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 flex justify-between items-start sm:items-center">
         {/* Left side - Name */}
-        <div className="flex items-center">
-          <Link to="/" className="navbar-name font-serif hover:text-text-accent transition-colors">
-            Alex Lazar
-          </Link>
-        </div>
-
-      
+        <Link to="/" className="navbar-name font-serif hover:text-text-accent transition-colors">
+          Alex Lazar
+        </Link>
 
         {/* Right side - Navigation Links */}
-        <div className="hidden sm:flex items-center space-x-4">
+        <div className="flex flex-col sm:flex-row items-end sm:items-center gap-1 sm:gap-4">
           {/* Work link with tooltip */}
           <div className="relative inline-block">
             <span 
-              className="navbar-link font-serif text-muted cursor-not-allowed"
+              className="navbar-link font-serif text-text-muted cursor-not-allowed sm:cursor-pointer"
               onMouseEnter={() => setShowWorkTooltip(true)}
               onMouseLeave={() => setShowWorkTooltip(false)}
+              onClick={() => {
+                setShowWorkTooltip(true);
+                // Clear existing timeout
+                if (tooltipTimeout) {
+                  clearTimeout(tooltipTimeout);
+                }
+                // Set new timeout to hide tooltip after 1.5s
+                const timeout = setTimeout(() => {
+                  setShowWorkTooltip(false);
+                }, 1200);
+                setTooltipTimeout(timeout);
+              }}
             >
               Work
             </span>
@@ -35,17 +53,17 @@ function Navbar() {
             )}
           </div>
 
-          <span className="navbar-name font-serif">/</span>
+          <span className="navbar-name font-serif hidden sm:inline">/</span>
           
           {/* Writing link */}
-          <Link to="/writing" className="navbar-link font-serif hover:text-text-primary transition-colors">
+          <Link to="/writing" className="navbar-link text-text-dark font-serif hover:text-text-primary transition-colors">
             Writing
           </Link>
 
-          <span className="navbar-name font-serif">/</span>
+          <span className="navbar-name font-serif hidden sm:inline">/</span>
           
           {/* Reading link */}
-          <Link to="/reading" className="navbar-link font-serif hover:text-text-primary transition-colors">
+          <Link to="/reading" className="navbar-link text-text-dark font-serif hover:text-text-primary transition-colors">
             Reading
           </Link>
         </div>
