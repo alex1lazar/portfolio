@@ -5,7 +5,7 @@ const BlogPostCard = ({ title, description, link }) => (
   <Link to={link} className="block group">
     <div className="flex">
       <div className="mb-4 min-w-0">
-        <h2 className="font-serif text-xl text-text-dark mb-2 group-hover:text-text-accent group-hover:underline transition-colors">
+        <h2 className="text-text-dark mb-2 group-hover:text-text-accent group-hover:underline transition-colors">
           {title}
         </h2>
         <p className="text-text-muted pr-10 line-clamp-2">

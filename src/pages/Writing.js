@@ -40,7 +40,7 @@ const Writing = () => {
   }
 
   return (
-    <div className="pt-32">
+    <div className="pt-32 pb-16">
       <WideContainer>
         <NarrowContainer>
           <div className="border-b text-muted mb-6">

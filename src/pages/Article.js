@@ -65,14 +65,14 @@ const Article = () => {
   }
 
   return (
-    <div className="pt-32">
+    <div className="pt-32 pb-16">
       <WideContainer>
         <NarrowContainer>
-          <div className="border-b border-gray-200 mb-8">
+          <div className="border-b border-gray-200 my-8">
             <h1 className="text-4xl font-serif text-text-dark mb-4">{article.frontmatter.title}</h1>
             <p className="text-text-secondary mb-4">{article.frontmatter.description}</p>
-            <div className="flex items-center gap-4 text-sm text-text-secondary">
-              <span>{article.frontmatter.date}</span>
+            <div className="flex items-center gap-4 text-base text-text-secondary">
+              {/* <span>{article.frontmatter.date}</span>
               {article.frontmatter.tags && (
                 <div className="flex gap-2">
                   {article.frontmatter.tags.map((tag, index) => (
@@ -81,7 +81,7 @@ const Article = () => {
                     </span>
                   ))}
                 </div>
-              )}
+              )} */}
             </div>
           </div>
           
