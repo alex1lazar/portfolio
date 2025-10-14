@@ -2,6 +2,7 @@ import Navbar from './components/common/Navbar';
 import Homepage from './components/Homepage'; 
 import Writing from './pages/Writing';
 import Article from './pages/Article';
+import CarturestiCaseStudy from './pages/CarturestiCaseStudy';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Reading from './pages/Reading';
@@ -33,6 +34,12 @@ function App() {
             <main className="homepage-background">
               <Navbar />
               <Reading />
+            </main>
+          } />
+          <Route path="/carturesti" element={
+            <main className="homepage-background min-h-screen">
+              <Navbar />
+              <CarturestiCaseStudy />
             </main>
           } />
         </Routes>

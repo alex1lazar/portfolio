@@ -9,8 +9,17 @@ const CarturestiCaseStudy = () => {
     navigate('/writing');
   };
 
-  // Case study content structured as sections
-  const content = [
+  // Case study content structured as flexible sections
+  const sections = [
+    {
+      type: 'overview',
+      title: 'What you\'ll learn',
+      items: [
+        'How to identify UX problems in existing e-commerce platforms',
+        'Mobile app design principles for retail businesses',
+        'The business case for mobile app investments in retail'
+      ]
+    },
     {
       type: 'paragraph',
       content: 'This is my go-to retail store when I just want to casually browse. As with most large bookstores, it\'s a place where you can buy unique gifts, lifestyle items, apparel, or music. Their in-person experience is carefully considered, but their online experience is lacking.'
@@ -113,24 +122,203 @@ const CarturestiCaseStudy = () => {
     {
       type: 'paragraph',
       content: 'But before designing, I wanted to understand what are biggest problems on their web platform.'
+    },
+    {
+      type: 'carousel',
+      title: 'What\'s going wrong with their online store?',
+      images: [
+        {
+          src: 'https://via.placeholder.com/1200x800/f0f0f0/666?text=Carturesti+Website+Issue+1',
+          alt: 'Carturesti website navigation issues',
+          caption: 'Extended menu is hard to digest with too many categories'
+        },
+        {
+          src: 'https://via.placeholder.com/1200x800/f0f0f0/666?text=Carturesti+Website+Issue+2',
+          alt: 'Carturesti website search problems',
+          caption: 'Search functionality lacks proper filtering and sorting'
+        },
+        {
+          src: 'https://via.placeholder.com/1200x800/f0f0f0/666?text=Carturesti+Website+Issue+3',
+          alt: 'Carturesti website mobile experience',
+          caption: 'Mobile experience is not optimized for smaller screens'
+        }
+      ],
+      aspectRatio: '16/9'
+    },
+    {
+      type: 'heading',
+      content: 'Mobile design context'
+    },
+    {
+      type: 'subheading',
+      content: 'Simple, efficient design'
+    },
+    {
+      type: 'paragraph',
+      content: 'The design was not meant to stand out. My mission was improve their user experience, create a versatile UI system, and provide ideas on how this retailer could sell more through a mobile app.'
+    },
+    {
+      type: 'paragraph',
+      content: 'I wanted to showcase how easy it is, even for one person, to create a nicer online experience while also considering the business needs of an e-commerce platform.'
+    },
+    {
+      type: 'subheading',
+      content: 'Principles for designing the app'
+    },
+    {
+      type: 'subheading',
+      content: 'For thoughtful readers and buyers'
+    },
+    {
+      type: 'paragraph',
+      content: 'Carturesti\'s main user is the reader. These people are thoughtful and have the patience to look for the right thing. They need information and context first.'
+    },
+    {
+      type: 'paragraph',
+      content: 'If you\'d take some time and observe the people in their physical store, they\'d match my description. Unless Carturesti\'s visitors know exactly what they want, they take the time to casually look through the store.'
+    },
+    {
+      type: 'paragraph',
+      content: 'I\'ve observed that the younger generation (15-24 years old) is very present in their stores. This fact is visible in their online traffic as well. From what I see, they are particularly interested in manga, classics, vinyl records, Funko Pop figurines, or other lifestyle items that have character.'
+    },
+    {
+      type: 'paragraph',
+      content: 'It only makes sense for Carturesti to scale up its online efforts and turn this demographic into loyal customers.'
+    },
+    {
+      type: 'carousel',
+      title: 'Screen-by-screen UX breakdown',
+      images: [
+        {
+          src: 'https://via.placeholder.com/400x800/f0f0f0/666?text=Mobile+Screen+1',
+          alt: 'Mobile app home screen',
+          caption: 'Clean home screen with curated content sections'
+        },
+        {
+          src: 'https://via.placeholder.com/400x800/f0f0f0/666?text=Mobile+Screen+2',
+          alt: 'Mobile app category page',
+          caption: 'Simplified category navigation with progressive disclosure'
+        },
+        {
+          src: 'https://via.placeholder.com/400x800/f0f0f0/666?text=Mobile+Screen+3',
+          alt: 'Mobile app product page',
+          caption: 'Product page with clear information hierarchy'
+        },
+        {
+          src: 'https://via.placeholder.com/400x800/f0f0f0/666?text=Mobile+Screen+4',
+          alt: 'Mobile app cart page',
+          caption: 'Shopping cart with loyalty card integration'
+        },
+        {
+          src: 'https://via.placeholder.com/400x800/f0f0f0/666?text=Mobile+Screen+5',
+          alt: 'Mobile app profile page',
+          caption: 'User profile with virtual loyalty card'
+        }
+      ],
+      aspectRatio: '9/16'
+    },
+    {
+      type: 'heading',
+      content: 'UX Takeaways'
+    },
+    {
+      type: 'subheading',
+      content: 'Intermediary Product Category Pages'
+    },
+    {
+      type: 'paragraph',
+      content: 'One thing that feels too convoluted on Carturesti\'s website is the navigation bar. It opens up a larger number of subcategories that just feels like too much.'
+    },
+    {
+      type: 'paragraph',
+      content: 'I wanted to simplify that in the mobile application and make use of intermediary product category pages. These are screens where you can browse through the main categories like books, music, home & decor, have a larger perspective of what\'s in store, and then narrow it down to what you\'re looking for.'
+    },
+    {
+      type: 'paragraph',
+      content: 'This helps undecided users by informing their decisions. They learn what product types might be suitable (or available) by introducing subcategories.'
+    },
+    {
+      type: 'paragraph',
+      content: 'For the company, it\'s also a great opportunity to introduce or promote a specific subcategory encouraging users to choose a narrower path before displaying an overwhelming amount of items.'
+    },
+    {
+      type: 'link',
+      url: 'https://www.nngroup.com/articles/progressive-disclosure/',
+      text: 'Learn more about the psychology behind intermediary product category pages here.'
+    },
+    {
+      type: 'subheading',
+      content: 'Homepage & content curation'
+    },
+    {
+      type: 'paragraph',
+      content: 'Just as in a physical store, you\'re not always sure what you\'re looking for.'
+    },
+    {
+      type: 'paragraph',
+      content: 'If you know that you\'d like to read "Catcher in the Rye" you orient yourself inside the store and look for the Fiction aisle, authors starting in S (J.D. Salinger). That would be the longer path in a mobile application. The best and fastest would be to search for it using the search bar.'
+    },
+    {
+      type: 'paragraph',
+      content: 'But if you want to just browse, the physical store provides you with a large number of cues. I wanted to emulate this behavior in the application as well.'
+    },
+    {
+      type: 'paragraph',
+      content: 'Amazon and Netflix do this perfectly. They show you collections, top charts, popular subcategories, and popular items within a category. It allows people to naturally browse and discover more products they could like. Just as a librarian would point out to you Popular Fiction Books, Discounted Books, Popular Deals, etc. the application showcases these types of collections to allow further discovery.'
+    },
+    {
+      type: 'paragraph',
+      content: 'This behavior, if done right, increases the time spent in-app, the tendency to add more to the shopping cart or wishlist, and in the end, drives up sales.'
+    },
+    {
+      type: 'subheading',
+      content: 'Empty states'
+    },
+    {
+      type: 'paragraph',
+      content: 'Although they can yield substantial benefits for the business, empty states are often overlooked.'
+    },
+    {
+      type: 'paragraph',
+      content: 'From a UX standpoint, it\'s incredibly important to reduce confusion and provide moments of delight. Giving extra thought to empty states can reduce churn, increase product engagement, and reduces the chances of users turning to competitors.'
+    },
+    {
+      type: 'paragraph',
+      content: 'In this app, two common empty states could be present if the Shopping Basket or Favorites lists are empty. I wanted to provide users a way out and search for more products or the ability to quickly add something to these lists.'
+    },
+    {
+      type: 'paragraph',
+      content: 'For both the Shopping Basket and Favorites screens, you could do that by:'
+    },
+    {
+      type: 'list',
+      items: [
+        'Having a button that directs them to the most relevant page (Product in our case).',
+        'Suggesting Recently Viewed items.',
+        'Showcasing items in the Wishlist (to be added to the Shopping Basket).',
+        'If they haven\'t used the app at all and there is no information about them, the application could still suggest trending products.'
+      ]
+    },
+    {
+      type: 'heading',
+      content: 'Conclusions'
+    },
+    {
+      type: 'paragraph',
+      content: 'Carturesti has an incredible presence in Romania with its 43 physical stores and a substantial following online. However, their online experience falls short compared to the thoughtful and immersive in-store experience.'
+    },
+    {
+      type: 'paragraph',
+      content: 'It\'s evident that the people and the business as a whole genuinely care about the products they\'re selling. But still, certain aspects of their online presence can impact their brand experience and business metrics.'
+    },
+    {
+      type: 'paragraph',
+      content: 'My intent with this redesign was to make it easier for people, whether or not they have Carturesti stores nearby, to discover and purchase products they will love.'
+    },
+    {
+      type: 'paragraph',
+      content: 'And if from a business perspective the investment makes sense, a handful of designers could skyrocket carturesti.ro and their online customer satisfaction.'
     }
-  ];
-
-  // Placeholder images - you'll need to replace these with actual images
-  const slideshowImages = [
-    // These would be screenshots of the current Carturesti website showing UX issues
-    'https://via.placeholder.com/1200x800/f0f0f0/666?text=Carturesti+Website+Issue+1',
-    'https://via.placeholder.com/1200x800/f0f0f0/666?text=Carturesti+Website+Issue+2',
-    'https://via.placeholder.com/1200x800/f0f0f0/666?text=Carturesti+Website+Issue+3'
-  ];
-
-  const mobileImages = [
-    // These would be the mobile app design screens
-    'https://via.placeholder.com/400x800/f0f0f0/666?text=Mobile+Screen+1',
-    'https://via.placeholder.com/400x800/f0f0f0/666?text=Mobile+Screen+2',
-    'https://via.placeholder.com/400x800/f0f0f0/666?text=Mobile+Screen+3',
-    'https://via.placeholder.com/400x800/f0f0f0/666?text=Mobile+Screen+4',
-    'https://via.placeholder.com/400x800/f0f0f0/666?text=Mobile+Screen+5'
   ];
 
   return (
@@ -139,10 +327,8 @@ const CarturestiCaseStudy = () => {
       subtitle="This is my go-to retail store when I just want to casually browse. As with most large bookstores, it's a place where you can buy unique gifts, lifestyle items, apparel, or music. Their in-person experience is carefully considered, but their online experience is lacking."
       role="Mobile Designer"
       period="Jan - March 2023"
-      content={content}
+      sections={sections}
       heroImage="https://via.placeholder.com/1200x600/f0f0f0/666?text=Carturesti+Hero+Image"
-      slideshowImages={slideshowImages}
-      mobileImages={mobileImages}
       onBack={handleBack}
     />
   );
