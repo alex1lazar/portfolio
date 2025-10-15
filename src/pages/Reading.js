@@ -5,16 +5,13 @@ import BooksByYear from '../components/BooksByYear';
 import { getAllBooks } from '../lib/books';
 
 const Reading = () => {
-  console.log('Reading component loaded - Books version');
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        console.log('Fetching books...');
         const booksData = getAllBooks();
-        console.log('Books fetched:', booksData);
         setBooks(booksData);
       } catch (error) {
         console.error('Error loading books:', error);
