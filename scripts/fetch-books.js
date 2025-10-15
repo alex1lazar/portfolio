@@ -1,6 +1,7 @@
 const { Client } = require('@notionhq/client');
 const fs = require('fs');
 const path = require('path');
+const axios = require('axios');
 require('dotenv').config();
 
 console.log('🔍 Checking configuration...');
@@ -13,6 +14,58 @@ const notion = new Client({
 });
 
 const databaseId = process.env.NOTION_BOOKS_DATABASE_ID;
+
+// Function to download and save book cover images
+async function downloadImage(url, bookId) {
+  if (!url) return null;
+  
+  try {
+    console.log(`  📥 Downloading cover for book ${bookId}...`);
+    
+    // Create book-covers directory if it doesn't exist
+    const coversDir = path.join(__dirname, '..', 'public', 'book-covers');
+    if (!fs.existsSync(coversDir)) {
+      fs.mkdirSync(coversDir, { recursive: true });
+    }
+    
+    // Download the image
+    const response = await axios.get(url, {
+      responseType: 'stream',
+      timeout: 30000, // 30 second timeout
+    });
+    
+    // Determine file extension from content type or URL
+    let extension = '.jpg'; // default
+    const contentType = response.headers['content-type'];
+    if (contentType) {
+      if (contentType.includes('png')) extension = '.png';
+      else if (contentType.includes('webp')) extension = '.webp';
+      else if (contentType.includes('gif')) extension = '.gif';
+    }
+    
+    // Save the image
+    const filename = `${bookId}${extension}`;
+    const filepath = path.join(coversDir, filename);
+    const writer = fs.createWriteStream(filepath);
+    
+    response.data.pipe(writer);
+    
+    return new Promise((resolve, reject) => {
+      writer.on('finish', () => {
+        console.log(`  ✅ Saved cover: ${filename}`);
+        resolve(`/book-covers/${filename}`);
+      });
+      writer.on('error', (error) => {
+        console.log(`  ❌ Failed to save cover for ${bookId}:`, error.message);
+        reject(error);
+      });
+    });
+    
+  } catch (error) {
+    console.log(`  ❌ Failed to download cover for ${bookId}:`, error.message);
+    return null;
+  }
+}
 
 async function fetchBooks() {
   try {
@@ -31,7 +84,7 @@ async function fetchBooks() {
 
     console.log(`Found ${response.results.length} books`);
 
-    const books = response.results.map((page) => {
+    const books = await Promise.all(response.results.map(async (page) => {
       const properties = page.properties;
       
       // Extract title
@@ -47,7 +100,7 @@ async function fetchBooks() {
       const year = properties['Finished in']?.number || null;
       
       // Extract cover image - try different possible field names
-      let coverImage = null;
+      let coverImageUrl = null;
       
       // Debug: Check what's in the "Files & media" field (only for books with covers)
       if (properties['Files & media']?.files?.length > 0) {
@@ -56,32 +109,38 @@ async function fetchBooks() {
       
       // Method 1: Check for a "Cover" or "Image" field (file upload)
       if (properties.Cover?.files?.[0]?.file?.url) {
-        coverImage = properties.Cover.files[0].file.url;
-        console.log(`  ✅ Found cover in "Cover" field: ${coverImage}`);
+        coverImageUrl = properties.Cover.files[0].file.url;
+        console.log(`  ✅ Found cover in "Cover" field: ${coverImageUrl}`);
       } else if (properties.Image?.files?.[0]?.file?.url) {
-        coverImage = properties.Image.files[0].file.url;
-        console.log(`  ✅ Found cover in "Image" field: ${coverImage}`);
+        coverImageUrl = properties.Image.files[0].file.url;
+        console.log(`  ✅ Found cover in "Image" field: ${coverImageUrl}`);
       } else if (properties['Book Cover']?.files?.[0]?.file?.url) {
-        coverImage = properties['Book Cover'].files[0].file.url;
-        console.log(`  ✅ Found cover in "Book Cover" field: ${coverImage}`);
+        coverImageUrl = properties['Book Cover'].files[0].file.url;
+        console.log(`  ✅ Found cover in "Book Cover" field: ${coverImageUrl}`);
       } else if (properties['Files & media']?.files?.[0]?.file?.url) {
-        coverImage = properties['Files & media'].files[0].file.url;
-        console.log(`  ✅ Found cover in "Files & media" field: ${coverImage}`);
+        coverImageUrl = properties['Files & media'].files[0].file.url;
+        console.log(`  ✅ Found cover in "Files & media" field: ${coverImageUrl}`);
       }
       
       // Method 2: Check for external URL field
-      if (!coverImage && properties['Cover URL']?.url) {
-        coverImage = properties['Cover URL'].url;
-        console.log(`  ✅ Found cover in "Cover URL" field: ${coverImage}`);
+      if (!coverImageUrl && properties['Cover URL']?.url) {
+        coverImageUrl = properties['Cover URL'].url;
+        console.log(`  ✅ Found cover in "Cover URL" field: ${coverImageUrl}`);
       }
       
       // Method 3: Check for rich text with URL
-      if (!coverImage && properties['Cover']?.rich_text?.[0]?.plain_text) {
+      if (!coverImageUrl && properties['Cover']?.rich_text?.[0]?.plain_text) {
         const url = properties['Cover'].rich_text[0].plain_text;
         if (url.startsWith('http')) {
-          coverImage = url;
-          console.log(`  ✅ Found cover in "Cover" rich text: ${coverImage}`);
+          coverImageUrl = url;
+          console.log(`  ✅ Found cover in "Cover" rich text: ${coverImageUrl}`);
         }
+      }
+      
+      // Download the cover image if found
+      let coverImage = null;
+      if (coverImageUrl) {
+        coverImage = await downloadImage(coverImageUrl, page.id);
       }
       
       if (!coverImage) {
@@ -98,7 +157,7 @@ async function fetchBooks() {
         year,
         coverImage,
       };
-    });
+    }));
 
     // Create data directory if it doesn't exist
     const dataDir = path.join(__dirname, '..', 'src', 'data');

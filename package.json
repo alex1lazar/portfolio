@@ -12,6 +12,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.12.2",
     "buffer": "^6.0.3",
     "dotenv": "^17.2.3",
     "gray-matter": "^4.0.3",
