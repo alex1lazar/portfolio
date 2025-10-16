@@ -16,7 +16,7 @@ function Navbar() {
 
   return (
     <nav className="w-full py-4 sm:py-6">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 flex justify-between items-start sm:items-center">
+      <div className="max-w-[1440px] mx-auto px-4 flex justify-between items-start sm:items-center">
         {/* Left side - Name */}
         <Link to="/" className="navbar-name font-serif hover:text-text-accent transition-colors">
           Alex Lazar
