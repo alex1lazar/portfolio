@@ -79,7 +79,7 @@ export const typography = {
   heading: {
     h1: 'text-4xl font-serif font-bold mb-8 text-text-dark',
     h2: 'text-3xl font-serif mb-6 text-text-dark',
-    h3: 'text-2xl font-serif mb-4 text-text-dark',
+    h3: 'text-xl font-serif mb-4 text-text-dark',
     h4: 'text-xl font-serif mb-3 text-text-dark',
   },
   body: {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import XLContainer from './containers/XLContainer';
 import Slider from './Slider';
 import { CSSTransition } from 'react-transition-group';
@@ -6,6 +6,7 @@ import '../styles/animations.css';
 
 function Homepage() {
   const [showTooltip, setShowTooltip] = useState(false);
+  const [currentTime, setCurrentTime] = useState('');
 
   const copyEmail = () => {
     const email = 'lazarva25@gmail.com';
@@ -15,6 +16,24 @@ function Homepage() {
       setShowTooltip(false);
     }, 2400);
   };
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const romaniaTime = new Date(now.toLocaleString("en-US", {timeZone: "Europe/Bucharest"}));
+      const timeString = romaniaTime.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      });
+      setCurrentTime(timeString);
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="homepage-background pt-16 flex flex-col">
@@ -81,34 +100,35 @@ function Homepage() {
 
         {/* Footer */}
         <div className="flex justify-between items-center pt-8 pb-2 mt-auto">
-        <div className="text-normal">
-          <span className="text-base">Timisoara, Romania</span>
+        <div className="text-normal flex items-center">
+          <span className="text-base mr-2">Timisoara, Romania</span>
+          {currentTime && <span className="text-muted text-base">({currentTime})</span>}
         </div>
         
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2">
           <a 
             href="https://x.com/alexvlazar" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-normal underline hover:text-accent transition-colors text-base"
+            className="text-text-muted underline hover:text-text-accent transition-colors text-base"
           >
             X
           </a>
-          <span className="text-normal">/</span>
+          <span className="text-text-muted">/</span>
           <a 
             href="https://www.linkedin.com/in/alexvlazar" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-normal underline hover:text-accent transition-colors text-base"
+            className="text-text-muted underline hover:text-text-accent transition-colors text-base"
           >
             LinkedIn
           </a>
-          <span className="text-normal">/</span>
+          <span className="text-text-muted">/</span>
           <a 
             href="https://www.are.na/alex-lazar/channels" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-normal underline hover:text-muted transition-colors text-base"
+            className="text-text-muted underline hover:text-text-accent transition-colors text-base"
           >
             Are.na
           </a>
