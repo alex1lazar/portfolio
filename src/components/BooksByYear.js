@@ -37,7 +37,7 @@ const BooksByYear = ({ books }) => {
       {sortedYears.map((year) => (
         <div key={year} className="relative">
           {/* Year Label - styled according to Figma design */}
-          <div className="py-4 mb-2">
+          <div className="py-2 mb-2">
             <div className="flex items-center gap-2">
                 <div className="h-2 w-2 bg-accent rounded-sm"></div>
               <p className="text-lg text-text-normal font-serif font-bold mb-0">
@@ -47,10 +47,10 @@ const BooksByYear = ({ books }) => {
           </div>
 
           {/* Books for this year */}
-          <div className="space-y-8">
+          <div className="flex flex-col gap-6">
             {grouped[year].map((book) => (
               <div key={book.id} className="group">
-                <div className="grid grid-cols-[auto_1fr] gap-4 items-center">
+                <div className="grid grid-cols-[auto_1fr] gap-3 items-center">
                   {/* Book cover - maintains original aspect ratio */}
                   {book.coverImage && (
                     <div className="w-20 flex-shrink-0">
@@ -65,10 +65,10 @@ const BooksByYear = ({ books }) => {
                   
                   {/* Book info - aligned to top */}
                   <div className="min-w-0">
-                    <h2 className="text-text-dark mb-1">
+                    <p className="text-text-dark mb-1 font-serif text-lg font-semibold">
                       {book.title}
-                    </h2>
-                    <p className="text-text-normal mb-2">
+                    </p>
+                    <p className="text-text-muted mb-2">
                       by {book.author}
                     </p>
                   </div>

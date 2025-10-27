@@ -11,20 +11,22 @@ import heroImg10 from '../assets/hero/Slider 10.png';
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-const Slider = () => {
-  // List of image URLs (replace these with your actual PNG file paths or URLs)
-  const slides = [
-    heroImg1,
-    heroImg2,
-    heroImg3,
-    heroImg4,
-    heroImg5,
-    heroImg6,
-    heroImg7,
-    heroImg8,
-    heroImg9,
-    heroImg10
-  ];
+const defaultSlides = [
+  heroImg1,
+  heroImg2,
+  heroImg3,
+  heroImg4,
+  heroImg5,
+  heroImg6,
+  heroImg7,
+  heroImg8,
+  heroImg9,
+  heroImg10
+];
+
+const Slider = ({ images = defaultSlides }) => {
+  // List of image URLs - use custom images if provided, otherwise use default
+  const slides = images;
 
   // State to track the current slide index
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -40,7 +42,7 @@ const Slider = () => {
   }, [slides.length]);
 
   return (
-    <div className="relative w-full max-w-4xl">
+    <div className="relative w-full">
       {/* Container with 915:518 aspect ratio (approximately 16:9) */}
       <div className="relative w-full" style={{ aspectRatio: '915/518' }}>
         <div className="absolute inset-0 overflow-hidden rounded">
@@ -68,6 +70,22 @@ const Slider = () => {
             </CSSTransition>
           </TransitionGroup>
         </div>
+      </div>
+
+      {/* Slider Indicators */}
+      <div className="flex justify-center gap-2 mt-2">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`h-1 transition-all duration-600 ${
+              index === currentSlide 
+                ? 'w-12 bg-text-dark' 
+                : 'w-12 bg-text-muted opacity-40'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
     </div>
   );
