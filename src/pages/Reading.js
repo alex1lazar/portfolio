@@ -1,5 +1,4 @@
   import React, { useState, useEffect } from 'react';
-  import NarrowContainer from '../components/containers/NarrowContainer';
   import WideContainer from '../components/containers/WideContainer';
   import BooksByYear from '../components/BooksByYear';
   import { getAllBooks } from '../lib/books';

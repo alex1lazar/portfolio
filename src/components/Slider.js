@@ -52,10 +52,10 @@ const Slider = ({ images = defaultSlides }) => {
               timeout={800}
               classNames={{
                 enter: 'opacity-0',
-                enterActive: 'opacity-100 transition-opacity duration-700 ease-out',
+                enterActive: 'opacity-100 transition-opacity duration-600 ease-out',
                 enterDone: 'opacity-100',
                 exit: 'opacity-100',
-                exitActive: 'opacity-0 transition-opacity duration-800 ease-in',
+                exitActive: 'opacity-0 transition-opacity duration-200 ease-in',
                 exitDone: 'opacity-0'
               }}
             >
@@ -78,7 +78,7 @@ const Slider = ({ images = defaultSlides }) => {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`h-1 transition-all duration-600 ${
+            className={`h-1 transition-all duration-[800ms] ease-out ${
               index === currentSlide 
                 ? 'w-12 bg-text-dark' 
                 : 'w-12 bg-text-muted opacity-40'

@@ -12,7 +12,15 @@ import advisableImg6 from '../assets/advisable/Slider 6.png';
 import advisableImg7 from '../assets/advisable/Slider 7.png';
 import advisableImg8 from '../assets/advisable/Slider 8.png';
 import advisableImg9 from '../assets/advisable/Slider 9.png';
+import carturestiImg1 from '../assets/carturesti/Slider 1.png';
+import carturestiImg2 from '../assets/carturesti/Slider 2.png';
+import carturestiImg3 from '../assets/carturesti/Slider 3.png';
+import carturestiImg4 from '../assets/carturesti/Slider 4.png';
+import carturestiImg5 from '../assets/carturesti/Slider 5.png';
 const advisableSlides = [advisableImg1, advisableImg2, advisableImg3, advisableImg4, advisableImg5, advisableImg6, advisableImg7, advisableImg8, advisableImg9];
+
+const carturestiSlides = [carturestiImg1, carturestiImg2, carturestiImg3, carturestiImg4, carturestiImg5];
+
 
 
 function Work() {
@@ -46,7 +54,7 @@ function Work() {
           description="A self-started project coming from my annoyance with their e-commerce experience"
         >
           {/* Pass carturestiSlides once you've created the array above */}
-          <Slider />
+          <Slider images={carturestiSlides} />
         </ProjectBlock>
       </WideContainer>
     </div>

@@ -14,7 +14,7 @@ A job I'd love would allow me to think independently about the solutions. But co
 
 A job I’d love would have the team understand that the creative process takes time. Deadlines are serious and should be met, but design doesn’t come out of a void. Great things take time and demand exploration.
 
-A job I’d love would have a kind team with unique personalities**.**
+A job I’d love would have a kind team with unique personalities.
 
 A job I’d love would place the CEO on the same level as the rest of the team.
 
@@ -24,7 +24,7 @@ A job I’d love would ideally have a more experienced designer who can guide me
 
 A job I’d love would understand the value of design and would set it up for more success.
 
-A job I’d love would put its users **first** and actively research how they are using the product.
+A job I’d love would put its users first and actively research how they are using the product.
 
 A job I’d love would probably have fewer than 100 employees.
 
