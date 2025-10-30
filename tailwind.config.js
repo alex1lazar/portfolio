@@ -9,25 +9,26 @@ module.exports = {
     extend: {
       colors: {
         ...colors,
-        // Add the new color palette as Tailwind classes
-        'text-muted': '#6D5950',
-        'text-dark': '#4E220F',
-        'text-normal': '#3D2F28',
-        'text-accent': '#D64A0E',
-        'color-accent': '#D64A0E',
-        'bg-accent': '#D64A0E',
       },
       fontFamily: {
         serif: ['Lastik', 'serif'],
         sans: ['Geist', 'sans-serif'],
       },
+      fontWeight: {
+        regular: '400',
+        semibold: '600',
+      },
       fontSize: {
-        'base': ['1rem', {
-          lineHeight: '1.5',
+        'xs': ['0.9375rem', {
+          lineHeight: '1.25',
+          letterSpacing: '-0.01em',
+        }],
+        'base': ['1.0625rem', {
+          lineHeight: '1.56',
           letterSpacing: '-0.01em',
         }],
         'lg': ['1.25rem', {
-          lineHeight: '1.4',
+          lineHeight: '1.75',
           letterSpacing: '-0.01em',
         }],
         'xl': ['1.5rem', {
@@ -50,7 +51,7 @@ module.exports = {
           lineHeight: theme('fontSize.2xl[1].lineHeight'),
           letterSpacing: theme('fontSize.2xl[1].letterSpacing'),
           fontFamily: theme('fontFamily.serif'),
-          fontWeight: theme('fontWeight.bold'),
+          fontWeight: theme('fontWeight.semibold'),
           marginBottom: theme('spacing.8'),
         },
         'h2': {
@@ -58,7 +59,7 @@ module.exports = {
           lineHeight: theme('fontSize.xl[1].lineHeight'),
           letterSpacing: theme('fontSize.xl[1].letterSpacing'),
           fontFamily: theme('fontFamily.serif'),
-          fontWeight: theme('fontWeight.bold'),
+          fontWeight: theme('fontWeight.semibold'),
           marginBottom: theme('spacing.6'),
         },
         'h3': {
@@ -66,14 +67,16 @@ module.exports = {
           lineHeight: theme('fontSize.xl[1].lineHeight'),
           letterSpacing: theme('fontSize.xl[1].letterSpacing'),
           fontFamily: theme('fontFamily.serif'),
-          fontWeight: theme('fontWeight.bold'),
+          fontWeight: theme('fontWeight.regular'),
           marginBottom: theme('spacing.4'),
         },
         'p': {
           fontSize: theme('fontSize.base[0]'),
           lineHeight: theme('fontSize.base[1].lineHeight'),
           letterSpacing: theme('fontSize.base[1].letterSpacing'),
-          marginBottom: theme('spacing.4'),
+          fontFamily: theme('fontFamily.sans'),
+          fontWeight: theme('fontWeight.regular'),
+          marginBottom: theme('spacing.3'),
         }
       });
 
@@ -88,5 +91,4 @@ module.exports = {
       });
     }
   ],
-}
-
+};

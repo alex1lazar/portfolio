@@ -17,15 +17,15 @@ import carturestiImg2 from '../assets/carturesti/Slider 2.png';
 import carturestiImg3 from '../assets/carturesti/Slider 3.png';
 import carturestiImg4 from '../assets/carturesti/Slider 4.png';
 import carturestiImg5 from '../assets/carturesti/Slider 5.png';
-const advisableSlides = [advisableImg1, advisableImg2, advisableImg3, advisableImg4, advisableImg5, advisableImg6, advisableImg7, advisableImg8, advisableImg9];
 
+const advisableSlides = [advisableImg1, advisableImg2, advisableImg3, advisableImg4, advisableImg5, advisableImg6, advisableImg7, advisableImg8, advisableImg9];
 const carturestiSlides = [carturestiImg1, carturestiImg2, carturestiImg3, carturestiImg4, carturestiImg5];
 
 
 
 function Work() {
   return (
-    <div className="homepage-background pt-40 pb-20">
+    <div className="bg-background-primary pt-40 pb-20">
       <WideContainer>
         {/* Kota Project */}
         <ProjectBlock

@@ -36,7 +36,7 @@ function Homepage() {
   }, []);
 
   return (
-    <div className="homepage-background pt-16 flex flex-col">
+    <div className="bg-background-primary pt-16 flex flex-col">
       <XLContainer className="flex flex-col">
         <div className="flex flex-col">
           {/* 4-column description row */}

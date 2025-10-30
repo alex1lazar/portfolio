@@ -14,37 +14,37 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={
-            <main className="homepage-background">
+            <main className="bg-background-primary">
               <Navbar />
               <Homepage />
             </main>
           } />
           <Route path="/writing" element={
-            <main className="homepage-background min-h-screen">
+            <main className="bg-background-primary min-h-screen">
               <Navbar />
               <Writing />
             </main>
           } />
           <Route path="/writing/:slug" element={
-            <main className="homepage-background min-h-screen">
+            <main className="bg-background-primary min-h-screen">
               <Navbar />
               <Article />
             </main>
           } />
           <Route path="/reading" element={
-            <main className="homepage-background">
+            <main className="bg-background-primary">
               <Navbar />
               <Reading />
             </main>
           } />
           <Route path="/work" element={
-            <main className="homepage-background min-h-screen">
+            <main className="bg-background-primary min-h-screen">
               <Navbar />
               <Work />
             </main>
           } />
           <Route path="/carturesti" element={
-            <main className="homepage-background min-h-screen">
+            <main className="bg-background-primary min-h-screen">
               <Navbar />
               <CarturestiCaseStudy />
             </main>
