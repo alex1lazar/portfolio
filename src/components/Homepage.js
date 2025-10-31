@@ -6,9 +6,9 @@ import { getAllArticles } from '../lib/articles';
 import { getAllBooks } from '../lib/books';
 import '../styles/animations.css';
 
-import heroImg1 from '../assets/hero/Slider 1.png';
-import advisableImg9 from '../assets/advisable/Slider 9.png';
-import carturestiImg1 from '../assets/carturesti/Slider 1.png';
+// import heroImg1 from '../assets/hero/Slider 1.png';
+// import advisableImg9 from '../assets/advisable/Slider 9.png';
+// import carturestiImg1 from '../assets/carturesti/Slider 1.png';
 import WideContainer from './containers/WideContainer';
 
 function Homepage() {
