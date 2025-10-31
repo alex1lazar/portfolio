@@ -74,7 +74,7 @@ function Homepage() {
       <WideContainer className="flex flex-col">
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row items-start justify-between gap-6 mb-20">
-          <div className="flex gap-6 items-start">
+          <div className="flex gap-6 items-start flex-col md:flex-row ">
             <p className="font-serif font-normal text-lg text-text-dark w-32">
               Alex Lazar
             </p>
@@ -85,21 +85,21 @@ function Homepage() {
           <div className="flex gap-3 items-center">
             <Link 
               to="/work" 
-              className="font-serif text-lg text-text-dark hover:text-text-accent transition-colors underline"
+              className="font-serif text-lg text-text-dark hover:text-text-accent font-semibold transition-colors underline"
             >
               Work
             </Link>
             <span className="font-serif text-3xl text-text-dark opacity-30">/</span>
             <Link 
               to="/writing" 
-              className="font-serif text-lg text-text-dark hover:text-text-accent transition-colors underline"
+              className="font-serif text-lg text-text-dark hover:text-text-accent font-semibold transition-colors underline"
             >
               Writing
             </Link>
             <span className="font-serif text-3xl text-text-dark opacity-30">/</span>
             <Link 
               to="/reading" 
-              className="font-serif text-lg text-text-dark hover:text-text-accent transition-colors underline"
+              className="font-serif text-lg text-text-dark hover:text-text-accent font-semibold transition-colors underline"
             >
               Reading
             </Link>
@@ -114,18 +114,21 @@ function Homepage() {
         </div>
 
         {/* Work Section */}
-        <div className="flex gap-6 items-start mb-40 sm:flex-row flex-col">
+        <div className="flex gap-6 items-start mb-20 flex-col md:flex-row">
           <SectionHeader title="Work" />
           <div className="flex-1 flex flex-col gap-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
               {/* Kota Project */}
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 max-w-[400px] mb-3">
                 <div className="aspect-[1120/634.055] overflow-hidden rounded-xs relative">
-                  <img 
+                <div className="aspect-[1120/634.055] bg-[#f4f7f0] rounded-xs relative overflow-hidden flex items-center justify-center">
+                  <p className='text-sm text-text-muted'> WIP </p>
+                  {/* <img 
                     src={heroImg1} 
                     alt="Kota project" 
                     className="w-full h-full object-cover"
-                  />
+                  /> */}
+                  </div>
                 </div>
                 <div className="flex gap-2 items-center">
                   <p className="font-medium text-text-dark">
@@ -141,13 +144,16 @@ function Homepage() {
               </div>
 
               {/* Advisable Project */}
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 max-w-[400px] mb-3">
                 <div className="aspect-[1120/634.055] bg-[#edf2fc] rounded-xs overflow-hidden relative">
-                  <img 
+                <div className="aspect-[1120/634.055] bg-[#f4f7f0] rounded-xs relative overflow-hidden flex items-center justify-center">
+                <p className='text-sm text-text-muted'> WIP </p>
+                  {/* <img 
                     src={advisableImg9} 
                     alt="Advisable project" 
                     className="w-full h-full object-cover opacity-80"
-                  />
+                  /> */}
+                  </div>
                 </div>
                 <div className="flex gap-2 items-center">
                   <p className="font-medium text-text-dark">
@@ -163,13 +169,14 @@ function Homepage() {
               </div>
 
               {/* Carturesti Project */}
-              <div className="flex flex-col gap-2">
-                <div className="aspect-[1120/634.055] bg-[#f4f7f0] rounded-xs relative overflow-hidden">
-                  <img 
+              <div className="flex flex-col gap-2 max-w-[400px] mb-3">
+                <div className="aspect-[1120/634.055] bg-[#f4f7f0] rounded-xs relative overflow-hidden flex items-center justify-center">
+                  <p className='text-sm text-text-muted'> WIP </p>
+                  {/* <img 
                     src={carturestiImg1} 
                     alt="Carturesti project" 
                     className="w-full h-full object-cover"
-                  />
+                  /> */}
                 </div>
                 <div className="flex gap-2 items-center">
                   <p className="font-sans font-medium text-base text-text-dark">
@@ -194,9 +201,9 @@ function Homepage() {
         </div>
 
         {/* Writing Section */}
-        <div className="flex gap-6 items-start sm:flex-row flex-col mb-40">
+        <div className="flex gap-6 items-start md:flex-row flex-col mb-20">
           <SectionHeader title="Writing" />
-          <div className="flex flex-col gap-8 w-full lg:w-[480px]">
+          <div className="flex flex-col gap-8 w-full max-w-[480px]">
             {articles.map((article) => (
               <Link 
                 key={article.slug}
@@ -221,9 +228,9 @@ function Homepage() {
         </div>
 
         {/* Reading Section */}
-        <div className="flex gap-6 items-start mb-40">
+        <div className="flex gap-6 items-start mb-20 flex-col md:flex-row">
           <SectionHeader title="Reading" />
-          <div className="flex flex-col gap-8 w-[480px]">
+          <div className="flex flex-col gap-8 max-w-[480px]">
             <div className="flex flex-col gap-4">
               <div className="flex gap-6 items-start">
                 {books.slice(0, 4).map((book, index) => (
@@ -257,9 +264,9 @@ function Homepage() {
         </div>
 
         {/* About Section */}
-        <div className="flex gap-6 items-start mb-40">
+        <div className="flex gap-6 items-start mb-20 w-full flex-col md:flex-row">
           <SectionHeader title="About" />
-          <div className="flex flex-col gap-8 w-[480px]">
+          <div className="flex flex-col gap-8 w-full max-w-[480px]">
             <div className="font-sans font-normal text-base text-text-dark space-y-3">
               <p>
                 <span>Currently working at </span>
@@ -274,10 +281,10 @@ function Homepage() {
         </div>
 
         {/* Explore/Footer Section */}
-        <div className="flex gap-6 items-start">
+        <div className="flex gap-6 items-start flex-col md:flex-row">
           <SectionHeader title="Explore" />
           <div className="flex-1 flex flex-col gap-6">
-            <div className="flex items-start justify-between">
+            <div className="flex items-start md:flex-row gap-3 flexjustify-between">
               <div className="flex gap-3 items-center">
                 <Link 
                   to="/work" 
@@ -323,11 +330,12 @@ function Homepage() {
               </div>
             </div>
             <div className="flex gap-12 items-end">
-              <div className="flex gap-3 items-center">
+              <div className="flex gap-3 items-center flex-col-reverse md:flex-row">
                 <p className="font-sans font-normal text-base text-text-muted whitespace-nowrap">
                   Timisoara, Romania {currentTime && `(${currentTime})`}
                 </p>
-                <span className="font-sans text-base text-text-muted">/</span>
+                <div className="flex gap-3 items-center">
+                <span className="font-sans text-base text-text-muted hidden">/</span>
                 <a 
                   href="https://x.com/alexvlazar" 
                   target="_blank" 
@@ -352,8 +360,9 @@ function Homepage() {
                   rel="noopener noreferrer"
                   className="font-sans font-normal text-base text-text-muted underline hover:text-text-accent transition-colors"
                 >
-                  Are.na
-                </a>
+                    Are.na
+                  </a>
+                </div>
               </div>
             </div>
           </div>
