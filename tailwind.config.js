@@ -28,7 +28,7 @@ module.exports = {
           letterSpacing: '-0.01em',
         }],
         'lg': ['1.25rem', {
-          lineHeight: '1.75',
+          lineHeight: '1.4',
           letterSpacing: '-0.01em',
         }],
         'xl': ['1.5rem', {
@@ -76,7 +76,6 @@ module.exports = {
           letterSpacing: theme('fontSize.base[1].letterSpacing'),
           fontFamily: theme('fontFamily.sans'),
           fontWeight: theme('fontWeight.regular'),
-          marginBottom: theme('spacing.3'),
         }
       });
 

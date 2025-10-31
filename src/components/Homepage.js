@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import XLContainer from './containers/XLContainer';
+import { Link } from 'react-router-dom';
 import Slider from './Slider';
 import { CSSTransition } from 'react-transition-group';
+import { getAllArticles } from '../lib/articles';
+import { getAllBooks } from '../lib/books';
 import '../styles/animations.css';
+
+import heroImg1 from '../assets/hero/Slider 1.png';
+import advisableImg9 from '../assets/advisable/Slider 9.png';
+import carturestiImg1 from '../assets/carturesti/Slider 1.png';
+import WideContainer from './containers/WideContainer';
 
 function Homepage() {
   const [showTooltip, setShowTooltip] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
+  const [articles, setArticles] = useState([]);
+  const [books, setBooks] = useState([]);
 
   const copyEmail = () => {
     const email = 'lazarva25@gmail.com';
@@ -35,106 +44,321 @@ function Homepage() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const articlesData = await getAllArticles();
+        setArticles(articlesData.slice(0, 3)); // Get first 3 articles
+        
+        const booksData = getAllBooks();
+        setBooks(booksData.slice(0, 4)); // Get first 4 books
+      } catch (error) {
+        console.error('Error loading data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const SectionHeader = ({ title }) => (
+    <div className="flex gap-1.5 items-center shrink-0 w-[128px]">
+      <div className="rounded-[1px] shrink-0 w-2 h-2 bg-color-accent"></div>
+      <p className="font-serif text-lg text-text-dark whitespace-nowrap">
+        {title}
+      </p>
+    </div>
+  );
+
   return (
-    <div className="bg-background-primary pt-16 flex flex-col">
-      <XLContainer className="flex flex-col">
-        <div className="flex flex-col">
-          {/* 4-column description row */}
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-12 max-w-[32rem] lg:max-w-none lg:mx-0 order-2 lg:order-1">
-          <div className="text-normal font-medium">
-            <p className="text-base leading-normal">
-              Romanian software designer creating unique experiences for modern startups. Currently working at <a href="https://www.kota.io" className="text-accent underline">Kota</a> where we shape the future of how companies and their employees interact with benefits.
+    <div className="bg-background-primary pt-20 pb-16 flex flex-col min-h-screen">
+      <WideContainer className="flex flex-col">
+        {/* Header Section */}
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-6 mb-20">
+          <div className="flex gap-6 items-start">
+            <p className="font-serif font-normal text-lg text-text-dark w-32">
+              Alex Lazar
+            </p>
+            <p className="font-serif font-semibold text-lg text-text-dark max-w-lg">
+              Software designer working with companies that aim for a world-class customer experience
             </p>
           </div>
-          
-          <div className="text-normal">
-            <p className="text-base leading-normal">
-            During my bachelor's in Computer Engineering, I felt too disconnected from the human and visual side. Without any idea about what it meant, I started learning more about design.
-            </p>
-          </div>
-          
-          <div className="text-normal">
-            <p className="text-base leading-normal">
-              It's how I realized that design has a great balance between people and their behaviour, visuals and their importance, and innovation. All subjects that spark a deep curiosity in me.
-            </p>
-          </div>
-          
-          <div className="text-normal">
-            <p className="text-base leading-normal">
-              These days, I work with startups that genuinely care about their digital products and about their customers' experience with them.
-            </p>
-          </div>
-          </div>
-
-          {/* Email button */}
-          <div className="mb-8 order-3 lg:order-2">
-          <div className="relative inline-block">
-            <button
-              onClick={copyEmail}
-              className="text-accent underline text-lg hover:opacity-80 transition-opacity font-serif"
+          <div className="flex gap-3 items-center">
+            <Link 
+              to="/work" 
+              className="font-serif text-lg text-text-dark hover:text-text-accent transition-colors underline"
             >
-              Copy my email
-            </button>
-            
-            <CSSTransition
-              in={showTooltip}
-              timeout={{
-                enter: 200,
-                exit: 1000
-              }}
-              classNames="tooltip"
-              unmountOnExit
+              Work
+            </Link>
+            <span className="font-serif text-3xl text-text-dark opacity-30">/</span>
+            <Link 
+              to="/writing" 
+              className="font-serif text-lg text-text-dark hover:text-text-accent transition-colors underline"
             >
-              <div className="tooltip">
-                Email copied!
-              </div>
-            </CSSTransition>
+              Writing
+            </Link>
+            <span className="font-serif text-3xl text-text-dark opacity-30">/</span>
+            <Link 
+              to="/reading" 
+              className="font-serif text-lg text-text-dark hover:text-text-accent transition-colors underline"
+            >
+              Reading
+            </Link>
           </div>
-          </div>
+        </div>
 
-          {/* Carousel/Slider */}
-          <div className="mb-4 order-1 lg:order-3">
+        {/* Slider Section */}
+        <div className="mb-40">
+          <div className="rounded-xs overflow-hidden">
             <Slider />
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="flex justify-between items-center pt-8 pb-2 mt-auto">
-        <div className="text-normal flex items-center">
-          <span className="text-base mr-2">Timisoara, Romania</span>
-          {currentTime && <span className="text-muted text-base">({currentTime})</span>}
+        {/* Work Section */}
+        <div className="flex gap-6 items-start mb-40 sm:flex-row flex-col">
+          <SectionHeader title="Work" />
+          <div className="flex-1 flex flex-col gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+              {/* Kota Project */}
+              <div className="flex flex-col gap-2">
+                <div className="aspect-[1120/634.055] overflow-hidden rounded-xs relative">
+                  <img 
+                    src={heroImg1} 
+                    alt="Kota project" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex gap-2 items-center">
+                  <p className="font-medium text-text-dark">
+                    Kota
+                  </p>
+                </div>
+                <p className="text-xs text-text-normal">
+                  Product design
+                </p>
+                <p className="text-xs text-text-muted">
+                  Reimagining how global benefits work
+                </p>
+              </div>
+
+              {/* Advisable Project */}
+              <div className="flex flex-col gap-2">
+                <div className="aspect-[1120/634.055] bg-[#edf2fc] rounded-xs overflow-hidden relative">
+                  <img 
+                    src={advisableImg9} 
+                    alt="Advisable project" 
+                    className="w-full h-full object-cover opacity-80"
+                  />
+                </div>
+                <div className="flex gap-2 items-center">
+                  <p className="font-medium text-text-dark">
+                    Advisable
+                  </p>
+                </div>
+                <p className="font-normal text-xs text-text-normal">
+                  Design and Webflow development
+                </p>
+                <p className="font-normal text-xs text-text-muted">
+                  A (now sunset) freelancer marketplace for top-of-the-industry marketing specialists
+                </p>
+              </div>
+
+              {/* Carturesti Project */}
+              <div className="flex flex-col gap-2">
+                <div className="aspect-[1120/634.055] bg-[#f4f7f0] rounded-xs relative overflow-hidden">
+                  <img 
+                    src={carturestiImg1} 
+                    alt="Carturesti project" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex gap-2 items-center">
+                  <p className="font-sans font-medium text-base text-text-dark">
+                    Carturesti
+                  </p>
+                </div>
+                <p className="font-sans font-normal text-xs text-text-normal">
+                  Product designer
+                </p>
+                <p className="font-sans font-normal text-xs text-text-muted">
+                  Making a case for Romania's largest bookstore to build a mobile app
+                </p>
+              </div>
+            </div>
+            <Link 
+              to="/work" 
+              className="font-sans font-medium text-base text-text-accent hover:underline"
+            >
+              View all work and design explorations
+            </Link>
+          </div>
         </div>
-        
-        <div className="flex items-center space-x-2">
-          <a 
-            href="https://x.com/alexvlazar" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-text-muted underline hover:text-text-accent transition-colors text-base"
-          >
-            X
-          </a>
-          <span className="text-text-muted">/</span>
-          <a 
-            href="https://www.linkedin.com/in/alexvlazar" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-text-muted underline hover:text-text-accent transition-colors text-base"
-          >
-            LinkedIn
-          </a>
-          <span className="text-text-muted">/</span>
-          <a 
-            href="https://www.are.na/alex-lazar/channels" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-text-muted underline hover:text-text-accent transition-colors text-base"
-          >
-            Are.na
-          </a>
+
+        {/* Writing Section */}
+        <div className="flex gap-6 items-start sm:flex-row flex-col mb-40">
+          <SectionHeader title="Writing" />
+          <div className="flex flex-col gap-8 w-full lg:w-[480px]">
+            {articles.map((article) => (
+              <Link 
+                key={article.slug}
+                to={`/writing/${encodeURIComponent(article.slug)}`}
+                className="flex flex-col gap-1.5"
+              >
+                <p className="font-sans font-medium text-base text-text-dark hover:text-text-accent transition-colors">
+                  {article.title}
+                </p>
+                <p className="font-sans font-normal text-xs text-text-muted">
+                  {article.description}
+                </p>
+              </Link>
+            ))}
+            <Link 
+              to="/writing" 
+              className="font-sans font-medium text-base text-text-accent hover:underline"
+            >
+              View all writing
+            </Link>
+          </div>
         </div>
+
+        {/* Reading Section */}
+        <div className="flex gap-6 items-start mb-40">
+          <SectionHeader title="Reading" />
+          <div className="flex flex-col gap-8 w-[480px]">
+            <div className="flex flex-col gap-4">
+              <div className="flex gap-6 items-start">
+                {books.slice(0, 4).map((book, index) => (
+                  <div 
+                    key={book.id} 
+                    className="flex-1 aspect-[174/234] relative rounded-xs shadow-xs overflow-hidden"
+                  >
+                    {book.coverImage ? (
+                      <img 
+                        src={book.coverImage} 
+                        alt={`${book.title} cover`}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-[#eee8de]"></div>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <p className="font-sans font-normal text-xs text-text-muted">
+                {getAllBooks().length} books added to Reading
+              </p>
+            </div>
+            <Link 
+              to="/reading" 
+              className="font-sans font-medium text-base text-text-accent hover:underline"
+            >
+              View my bookshelf on the web
+            </Link>
+          </div>
         </div>
-      </XLContainer>
+
+        {/* About Section */}
+        <div className="flex gap-6 items-start mb-40">
+          <SectionHeader title="About" />
+          <div className="flex flex-col gap-8 w-[480px]">
+            <div className="font-sans font-normal text-base text-text-dark space-y-3">
+              <p>
+                <span>Currently working at </span>
+                <a href="https://www.kota.io" className="text-color-accent underline" target="_blank" rel="noopener noreferrer">Kota</a>
+                <span> where we shape the future of how companies and their employees interact with benefits.</span>
+              </p>
+              <p>
+                Specializing in product design, I joined start-ups as their first designer to work across product, web, and branding for a consistent and attentive customer experience.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Explore/Footer Section */}
+        <div className="flex gap-6 items-start">
+          <SectionHeader title="Explore" />
+          <div className="flex-1 flex flex-col gap-6">
+            <div className="flex items-start justify-between">
+              <div className="flex gap-3 items-center">
+                <Link 
+                  to="/work" 
+                  className="font-serif font-semibold text-lg text-text-dark underline hover:text-text-accent transition-colors"
+                >
+                  Work
+                </Link>
+                <span className="font-serif text-lg text-text-dark opacity-30">/</span>
+                <Link 
+                  to="/reading" 
+                  className="font-serif font-semibold text-lg text-text-dark underline hover:text-text-accent transition-colors"
+                >
+                  Reading
+                </Link>
+                <span className="font-serif text-lg text-text-dark opacity-30">/</span>
+                <Link 
+                  to="/writing" 
+                  className="font-serif font-semibold text-lg text-text-dark underline hover:text-text-accent transition-colors"
+                >
+                  Writing
+                </Link>
+              </div>
+              <div className="relative inline-block">
+                <button
+                  onClick={copyEmail}
+                  className="font-serif font-semibold text-lg text-text-dark underline transition-opacity hover:text-text-accent"
+                >
+                  Copy my email
+                </button>
+                <CSSTransition
+                  in={showTooltip}
+                  timeout={{
+                    enter: 200,
+                    exit: 1000
+                  }}
+                  classNames="tooltip"
+                  unmountOnExit
+                >
+                  <div className="tooltip">
+                    Email copied!
+                  </div>
+                </CSSTransition>
+              </div>
+            </div>
+            <div className="flex gap-12 items-end">
+              <div className="flex gap-3 items-center">
+                <p className="font-sans font-normal text-base text-text-muted whitespace-nowrap">
+                  Timisoara, Romania {currentTime && `(${currentTime})`}
+                </p>
+                <span className="font-sans text-base text-text-muted">/</span>
+                <a 
+                  href="https://x.com/alexvlazar" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="font-sans font-normal text-base text-text-muted underline hover:text-text-accent transition-colors"
+                >
+                  X
+                </a>
+                <span className="font-sans text-base text-text-muted">/</span>
+                <a 
+                  href="https://www.linkedin.com/in/alexvlazar" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="font-sans font-normal text-base text-text-muted underline hover:text-text-accent transition-colors"
+                >
+                  LinkedIn
+                </a>
+                <span className="font-sans text-base text-text-muted">/</span>
+                <a 
+                  href="https://www.are.na/alex-lazar/channels" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="font-sans font-normal text-base text-text-muted underline hover:text-text-accent transition-colors"
+                >
+                  Are.na
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </WideContainer>
     </div>
   );
 }
