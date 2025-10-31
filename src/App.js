@@ -15,7 +15,6 @@ function App() {
         <Routes>
           <Route path="/" element={
             <main className="bg-background-primary">
-              <Navbar />
               <Homepage />
             </main>
           } />

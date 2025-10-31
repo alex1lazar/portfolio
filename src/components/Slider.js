@@ -73,7 +73,7 @@ const Slider = ({ images = defaultSlides }) => {
       </div>
 
       {/* Slider Indicators */}
-      <div className="flex justify-center gap-2 mt-2">
+      {/* <div className="flex justify-center gap-2 mt-2">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -86,7 +86,7 @@ const Slider = ({ images = defaultSlides }) => {
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
