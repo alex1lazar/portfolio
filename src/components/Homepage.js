@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Slider from './Slider';
-import { CSSTransition } from 'react-transition-group';
+import { motion, AnimatePresence } from 'motion/react';
 import { getAllArticles } from '../lib/articles';
 import { getAllBooks } from '../lib/books';
+import { fadeInUp, transitions } from '../lib/motion';
 import '../styles/animations.css';
 
 // import heroImg1 from '../assets/hero/Slider 1.png';
 // import advisableImg9 from '../assets/advisable/Slider 9.png';
 // import carturestiImg1 from '../assets/carturesti/Slider 1.png';
 import WideContainer from './containers/WideContainer';
+import Navbar from './common/Navbar';
 
 function Homepage() {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -70,44 +72,31 @@ function Homepage() {
   );
 
   return (
-    <div className="bg-background-primary pt-20 pb-16 flex flex-col min-h-screen">
+    <div className="bg-background-primary pb-16 flex flex-col min-h-screen">
       <WideContainer className="flex flex-col">
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-6 mb-20">
-          <div className="flex gap-6 items-start flex-col md:flex-row ">
-            <p className="font-serif font-normal text-lg text-text-dark w-32">
-              Alex Lazar
-            </p>
+        <div className="flex flex-col lg:flex-row items-start gap-6 mb-20">
+            <div className="flex flex-row w-full md:w-[128px] items-center justify-between gap-3">
+              <p className="font-serif text-lg text-text-dark">
+                Alex Lazar
+              </p>
+              <div className="block md:hidden">
+                <Navbar hideName={true} />
+              </div>
+            </div>
+         
+          <div className="flex flex-row justify-between gap-3 w-full">
             <p className="font-serif font-semibold text-lg text-text-dark max-w-lg">
               Software designer working with companies that aim for a world-class customer experience
             </p>
-          </div>
-          <div className="flex gap-3 items-center">
-            <Link 
-              to="/work" 
-              className="font-serif text-lg text-text-dark hover:text-text-accent font-semibold transition-colors underline"
-            >
-              Work
-            </Link>
-            <span className="font-serif text-3xl text-text-dark opacity-30">/</span>
-            <Link 
-              to="/writing" 
-              className="font-serif text-lg text-text-dark hover:text-text-accent font-semibold transition-colors underline"
-            >
-              Writing
-            </Link>
-            <span className="font-serif text-3xl text-text-dark opacity-30">/</span>
-            <Link 
-              to="/reading" 
-              className="font-serif text-lg text-text-dark hover:text-text-accent font-semibold transition-colors underline"
-            >
-              Reading
-            </Link>
+            <div className="flex gap-3 hidden md:block">
+              <Navbar hideName={true} />
+            </div>
           </div>
         </div>
 
         {/* Slider Section */}
-        <div className="mb-40">
+        <div className="pt-20 mb-40">
           <div className="rounded-xs overflow-hidden">
             <Slider />
           </div>
@@ -284,7 +273,7 @@ function Homepage() {
         <div className="flex gap-6 items-start flex-col md:flex-row">
           <SectionHeader title="Explore" />
           <div className="flex-1 flex flex-col gap-6">
-            <div className="flex items-start md:flex-row gap-3 flexjustify-between">
+            <div className="flex flex-col md:flex-row items-start gap-3 justify-between">
               <div className="flex gap-3 items-center">
                 <Link 
                   to="/work" 
@@ -314,19 +303,26 @@ function Homepage() {
                 >
                   Copy my email
                 </button>
-                <CSSTransition
-                  in={showTooltip}
-                  timeout={{
-                    enter: 200,
-                    exit: 1000
-                  }}
-                  classNames="tooltip"
-                  unmountOnExit
-                >
-                  <div className="tooltip">
-                    Email copied!
-                  </div>
-                </CSSTransition>
+                <AnimatePresence>
+                  {showTooltip && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{
+                        enter: { duration: 0.2, ease: "easeOut" },
+                        exit: { duration: 1, ease: "easeOut" }
+                      }}
+                      className="tooltip"
+                      style={{
+                        pointerEvents: 'none'
+                      }}
+                      transformTemplate={({ x, y }) => `translateX(-50%) translateY(${y || 0})`}
+                    >
+                      Email copied!
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </div>
             <div className="flex gap-12 items-end">

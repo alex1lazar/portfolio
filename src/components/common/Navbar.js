@@ -1,38 +1,72 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import NavLink from './NavLink';
+import MobileDrawer from './MobileDrawer';
+import IconWork from './icons/IconWork';
+import IconWriting from './icons/IconWriting';
+import IconReading from './icons/IconReading';
+import IconMenu from './icons/IconMenu';
 
-function Navbar() {
+function Navbar({ hideName = false }) {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
+
+  const closeDrawer = () => {
+    setIsDrawerOpen(false);
+  };
+
   return (
-    <nav className="w-full py-4 sm:py-6">
-      <div className="max-w-[1440px] mx-auto px-4 flex justify-between items-start sm:items-center">
-        {/* Left side - Name */}
-        <Link to="/" className="text-xl sm:text-[1.75rem] leading-6 sm:leading-9 text-text-dark font-serif hover:text-text-accent transition-colors">
-          Alex Lazar
-        </Link>
+    <>
+      <nav className="w-full mx-auto">
+        <div className="max-w-[1120px] mx-auto px-4 flex justify-between items-center">
+          {/* Left side - Name */}
+          {!hideName && (
+            <Link to="/" className="text-lg text-text-dark font-serif hover:text-text-accent transition-colors">
+              Alex Lazar
+            </Link>
+          )}
 
-        {/* Right side - Navigation Links */}
-        <div className="flex flex-col sm:flex-row items-end sm:items-center gap-1 sm:gap-4">
-          {/* Work link */}
-          <Link to="/work" className="text-xl sm:text-[1.75rem] leading-5 sm:leading-9 px-0.5 py-1 min-h-[44px] sm:min-h-0 sm:p-0 flex items-center text-right text-text-dark font-serif no-underline hover:text-text-accent transition-colors">
-            Work
-          </Link>
+          {/* Desktop Navigation - Icon-only with hover text */}
+          <div className="hidden md:flex items-center gap-2">
+            <NavLink
+              IconComponent={IconWork}
+              text="Work"
+              to="/work"
+              className="text-text-dark hover:text-text-accent transition-colors"
+            />
+            <span className="font-serif text-lg text-text-dark opacity-30">/</span>
+            <NavLink
+              IconComponent={IconWriting}
+              text="Writing"
+              to="/writing"
+              className="text-text-dark hover:text-text-accent transition-colors"
+            />
+            <span className="font-serif text-lg text-text-dark opacity-30">/</span>
+            <NavLink
+              IconComponent={IconReading}
+              text="Reading"
+              to="/reading"
+              className="text-text-dark hover:text-text-accent transition-colors"
+            />
+          </div>
 
-          <span className="text-xl sm:text-[1.75rem] leading-6 sm:leading-9 text-text-dark font-serif hidden sm:inline">/</span>
-          
-          {/* Writing link */}
-          <Link to="/writing" className="text-xl sm:text-[1.75rem] leading-5 sm:leading-9 px-0.5 py-1 min-h-[44px] sm:min-h-0 sm:p-0 flex items-center text-right text-text-dark font-serif no-underline hover:text-text-accent transition-colors">
-            Writing
-          </Link>
-
-          <span className="text-xl sm:text-[1.75rem] leading-6 sm:leading-9 text-text-dark font-serif hidden sm:inline">/</span>
-          
-          {/* Reading link */}
-          <Link to="/reading" className="text-xl sm:text-[1.75rem] leading-5 sm:leading-9 px-0.5 py-1 min-h-[44px] sm:min-h-0 sm:p-0 flex items-center text-right text-text-dark font-serif no-underline hover:text-text-accent transition-colors">
-            Reading
-          </Link>
+          {/* Mobile Navigation - Menu button */}
+          <button
+            onClick={toggleDrawer}
+            className="md:hidden flex items-center text-text-dark hover:text-text-accent transition-colors"
+            aria-label="Open menu"
+          >
+            <IconMenu />
+          </button>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* Mobile Drawer */}
+      <MobileDrawer isOpen={isDrawerOpen} onClose={closeDrawer} />
+    </>
   );
 }
 
