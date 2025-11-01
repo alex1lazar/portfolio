@@ -4,7 +4,6 @@ import Slider from './Slider';
 import { motion, AnimatePresence } from 'motion/react';
 import { getAllArticles } from '../lib/articles';
 import { getAllBooks } from '../lib/books';
-import { fadeInUp, transitions } from '../lib/motion';
 import '../styles/animations.css';
 
 // import heroImg1 from '../assets/hero/Slider 1.png';
