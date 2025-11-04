@@ -17,10 +17,20 @@ import carturestiImg2 from '../assets/carturesti/Slider 2.png';
 import carturestiImg3 from '../assets/carturesti/Slider 3.png';
 import carturestiImg4 from '../assets/carturesti/Slider 4.png';
 import carturestiImg5 from '../assets/carturesti/Slider 5.png';
+import kotaImg1 from '../assets/kota/Slider 1.png';
+import kotaImg2 from '../assets/kota/Slider 2.png';
+import kotaImg3 from '../assets/kota/Slider 3.png';
+import kotaImg4 from '../assets/kota/Slider 4.png';
+import kotaImg5 from '../assets/kota/Slider 5.png';
+import kotaImg6 from '../assets/kota/Slider 6.png';
+import kotaImg7 from '../assets/kota/Slider 7.png';
+import kotaImg8 from '../assets/kota/Slider 8.png';
+import kotaImg9 from '../assets/kota/Slider 9.png';
+import kotaImg10 from '../assets/kota/Slider 10.png';
 
 const advisableSlides = [advisableImg1, advisableImg2, advisableImg3, advisableImg4, advisableImg5, advisableImg6, advisableImg7, advisableImg8, advisableImg9];
 const carturestiSlides = [carturestiImg1, carturestiImg2, carturestiImg3, carturestiImg4, carturestiImg5];
-
+const kotaSlides = [kotaImg1, kotaImg2, kotaImg3, kotaImg4, kotaImg5, kotaImg6, kotaImg7, kotaImg8, kotaImg9, kotaImg10];
 
 
 function Work() {
@@ -34,7 +44,7 @@ function Work() {
           description="Leading design at Kota from 10s of customers to 1000s across 4 main platforms."
         >
           {/* Pass kotaSlides once you've created the array above */}
-          <Slider />
+          <Slider images={kotaSlides} />
         </ProjectBlock>
 
         {/* Advisable Project */}
