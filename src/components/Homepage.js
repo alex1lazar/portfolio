@@ -11,12 +11,15 @@ import '../styles/animations.css';
 // import carturestiImg1 from '../assets/carturesti/Slider 1.png';
 import WideContainer from './containers/WideContainer';
 import Navbar from './common/Navbar';
+import AboutDrawer from './common/AboutDrawer';
+import PrimaryButton from './common/PrimaryButton';
 
 function Homepage() {
   const [showTooltip, setShowTooltip] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
   const [articles, setArticles] = useState([]);
   const [books, setBooks] = useState([]);
+  const [isAboutDrawerOpen, setIsAboutDrawerOpen] = useState(false);
 
   const copyEmail = () => {
     const email = 'lazarva25@gmail.com';
@@ -80,7 +83,7 @@ function Homepage() {
                 Alex Lazar
               </p>
               <div className="block md:hidden">
-                <Navbar hideName={true} />
+                <Navbar hideName={true} onOpenAbout={() => setIsAboutDrawerOpen(true)} />
               </div>
             </div>
          
@@ -89,7 +92,7 @@ function Homepage() {
               Software designer working with companies that aim for a world-class customer experience
             </p>
             <div className="flex gap-3 hidden md:block">
-              <Navbar hideName={true} />
+              <Navbar hideName={true} onOpenAbout={() => setIsAboutDrawerOpen(true)} />
             </div>
           </div>
         </div>
@@ -99,94 +102,16 @@ function Homepage() {
           <div className="rounded-xs overflow-hidden">
             <Slider />
           </div>
-        </div>
-
-        {/* Work Section */}
-        <div className="flex gap-6 items-start mb-20 flex-col md:flex-row">
-          <SectionHeader title="Work" />
-          <div className="flex-1 flex flex-col gap-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-              {/* Kota Project */}
-              <div className="flex flex-col gap-2 max-w-[400px] mb-3">
-                <div className="aspect-[1120/634.055] overflow-hidden rounded-xs relative">
-                <div className="aspect-[1120/634.055] bg-[#f4f7f0] rounded-xs relative overflow-hidden flex items-center justify-center">
-                  <p className='text-sm text-text-muted'> WIP </p>
-                  {/* <img 
-                    src={heroImg1} 
-                    alt="Kota project" 
-                    className="w-full h-full object-cover"
-                  /> */}
-                  </div>
-                </div>
-                <div className="flex gap-2 items-center">
-                  <p className="font-medium text-text-dark">
-                    Kota
-                  </p>
-                </div>
-                <p className="text-xs text-text-normal">
-                  Product design
-                </p>
-                <p className="text-xs text-text-muted">
-                  Reimagining how global benefits work
-                </p>
-              </div>
-
-              {/* Advisable Project */}
-              <div className="flex flex-col gap-2 max-w-[400px] mb-3">
-                <div className="aspect-[1120/634.055] bg-[#edf2fc] rounded-xs overflow-hidden relative">
-                <div className="aspect-[1120/634.055] bg-[#f4f7f0] rounded-xs relative overflow-hidden flex items-center justify-center">
-                <p className='text-sm text-text-muted'> WIP </p>
-                  {/* <img 
-                    src={advisableImg9} 
-                    alt="Advisable project" 
-                    className="w-full h-full object-cover opacity-80"
-                  /> */}
-                  </div>
-                </div>
-                <div className="flex gap-2 items-center">
-                  <p className="font-medium text-text-dark">
-                    Advisable
-                  </p>
-                </div>
-                <p className="font-normal text-xs text-text-normal">
-                  Design and Webflow development
-                </p>
-                <p className="font-normal text-xs text-text-muted">
-                  A (now sunset) freelancer marketplace for top-of-the-industry marketing specialists
-                </p>
-              </div>
-
-              {/* Carturesti Project */}
-              <div className="flex flex-col gap-2 max-w-[400px] mb-3">
-                <div className="aspect-[1120/634.055] bg-[#f4f7f0] rounded-xs relative overflow-hidden flex items-center justify-center">
-                  <p className='text-sm text-text-muted'> WIP </p>
-                  {/* <img 
-                    src={carturestiImg1} 
-                    alt="Carturesti project" 
-                    className="w-full h-full object-cover"
-                  /> */}
-                </div>
-                <div className="flex gap-2 items-center">
-                  <p className="font-sans font-medium text-base text-text-dark">
-                    Carturesti
-                  </p>
-                </div>
-                <p className="font-sans font-normal text-xs text-text-normal">
-                  Product designer
-                </p>
-                <p className="font-sans font-normal text-xs text-text-muted">
-                  Making a case for Romania's largest bookstore to build a mobile app
-                </p>
-              </div>
-            </div>
-            <Link 
-              to="/work" 
-              className="font-sans font-medium text-base text-text-accent hover:underline"
-            >
-              View all work and design explorations
-            </Link>
+        <div className="flex gap-6 items-start mt-6 flex-col md:flex-row">
+          <div className="w-[128px] hidden md:block"></div>
+          <div className="flex flex-col gap-8 w-full max-w-[480px]">
+            <PrimaryButton to="/work">
+              View work and design explorations
+            </PrimaryButton>
           </div>
         </div>
+        </div>
+
 
         {/* Writing Section */}
         <div className="flex gap-6 items-start md:flex-row flex-col mb-20">
@@ -206,12 +131,9 @@ function Homepage() {
                 </p>
               </Link>
             ))}
-            <Link 
-              to="/writing" 
-              className="font-sans font-medium text-base text-text-accent hover:underline"
-            >
+            <PrimaryButton to="/writing">
               View all writing
-            </Link>
+            </PrimaryButton>
           </div>
         </div>
 
@@ -242,12 +164,9 @@ function Homepage() {
                 {getAllBooks().length} books added to Reading
               </p>
             </div>
-            <Link 
-              to="/reading" 
-              className="font-sans font-medium text-base text-text-accent hover:underline"
-            >
+            <PrimaryButton to="/reading">
               View my bookshelf on the web
-            </Link>
+            </PrimaryButton>
           </div>
         </div>
 
@@ -265,6 +184,12 @@ function Homepage() {
                 Specializing in product design, I joined start-ups as their first designer to work across product, web, and branding for a consistent and attentive customer experience.
               </p>
             </div>
+            <PrimaryButton 
+              onClick={() => setIsAboutDrawerOpen(true)}
+              className="text-left"
+            >
+              More about 
+            </PrimaryButton>
           </div>
         </div>
 
@@ -294,6 +219,13 @@ function Homepage() {
                 >
                   Writing
                 </Link>
+                <span className="font-serif text-lg text-text-dark opacity-30">/</span>
+                <button 
+                  onClick={() => setIsAboutDrawerOpen(true)}
+                  className="font-serif font-semibold text-lg text-text-dark underline hover:text-text-accent transition-colors"
+                >
+                  About
+                </button>
               </div>
               <div className="relative inline-block">
                 <button
@@ -363,6 +295,9 @@ function Homepage() {
           </div>
         </div>
       </WideContainer>
+      
+      {/* About Drawer */}
+      <AboutDrawer isOpen={isAboutDrawerOpen} onClose={() => setIsAboutDrawerOpen(false)} />
     </div>
   );
 }

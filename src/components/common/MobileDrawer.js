@@ -4,10 +4,11 @@ import { motion, AnimatePresence } from 'motion/react';
 import IconWork from './icons/IconWork';
 import IconWriting from './icons/IconWriting';
 import IconReading from './icons/IconReading';
+import IconAbout from './icons/IconAbout';
 import IconClose from './icons/IconClose';
 import { slideUp, fadeIn, transitions } from '../../lib/motion';
 
-function MobileDrawer({ isOpen, onClose }) {
+function MobileDrawer({ isOpen, onClose, onOpenAbout }) {
 
   // Prevent body scroll when drawer is open
   useEffect(() => {
@@ -31,6 +32,13 @@ function MobileDrawer({ isOpen, onClose }) {
 
   const handleLinkClick = () => {
     onClose();
+  };
+
+  const handleAboutClick = () => {
+    onClose();
+    if (onOpenAbout) {
+      onOpenAbout();
+    }
   };
 
   return (
@@ -95,6 +103,14 @@ function MobileDrawer({ isOpen, onClose }) {
                   <IconReading />
                   <span className="font-serif font-semibold text-lg underline">Reading</span>
                 </Link>
+                
+                <button
+                  onClick={handleAboutClick}
+                  className="flex items-center gap-3 text-text-dark hover:text-text-accent transition-colors"
+                >
+                  <IconAbout />
+                  <span className="font-serif font-semibold text-lg underline">About</span>
+                </button>
               </nav>
             </div>
           </motion.div>

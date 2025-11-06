@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavLink from './NavLink';
 import MobileDrawer from './MobileDrawer';
+import AboutDrawer from './AboutDrawer';
 import IconWork from './icons/IconWork';
 import IconWriting from './icons/IconWriting';
 import IconReading from './icons/IconReading';
 import IconMenu from './icons/IconMenu';
+import IconAbout from './icons/IconAbout';
 
-function Navbar({ hideName = false }) {
+function Navbar({ hideName = false, onOpenAbout }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isAboutDrawerOpen, setIsAboutDrawerOpen] = useState(false);
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -16,6 +19,18 @@ function Navbar({ hideName = false }) {
 
   const closeDrawer = () => {
     setIsDrawerOpen(false);
+  };
+
+  const openAboutDrawer = () => {
+    if (onOpenAbout) {
+      onOpenAbout();
+    } else {
+      setIsAboutDrawerOpen(true);
+    }
+  };
+
+  const closeAboutDrawer = () => {
+    setIsAboutDrawerOpen(false);
   };
 
   return (
@@ -30,25 +45,32 @@ function Navbar({ hideName = false }) {
           )}
 
           {/* Desktop Navigation - Icon-only with hover text */}
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-1">
             <NavLink
               IconComponent={IconWork}
               text="Work"
               to="/work"
               className="text-text-dark hover:text-text-accent transition-colors"
             />
-            <span className="font-serif text-lg text-text-dark opacity-30">/</span>
+            <span className="font-serif text-lg text-text-dark opacity-30 px-1">/</span>
             <NavLink
               IconComponent={IconWriting}
               text="Writing"
               to="/writing"
               className="text-text-dark hover:text-text-accent transition-colors"
             />
-            <span className="font-serif text-lg text-text-dark opacity-30">/</span>
+            <span className="font-serif text-lg text-text-dark opacity-30 px-1">/</span>
             <NavLink
               IconComponent={IconReading}
               text="Reading"
               to="/reading"
+              className="text-text-dark hover:text-text-accent transition-colors"
+            />
+            <span className="font-serif text-lg text-text-dark opacity-30 px-1">/</span>
+            <NavLink
+              IconComponent={IconAbout}
+              text="About"
+              onClick={openAboutDrawer}
               className="text-text-dark hover:text-text-accent transition-colors"
             />
           </div>
@@ -65,7 +87,12 @@ function Navbar({ hideName = false }) {
       </nav>
 
       {/* Mobile Drawer */}
-      <MobileDrawer isOpen={isDrawerOpen} onClose={closeDrawer} />
+      <MobileDrawer isOpen={isDrawerOpen} onClose={closeDrawer} onOpenAbout={openAboutDrawer} />
+      
+      {/* About Drawer - only render if not controlled by parent */}
+      {!onOpenAbout && (
+        <AboutDrawer isOpen={isAboutDrawerOpen} onClose={closeAboutDrawer} />
+      )}
     </>
   );
 }

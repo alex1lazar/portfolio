@@ -43,7 +43,7 @@ const Writing = () => {
     <div className="pt-32 pb-16">
       <WideContainer>
         <NarrowContainer>
-          <div className="border-b text-muted mb-6">
+          <div className="text-muted mb-8">
             <h1 className="text-4xl font-serif text-text-dark mb-4">Writing</h1>
             <p className="text-text-secondary mb-3">
               My inconsistent pleasure of putting thoughts on paper. Personal, career, anything that seems interesting to me.

@@ -19,6 +19,12 @@ export const slideUp = {
   exit: { y: "100%" }
 };
 
+export const slideRight = {
+  initial: { x: "100%" },
+  animate: { x: 0 },
+  exit: { x: "100%" }
+};
+
 export const scaleIn = {
   initial: { opacity: 0, scale: 0.95 },
   animate: { opacity: 1, scale: 1 },
