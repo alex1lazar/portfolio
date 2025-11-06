@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NarrowContainer from '../components/containers/NarrowContainer';
 import BlogPostCard from '../components/BlogPostCard';
 import WideContainer from '../components/containers/WideContainer';
+import PageHeader from '../components/PageHeader';
 import { getAllArticles } from '../lib/articles';
 
 const Writing = () => {
@@ -43,12 +44,10 @@ const Writing = () => {
     <div className="pt-32 pb-16">
       <WideContainer>
         <NarrowContainer>
-          <div className="text-muted mb-8">
-            <h1 className="text-4xl font-serif text-text-dark mb-4">Writing</h1>
-            <p className="text-text-secondary mb-3">
-              My inconsistent pleasure of putting thoughts on paper. Personal, career, anything that seems interesting to me.
-            </p>
-          </div>
+          <PageHeader
+            title="Writing"
+            description="My inconsistent pleasure of putting thoughts on paper. Personal, career, anything that seems interesting to me."
+          />
           <div className="-my-8 mt-8">
             {articles.length === 0 ? (
               <div className="text-center py-8">
