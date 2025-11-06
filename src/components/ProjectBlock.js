@@ -2,7 +2,7 @@ import React from 'react';
 
 function ProjectBlock({ title, subtitle, description, children }) {
   return (
-    <div className="w-full mb-80">
+    <div className="w-full mb-30 md:mb-60">
       {/* Title Section */}
       <div className="flex justify-center mb-4">
         <div className="text-center font-serif">
