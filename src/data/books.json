@@ -1,5 +1,37 @@
 [
   {
+    "id": "29a7cb51-b8b6-801c-af6b-d9941e345789",
+    "title": "The Burnout Society",
+    "author": "Byung-Chul Han",
+    "type": "Non-fiction",
+    "year": 2025,
+    "coverImage": "/book-covers/29a7cb51-b8b6-801c-af6b-d9941e345789.webp"
+  },
+  {
+    "id": "29a7cb51-b8b6-80a3-87f1-c75363aa9226",
+    "title": "Never Too Small Volume 4",
+    "author": "Unknown",
+    "type": "Non-fiction",
+    "year": 2025,
+    "coverImage": "/book-covers/29a7cb51-b8b6-80a3-87f1-c75363aa9226.png"
+  },
+  {
+    "id": "29a7cb51-b8b6-801d-9c04-dd2d83e336f6",
+    "title": "Never Too Small Volume 3",
+    "author": "Unknown",
+    "type": "Non-fiction",
+    "year": 2025,
+    "coverImage": "/book-covers/29a7cb51-b8b6-801d-9c04-dd2d83e336f6.webp"
+  },
+  {
+    "id": "29a7cb51-b8b6-8040-90d2-e626061bd990",
+    "title": "Brave New World",
+    "author": "Aldous Huxley",
+    "type": "Fiction",
+    "year": 2025,
+    "coverImage": "/book-covers/29a7cb51-b8b6-8040-90d2-e626061bd990.jpg"
+  },
+  {
     "id": "1af7cb51-b8b6-80c5-8c4a-e363c4770645",
     "title": "DallerGut Dream Department Store",
     "author": "Lee Mi-ye",
@@ -61,7 +93,7 @@
     "author": "Dan Lungu",
     "type": "Fiction",
     "year": 2024,
-    "coverImage": "/book-covers/424f8736-db5a-46b9-9be1-199b5dbbf913.jpeg"
+    "coverImage": "/book-covers/424f8736-db5a-46b9-9be1-199b5dbbf913.jpg"
   },
   {
     "id": "f4512aab-fbdd-4373-b60f-8323439e0efe",
@@ -69,7 +101,7 @@
     "author": "Elif Shafak",
     "type": "Non-fiction",
     "year": 2024,
-    "coverImage": "/book-covers/f4512aab-fbdd-4373-b60f-8323439e0efe.jpeg"
+    "coverImage": "/book-covers/f4512aab-fbdd-4373-b60f-8323439e0efe.jpg"
   },
   {
     "id": "c82d2a89-fdc8-4598-ba8d-b9178edef079",
@@ -77,7 +109,7 @@
     "author": "Romain Dutter",
     "type": "Non-fiction",
     "year": 2024,
-    "coverImage": "/book-covers/c82d2a89-fdc8-4598-ba8d-b9178edef079.jpg"
+    "coverImage": "/book-covers/c82d2a89-fdc8-4598-ba8d-b9178edef079.png"
   },
   {
     "id": "5d3ccab2-6ad3-43fe-92f4-caf495764c08",
@@ -125,7 +157,7 @@
     "author": "Blair Earns",
     "type": "Non-fiction",
     "year": 2023,
-    "coverImage": "/book-covers/d1cd8504-5a97-446b-9463-b6ab87e1a9b2.jpeg"
+    "coverImage": "/book-covers/d1cd8504-5a97-446b-9463-b6ab87e1a9b2.jpg"
   },
   {
     "id": "4c1f3ebd-f270-46b6-9101-ef04270f9342",
@@ -181,7 +213,7 @@
     "author": "Andre Agassi",
     "type": "Non-fiction",
     "year": 2022,
-    "coverImage": "/book-covers/72ac545f-8029-4446-b69e-fa1aad4b5565.jpeg"
+    "coverImage": "/book-covers/72ac545f-8029-4446-b69e-fa1aad4b5565.jpg"
   },
   {
     "id": "a80da972-18c2-44df-a21e-cebad698c427",
@@ -261,7 +293,7 @@
     "author": "Derek Sivers",
     "type": "Non-fiction",
     "year": 2022,
-    "coverImage": "/book-covers/7b131f6c-e58b-42ad-9faa-10c360c5d1c0.jpg"
+    "coverImage": "/book-covers/7b131f6c-e58b-42ad-9faa-10c360c5d1c0.png"
   },
   {
     "id": "dbb046b5-60a6-4fe9-8d09-f451f507c129",
@@ -461,7 +493,7 @@
     "author": "Haruki Murakami",
     "type": "Fiction",
     "year": 2021,
-    "coverImage": "/book-covers/0a359f4e-f99d-4734-9ebd-60e7f383267e.jpeg"
+    "coverImage": "/book-covers/0a359f4e-f99d-4734-9ebd-60e7f383267e.jpg"
   },
   {
     "id": "dcb29cf6-451c-41fa-8950-7b7a825106c1",
@@ -541,7 +573,7 @@
     "author": "Yuval Noah Harrari",
     "type": "Non-fiction",
     "year": 2020,
-    "coverImage": "/book-covers/cf9d259d-b3ad-4567-b0c2-7054ddd9ed0e.jpeg"
+    "coverImage": "/book-covers/cf9d259d-b3ad-4567-b0c2-7054ddd9ed0e.jpg"
   },
   {
     "id": "ef4e0157-b2d3-4b67-922e-9b643dbbb406",
@@ -573,7 +605,7 @@
     "author": "Ray Bradburry",
     "type": "Fiction",
     "year": 2020,
-    "coverImage": "/book-covers/b4ece158-03eb-4ac8-96d7-fbf593398802.jpeg"
+    "coverImage": "/book-covers/b4ece158-03eb-4ac8-96d7-fbf593398802.jpg"
   },
   {
     "id": "d2defb80-6b54-403b-8fc7-61de827001a4",
@@ -605,7 +637,7 @@
     "author": "George Orwell",
     "type": "Fiction",
     "year": 2020,
-    "coverImage": "/book-covers/429818b3-92ba-4647-b1e4-57c9ae8b98f9.jpg"
+    "coverImage": "/book-covers/429818b3-92ba-4647-b1e4-57c9ae8b98f9.webp"
   },
   {
     "id": "1d85ff76-79a1-4d31-bd3a-4b1c46523e27",
@@ -613,7 +645,7 @@
     "author": "Scot Galloway",
     "type": "Non-fiction",
     "year": 2020,
-    "coverImage": "/book-covers/1d85ff76-79a1-4d31-bd3a-4b1c46523e27.jpeg"
+    "coverImage": "/book-covers/1d85ff76-79a1-4d31-bd3a-4b1c46523e27.jpg"
   },
   {
     "id": "ae376c32-480c-4324-9a7d-d71cdeacdc4a",
@@ -629,7 +661,7 @@
     "author": "Anthony Doerr",
     "type": "Fiction",
     "year": 2020,
-    "coverImage": "/book-covers/413d6d20-e9bb-46c9-9e5f-402d5ad7df4d.jpeg"
+    "coverImage": "/book-covers/413d6d20-e9bb-46c9-9e5f-402d5ad7df4d.jpg"
   },
   {
     "id": "1c1be8cf-230a-4ae8-8864-bcf34ff95976",

@@ -51,7 +51,7 @@ function Work() {
         <ProjectBlock
           title="Advisable.com"
           subtitle="A sunset marketplace for marketing specialists"
-          description="Joined to design across web and product while building for growth initiatives with Webflow"
+          description="Designed across product and web while building for growth with Webflow"
         >
           {/* Pass advisableSlides once you've created the array above */}
           <Slider images={advisableSlides} />

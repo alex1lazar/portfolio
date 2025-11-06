@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Slider from './Slider';
-import { motion, AnimatePresence } from 'motion/react';
 import { getAllArticles } from '../lib/articles';
 import { getAllBooks } from '../lib/books';
-import '../styles/animations.css';
 
 // import heroImg1 from '../assets/hero/Slider 1.png';
 // import advisableImg9 from '../assets/advisable/Slider 9.png';
@@ -13,40 +11,12 @@ import WideContainer from './containers/WideContainer';
 import Navbar from './common/Navbar';
 import AboutDrawer from './common/AboutDrawer';
 import PrimaryButton from './common/PrimaryButton';
+import ExploreSection from './ExploreSection';
 
 function Homepage() {
-  const [showTooltip, setShowTooltip] = useState(false);
-  const [currentTime, setCurrentTime] = useState('');
   const [articles, setArticles] = useState([]);
   const [books, setBooks] = useState([]);
   const [isAboutDrawerOpen, setIsAboutDrawerOpen] = useState(false);
-
-  const copyEmail = () => {
-    const email = 'lazarva25@gmail.com';
-    navigator.clipboard.writeText(email);
-    setShowTooltip(true);
-    setTimeout(() => {
-      setShowTooltip(false);
-    }, 2400);
-  };
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const romaniaTime = new Date(now.toLocaleString("en-US", {timeZone: "Europe/Bucharest"}));
-      const timeString = romaniaTime.toLocaleTimeString('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: false
-      });
-      setCurrentTime(timeString);
-    };
-
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -194,106 +164,7 @@ function Homepage() {
         </div>
 
         {/* Explore/Footer Section */}
-        <div className="flex gap-6 items-start flex-col md:flex-row">
-          <SectionHeader title="Explore" />
-          <div className="flex-1 flex flex-col gap-6">
-            <div className="flex flex-col md:flex-row items-start gap-3 justify-between">
-              <div className="flex gap-3 items-center">
-                <Link 
-                  to="/work" 
-                  className="font-serif font-semibold text-lg text-text-dark underline hover:text-text-accent transition-colors"
-                >
-                  Work
-                </Link>
-                <span className="font-serif text-lg text-text-dark opacity-30">/</span>
-                <Link 
-                  to="/reading" 
-                  className="font-serif font-semibold text-lg text-text-dark underline hover:text-text-accent transition-colors"
-                >
-                  Reading
-                </Link>
-                <span className="font-serif text-lg text-text-dark opacity-30">/</span>
-                <Link 
-                  to="/writing" 
-                  className="font-serif font-semibold text-lg text-text-dark underline hover:text-text-accent transition-colors"
-                >
-                  Writing
-                </Link>
-                <span className="font-serif text-lg text-text-dark opacity-30">/</span>
-                <button 
-                  onClick={() => setIsAboutDrawerOpen(true)}
-                  className="font-serif font-semibold text-lg text-text-dark underline hover:text-text-accent transition-colors"
-                >
-                  About
-                </button>
-              </div>
-              <div className="relative inline-block">
-                <button
-                  onClick={copyEmail}
-                  className="font-serif font-semibold text-lg text-text-dark underline transition-opacity hover:text-text-accent"
-                >
-                  Copy my email
-                </button>
-                <AnimatePresence>
-                  {showTooltip && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{
-                        enter: { duration: 0.2, ease: "easeOut" },
-                        exit: { duration: 1, ease: "easeOut" }
-                      }}
-                      className="tooltip"
-                      style={{
-                        pointerEvents: 'none'
-                      }}
-                      transformTemplate={({ x, y }) => `translateX(-50%) translateY(${y || 0})`}
-                    >
-                      Email copied!
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </div>
-            <div className="flex gap-12 items-end">
-              <div className="flex gap-3 items-center flex-col-reverse md:flex-row">
-                <p className="font-sans font-normal text-base text-text-muted whitespace-nowrap">
-                  Timisoara, Romania {currentTime && `(${currentTime})`}
-                </p>
-                <div className="flex gap-3 items-center">
-                <span className="font-sans text-base text-text-muted hidden">/</span>
-                <a 
-                  href="https://x.com/alexvlazar" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="font-sans font-normal text-base text-text-muted underline hover:text-text-accent transition-colors"
-                >
-                  X
-                </a>
-                <span className="font-sans text-base text-text-muted">/</span>
-                <a 
-                  href="https://www.linkedin.com/in/alexvlazar" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="font-sans font-normal text-base text-text-muted underline hover:text-text-accent transition-colors"
-                >
-                  LinkedIn
-                </a>
-                <span className="font-sans text-base text-text-muted">/</span>
-                <a 
-                  href="https://www.are.na/alex-lazar/channels" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="font-sans font-normal text-base text-text-muted underline hover:text-text-accent transition-colors"
-                >
-                    Are.na
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ExploreSection onOpenAbout={() => setIsAboutDrawerOpen(true)} />
       </WideContainer>
       
       {/* About Drawer */}

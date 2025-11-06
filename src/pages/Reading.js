@@ -1,6 +1,7 @@
   import React, { useState, useEffect } from 'react';
   import WideContainer from '../components/containers/WideContainer';
   import BooksByYear from '../components/BooksByYear';
+  import PageHeader from '../components/PageHeader';
   import { getAllBooks } from '../lib/books';
 
   const Reading = () => {
@@ -37,12 +38,10 @@
     return (
       <div className="pt-32 pb-16">
           <WideContainer>
-            <div className="text-muted mb-8">
-              <h1 className="font-serif text-text-dark mb-4">Reading</h1>
-              <p className="text-text-secondary mb-3">
-                I started tracking what I read around 2020. Recommendations are always welcome.
-              </p>
-            </div>
+            <PageHeader
+              title="Reading"
+              description="I started tracking what I read around 2020. Recommendations are always welcome."
+            />
             <BooksByYear books={books} />
         </WideContainer>
       </div>

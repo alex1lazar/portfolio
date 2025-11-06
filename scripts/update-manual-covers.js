@@ -5,7 +5,8 @@ const path = require('path');
 const booksPath = path.join(__dirname, '..', 'src', 'data', 'books.json');
 const books = JSON.parse(fs.readFileSync(booksPath, 'utf8'));
 
-// List of book IDs that need manual covers
+// List of book IDs that need manual covers (optional - for specific books you want to track)
+// If empty, the script will automatically check all books without covers
 const manualCoverIds = [
   '3acfdc41-ae56-4c10-a318-8dfca4382746',
   '10a4c4f8-d9ee-4589-ab72-1796e18d2578',
@@ -32,13 +33,25 @@ const manualCoverIds = [
   '413d6d20-e9bb-46c9-9e5f-402d5ad7df4d'
 ];
 
+// Get all books without covers - we always check these
+const booksWithoutCovers = books.filter(book => !book.coverImage).map(book => book.id);
+
+// Combine manualCoverIds with books without covers (remove duplicates)
+const idsToCheck = [...new Set([...manualCoverIds, ...booksWithoutCovers])];
+
 console.log('🔍 Checking for manually added book covers...\n');
+console.log(`📋 Checking ${booksWithoutCovers.length} books without covers`);
+if (manualCoverIds.length > 0) {
+  console.log(`📋 Plus ${manualCoverIds.length} books from manualCoverIds array\n`);
+} else {
+  console.log('');
+}
 
 let updatedCount = 0;
 const coversDir = path.join(__dirname, '..', 'public', 'book-covers');
 
 const updatedBooks = books.map(book => {
-  if (manualCoverIds.includes(book.id) && book.coverImage === null) {
+  if (idsToCheck.includes(book.id) && book.coverImage === null) {
     // Check if the cover image file exists
     const possibleExtensions = ['.jpg', '.jpeg', '.png', '.webp'];
     let foundExtension = null;

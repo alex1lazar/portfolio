@@ -171,6 +171,23 @@ async function fetchBooks() {
 
     console.log(`\n✅ Successfully fetched ${books.length} books!`);
     console.log(`📁 Saved to: ${outputPath}`);
+
+    // Check for books without covers
+    const booksWithoutCovers = books.filter(book => !book.coverImage);
+    if (booksWithoutCovers.length > 0) {
+      console.log(`\n⚠️  Found ${booksWithoutCovers.length} books without covers:`);
+      booksWithoutCovers.slice(0, 10).forEach((book, index) => {
+        console.log(`   ${index + 1}. ${book.id} - "${book.title}" by ${book.author}`);
+      });
+      if (booksWithoutCovers.length > 10) {
+        console.log(`   ... and ${booksWithoutCovers.length - 10} more`);
+      }
+      console.log(`\n💡 Run 'node scripts/get-books-without-covers.js' to see all books without covers`);
+      console.log(`💡 Add cover images to public/book-covers/ with filename: {bookId}.jpg (or .png, .jpeg, .webp)`);
+      console.log(`💡 Then run 'node scripts/update-manual-covers.js' to update books.json`);
+    } else {
+      console.log(`\n✅ All books have covers!`);
+    }
   } catch (error) {
     console.error('\n❌ Error fetching books:', error);
     console.error('Error code:', error.code);
