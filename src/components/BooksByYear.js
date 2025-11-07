@@ -47,7 +47,7 @@ const BooksByYear = ({ books }) => {
           </div>
 
           {/* Books for this year - 5 column grid on large screens */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5 md:gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 md:gap-x-3 md:gap-y-8">
             {grouped[year].map((book) => (
               <div key={book.id} className="group">
                 <div className="flex flex-col max-w-40">

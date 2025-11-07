@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'motion/react';
-import '../styles/animations.css';
+import EmailCopy from './common/EmailCopy';
 
 const SectionHeader = ({ title }) => (
   <div className="flex gap-1.5 items-center shrink-0 w-[128px]">
@@ -13,17 +12,7 @@ const SectionHeader = ({ title }) => (
 );
 
 function ExploreSection({ onOpenAbout }) {
-  const [showTooltip, setShowTooltip] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
-
-  const copyEmail = () => {
-    const email = 'lazarva25@gmail.com';
-    navigator.clipboard.writeText(email);
-    setShowTooltip(true);
-    setTimeout(() => {
-      setShowTooltip(false);
-    }, 2400);
-  };
 
   useEffect(() => {
     const updateTime = () => {
@@ -78,32 +67,9 @@ function ExploreSection({ onOpenAbout }) {
             </button>
           </div>
           <div className="relative inline-block">
-            <button
-              onClick={copyEmail}
-              className="font-serif font-semibold text-lg text-text-dark underline transition-opacity hover:text-text-accent"
-            >
+            <EmailCopy className="font-serif font-semibold text-lg text-text-dark underline transition-opacity hover:text-text-accent">
               Copy my email
-            </button>
-            <AnimatePresence>
-              {showTooltip && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{
-                    enter: { duration: 0.2, ease: "easeOut" },
-                    exit: { duration: 1, ease: "easeOut" }
-                  }}
-                  className="tooltip"
-                  style={{
-                    pointerEvents: 'none'
-                  }}
-                  transformTemplate={({ x, y }) => `translateX(-50%) translateY(${y || 0})`}
-                >
-                  Email copied!
-                </motion.div>
-              )}
-            </AnimatePresence>
+            </EmailCopy>
           </div>
         </div>
         <div className="flex gap-12 items-end">
