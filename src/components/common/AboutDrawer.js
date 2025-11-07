@@ -84,7 +84,7 @@ function AboutDrawer({ isOpen, onClose }) {
                 <div className="h-[112px] w-[176px] relative rounded-xs overflow-hidden">
                   <img 
                     src={aboutImage} 
-                    alt="a picture of me buying Pocari Sweat from a Japanese vending machine" 
+                    alt="me buying Pocari Sweat from a Japanese vending machine" 
                     className="w-full h-full object-cover"
                   />
                 </div>
