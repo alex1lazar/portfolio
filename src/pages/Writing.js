@@ -49,6 +49,12 @@ const Writing = () => {
             description="My inconsistent pleasure of putting thoughts on paper. Personal, career, anything that seems interesting to me."
           />
           <div className="-my-8 mt-8">
+            {/* Carturesti Case Study */}
+            <BlogPostCard
+              title="Carturesti.ro"
+              description="This is my go-to retail store when I just want to casually browse. As with most large bookstores, it's a place where you can buy unique gifts, lifestyle items, apparel, or music. Their in-person experience is carefully considered, but their online experience is lacking."
+              link="/carturesti"
+            />
             {articles.length === 0 ? (
               <div className="text-center py-8">
                 <p className="text-text-secondary">No articles found. Check the console for errors.</p>

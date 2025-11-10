@@ -47,7 +47,7 @@ const CaseStudy = ({
       </div>
 
       {/* Hero Image */}
-      {/* {heroImage && (
+      {heroImage && (
         <div className="max-w-6xl mx-auto px-6 mb-16">
           <img 
             src={heroImage} 
@@ -55,7 +55,7 @@ const CaseStudy = ({
             className="w-full h-auto rounded-lg"
           />
         </div>
-      )} */}
+      )}
 
       {/* Content */}
       <div className="pb-16">
@@ -89,11 +89,11 @@ const CaseStudy = ({
                       )}
                       
                       {section.type === 'heading' && (
-                        <h2 className="text-[1.5rem] leading-[2rem] font-serif mb-4 mt-12">{section.content}</h2>
+                        <h2 className=" font-serif mb-4 mt-12">{section.content}</h2>
                       )}
                       
                       {section.type === 'subheading' && (
-                        <h3 className="text-lg font-serif mb-2 mt-8 font-sans text-base">{section.content}</h3>
+                        <h3 className="mb-2 mt-8 font-sans text-base">{section.content}</h3>
                       )}
                       
                       {section.type === 'list' && (
