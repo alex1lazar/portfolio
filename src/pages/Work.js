@@ -62,6 +62,7 @@ function Work() {
           title="Carturesti.ro"
           subtitle="An imagined mobile app for their digital efforts"
           description="A self-started project coming from my annoyance with their e-commerce experience"
+          link="/carturesti"
         >
           {/* Pass carturestiSlides once you've created the array above */}
           <Slider images={carturestiSlides} />
