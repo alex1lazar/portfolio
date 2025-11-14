@@ -53,8 +53,8 @@ const solutionImages = importAll(solutionImagesContext);
 export function formatImagesForSlider(images, prefix = 'Image') {
   return images.map((img, index) => ({
     src: img,
-    alt: `${prefix} ${index + 1}`,
-    caption: `${prefix} ${index + 1}` // You can customize captions later
+    alt: `${prefix} ${index + 1}`
+    // No caption - captions are not displayed
   }));
 }
 

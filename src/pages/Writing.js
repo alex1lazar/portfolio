@@ -52,7 +52,8 @@ const Writing = () => {
             {/* Carturesti Case Study */}
             <BlogPostCard
               title="Carturesti.ro"
-              description="This is my go-to retail store when I just want to casually browse. As with most large bookstores, it's a place where you can buy unique gifts, lifestyle items, apparel, or music. Their in-person experience is carefully considered, but their online experience is lacking."
+              description="Imagining a mobile experience for Romania's largest book retailer"
+              year="2023"
               link="/carturesti"
             />
             {articles.length === 0 ? (
