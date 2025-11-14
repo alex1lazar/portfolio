@@ -63,11 +63,11 @@ module.exports = {
           marginBottom: theme('spacing.6'),
         },
         'h3': {
-          fontSize: theme('fontSize.xl[0]'),
-          lineHeight: theme('fontSize.xl[1].lineHeight'),
-          letterSpacing: theme('fontSize.xl[1].letterSpacing'),
+          fontSize: theme('fontSize.lg[0]'),
+          lineHeight: theme('fontSize.lg[1].lineHeight'),
+          letterSpacing: theme('fontSize.lg[1].letterSpacing'),
           fontFamily: theme('fontFamily.serif'),
-          fontWeight: theme('fontWeight.regular'),
+          fontWeight: theme('fontWeight.semibold'),
           marginBottom: theme('spacing.4'),
         },
         'p': {

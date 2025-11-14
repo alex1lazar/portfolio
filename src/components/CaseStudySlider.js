@@ -35,7 +35,7 @@ const CaseStudySlider = ({ images, title, aspectRatio = '16/9' }) => {
   return (
     <div className="mb-16">
       {title && (
-        <h2 className="text-[1.75rem] leading-[2.25rem] font-serif mb-8 text-center">{title}</h2>
+        <h2 className="font-serif mb-4 mt-12 text-center text-text-dark">{title}</h2>
       )}
       <div className="relative">
         <div className="relative w-full" style={{ aspectRatio }}>
