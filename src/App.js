@@ -1,14 +1,19 @@
+import React, { Suspense } from 'react';
 import Navbar from './components/common/Navbar';
 import Homepage from './components/Homepage'; 
 import Writing from './pages/Writing';
 import Article from './pages/Article';
 import Work from './pages/Work';
-import CarturestiCaseStudy from './pages/CarturestiCaseStudy';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import Reading from './pages/Reading';
 import { fadeIn } from './lib/motion';
+import WideContainer from './components/containers/WideContainer';
+import NarrowContainer from './components/containers/NarrowContainer';
+
+// Lazy load the Carturesti case study to reduce initial bundle size
+const CaseStudyCarturesti = React.lazy(() => import('./pages/CaseStudyCarturesti'));
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -90,7 +95,19 @@ function AnimatedRoutes() {
             className="bg-background-primary min-h-screen pt-10 md:pt-20"
           >
             <Navbar />
-            <CarturestiCaseStudy />
+            <Suspense fallback={
+              <div className="pt-32">
+                <WideContainer>
+                  <NarrowContainer>
+                    <div className="text-center">
+                      <p className="text-text-secondary">Loading case study...</p>
+                    </div>
+                  </NarrowContainer>
+                </WideContainer>
+              </div>
+            }>
+              <CaseStudyCarturesti />
+            </Suspense>
           </motion.main>
         } />
       </Routes>

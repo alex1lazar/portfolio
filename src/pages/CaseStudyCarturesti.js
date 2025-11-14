@@ -1,8 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import CaseStudy from '../components/CaseStudy';
+import { problemImagesFormatted, solutionImagesFormatted } from '../lib/carturestiImages';
 
-const CarturestiCaseStudy = () => {
+const CaseStudyCarturesti = () => {
   const navigate = useNavigate();
 
   const handleBack = () => {
@@ -126,24 +127,15 @@ const CarturestiCaseStudy = () => {
     {
       type: 'carousel',
       title: 'What\'s going wrong with their online store?',
-      images: [
-        {
-          src: 'https://via.placeholder.com/1200x800/f0f0f0/666?text=Carturesti+Website+Issue+1',
-          alt: 'Carturesti website navigation issues',
-          caption: 'Extended menu is hard to digest with too many categories'
-        },
-        {
-          src: 'https://via.placeholder.com/1200x800/f0f0f0/666?text=Carturesti+Website+Issue+2',
-          alt: 'Carturesti website search problems',
-          caption: 'Search functionality lacks proper filtering and sorting'
-        },
-        {
-          src: 'https://via.placeholder.com/1200x800/f0f0f0/666?text=Carturesti+Website+Issue+3',
-          alt: 'Carturesti website mobile experience',
-          caption: 'Mobile experience is not optimized for smaller screens'
-        }
-      ],
-      aspectRatio: '16/9'
+      images: problemImagesFormatted.length > 0 
+        ? problemImagesFormatted 
+        : [
+            {
+              src: 'https://via.placeholder.com/1200x726/f0f0f0/666?text=Add+problem+images+to+assets/carturesti/problems/',
+              alt: 'Error - Missing image',
+            }
+          ],
+      aspectRatio: '200/121'
     },
     {
       type: 'heading',
@@ -188,34 +180,15 @@ const CarturestiCaseStudy = () => {
     {
       type: 'carousel',
       title: 'Screen-by-screen UX breakdown',
-      images: [
-        {
-          src: 'https://via.placeholder.com/400x800/f0f0f0/666?text=Mobile+Screen+1',
-          alt: 'Mobile app home screen',
-          caption: 'Clean home screen with curated content sections'
-        },
-        {
-          src: 'https://via.placeholder.com/400x800/f0f0f0/666?text=Mobile+Screen+2',
-          alt: 'Mobile app category page',
-          caption: 'Simplified category navigation with progressive disclosure'
-        },
-        {
-          src: 'https://via.placeholder.com/400x800/f0f0f0/666?text=Mobile+Screen+3',
-          alt: 'Mobile app product page',
-          caption: 'Product page with clear information hierarchy'
-        },
-        {
-          src: 'https://via.placeholder.com/400x800/f0f0f0/666?text=Mobile+Screen+4',
-          alt: 'Mobile app cart page',
-          caption: 'Shopping cart with loyalty card integration'
-        },
-        {
-          src: 'https://via.placeholder.com/400x800/f0f0f0/666?text=Mobile+Screen+5',
-          alt: 'Mobile app profile page',
-          caption: 'User profile with virtual loyalty card'
-        }
-      ],
-      aspectRatio: '9/16'
+      images: solutionImagesFormatted.length > 0 
+        ? solutionImagesFormatted 
+        : [
+            {
+              src: 'https://via.placeholder.com/1200x726/f0f0f0/666?text=Add+solution+images+to+assets/carturesti/solutions/',
+              alt: 'Placeholder - Missing image',
+            }
+          ],
+      aspectRatio: '200/121'
     },
     {
       type: 'heading',
@@ -334,4 +307,4 @@ const CarturestiCaseStudy = () => {
   );
 };
 
-export default CarturestiCaseStudy;
+export default CaseStudyCarturesti;
