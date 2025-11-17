@@ -179,7 +179,7 @@ const CaseStudy = ({
         <WideContainer>
           <NarrowContainer>
             
-            <h1 className="text-[1.75rem] leading-[2.25rem] font-serif mb-6">{title}</h1>
+            <h1 className="text-text-dark mb-6">{title}</h1>
             <p className="text-lg text-text-normal font-serif mb-8 font-sans text-base">{subtitle}</p>
             
           </NarrowContainer>
@@ -188,7 +188,7 @@ const CaseStudy = ({
 
       {/* Hero Image */}
       {heroImage && (
-        <div className="max-w-6xl mx-auto px-6 mb-16">
+        <div className="max-w-6xl mx-auto px-6 my-16">
           <img 
             src={heroImage} 
             alt={title}

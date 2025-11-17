@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CaseStudy from '../components/CaseStudy';
-import { problemImagesFormatted, solutionImagesFormatted } from '../lib/carturestiImages';
+import { problemImagesFormatted, solutionImagesFormatted, heroImage } from '../lib/carturestiImages';
 import { loadMarkdownCaseStudy } from '../lib/markdownParser';
 
 const CaseStudyCarturesti = () => {
   const navigate = useNavigate();
   const [sections, setSections] = useState([]);
+  const [heroImageFromMarkdown, setHeroImageFromMarkdown] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -22,9 +23,15 @@ const CaseStudyCarturesti = () => {
           'solutions': solutionImagesFormatted
         };
         
-        // Parse markdown to sections
-        const parsedSections = loadMarkdownCaseStudy(markdownContent, carouselMap);
+        // Map image names to image imports (for hero images)
+        const imageMap = {
+          'Cover.png': heroImage
+        };
+        
+        // Parse markdown to sections and hero image
+        const { sections: parsedSections, heroImage: parsedHeroImage } = loadMarkdownCaseStudy(markdownContent, carouselMap, imageMap);
         setSections(parsedSections);
+        setHeroImageFromMarkdown(parsedHeroImage);
         setLoading(false);
       } catch (error) {
         console.error('Error loading markdown:', error);
@@ -56,7 +63,7 @@ const CaseStudyCarturesti = () => {
       role="Mobile Designer"
       period="Jan - March 2023"
       sections={sections}
-      heroImage="https://via.placeholder.com/1200x600/f0f0f0/666?text=Carturesti+Hero+Image"
+      heroImage={heroImageFromMarkdown}
       onBack={handleBack}
     />
   );

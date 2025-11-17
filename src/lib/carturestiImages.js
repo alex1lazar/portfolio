@@ -1,3 +1,6 @@
+// Import hero/cover image
+import coverImage from '../assets/carturesti/Cover.png';
+
 // Helper function to import all images from a folder dynamically
 // This uses webpack's require.context to import all images at build time
 
@@ -61,6 +64,9 @@ export function formatImagesForSlider(images, prefix = 'Image') {
 // Export pre-formatted image arrays
 export const problemImagesFormatted = formatImagesForSlider(problemImages, 'Carturesti Problem');
 export const solutionImagesFormatted = formatImagesForSlider(solutionImages, 'Carturesti Solution');
+
+// Export hero image
+export const heroImage = coverImage;
 
 // Export raw arrays if needed
 export { problemImages, solutionImages };
