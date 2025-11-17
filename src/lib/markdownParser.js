@@ -55,9 +55,10 @@ function parseAsideBlock(asideContent) {
  * Parse markdown content and convert to sections array
  * @param {string} markdown - The markdown content
  * @param {Object} carouselMap - Map of carousel names to image arrays
- * @returns {Array} Array of section objects
+ * @param {Object} imageMap - Map of image names to image imports (for hero images)
+ * @returns {Object} Object with sections array and optional heroImage
  */
-export function parseMarkdownToSections(markdown, carouselMap = {}) {
+export function parseMarkdownToSections(markdown, carouselMap = {}, imageMap = {}) {
   const sections = [];
   const lines = markdown.split('\n');
   
@@ -68,10 +69,22 @@ export function parseMarkdownToSections(markdown, carouselMap = {}) {
   let inCarouselBlock = false;
   let carouselName = null;
   let carouselTitle = null;
+  let heroImage = null;
 
   while (i < lines.length) {
     const line = lines[i];
     const trimmedLine = line.trim();
+
+    // Handle hero image comment: <!-- HERO_IMAGE:imageName -->
+    if (trimmedLine.startsWith('<!-- HERO_IMAGE:')) {
+      const match = trimmedLine.match(/<!-- HERO_IMAGE:([^>]+) -->/);
+      if (match) {
+        const imageName = match[1].trim();
+        heroImage = imageMap[imageName] || null;
+      }
+      i++;
+      continue;
+    }
 
     // Handle HTML comment blocks
     if (trimmedLine === '<!-- OVERVIEW -->') {
@@ -354,7 +367,10 @@ export function parseMarkdownToSections(markdown, carouselMap = {}) {
     });
   }
 
-  return sections;
+  return {
+    sections,
+    heroImage
+  };
 }
 
 /**
@@ -373,10 +389,11 @@ function getCarouselTitle(carouselName) {
  * Load and parse a markdown file
  * @param {string} markdownContent - The raw markdown content
  * @param {Object} carouselMap - Map of carousel names to image arrays
- * @returns {Array} Parsed sections array
+ * @param {Object} imageMap - Map of image names to image imports (for hero images)
+ * @returns {Object} Object with sections array and optional heroImage
  */
-export function loadMarkdownCaseStudy(markdownContent, carouselMap = {}) {
-  return parseMarkdownToSections(markdownContent, carouselMap);
+export function loadMarkdownCaseStudy(markdownContent, carouselMap = {}, imageMap = {}) {
+  return parseMarkdownToSections(markdownContent, carouselMap, imageMap);
 }
 
 

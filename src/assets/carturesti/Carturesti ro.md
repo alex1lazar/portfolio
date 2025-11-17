@@ -1,5 +1,7 @@
 # Carturesti.ro
 
+<!-- HERO_IMAGE:Cover.png -->
+
 Carturesti has 57 beautifully designed stores in Romania and about 1.5 million average visit for its online e-commerce platform. As much as I love going to their physical stores, I gave up on their website.
 
 So I set out to imagine a killer online experience that cements [Carturesti.ro](http://Carturesti.ro) as Romania’s favourite library.
