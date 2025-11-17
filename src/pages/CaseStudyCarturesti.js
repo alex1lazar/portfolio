@@ -51,8 +51,8 @@ const CaseStudyCarturesti = () => {
 
   return (
     <CaseStudy
-      title="Carturesti.ro"
-      subtitle="Imagining a mobile experience for Romania's largest book retailer"
+      title="Imagining a mobile experience for Romania's largest book retailer"
+      subtitle="Carturesti has 57 beautifully designed stores and an exceptional in-store experience. Yet, their online experience hides huge potential."
       role="Mobile Designer"
       period="Jan - March 2023"
       sections={sections}

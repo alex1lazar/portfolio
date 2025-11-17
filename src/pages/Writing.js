@@ -51,8 +51,8 @@ const Writing = () => {
           <div className="-my-8 mt-8">
             {/* Carturesti Case Study */}
             <BlogPostCard
-              title="Carturesti.ro"
-              description="Imagining a mobile experience for Romania's largest book retailer"
+              title="Imagining a mobile experience for Romania's largest book retailer"
+              description="Carturesti has 57 beautifully designed stores and an exceptional in-store experience. Yet, their online experience hides huge potential."
               year="2023"
               link="/carturesti"
             />

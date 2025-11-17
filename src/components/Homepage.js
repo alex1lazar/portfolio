@@ -22,7 +22,7 @@ function Homepage() {
     const fetchData = async () => {
       try {
         const articlesData = await getAllArticles();
-        setArticles(articlesData.slice(0, 3)); // Get first 3 articles
+        setArticles(articlesData.slice(0, 2)); // Get first 2 articles (Carturesti + 2 articles = 3 total)
         
         const booksData = getAllBooks();
         setBooks(booksData.slice(0, 4)); // Get first 4 books
@@ -87,6 +87,18 @@ function Homepage() {
         <div className="flex gap-6 items-start md:flex-row flex-col mb-20">
           <SectionHeader title="Writing" />
           <div className="flex flex-col gap-8 w-full max-w-[480px]">
+            {/* Carturesti Case Study */}
+            <Link 
+              to="/carturesti"
+              className="flex flex-col gap-1.5"
+            >
+              <p className="font-sans font-medium text-base text-text-dark hover:text-text-accent transition-colors">
+              Imagining a mobile experience for Romania's largest book retailer
+              </p>
+              <p className="font-sans font-normal text-xs text-text-muted">
+              Carturesti has 57 beautifully designed stores and an exceptional in-store experience. Yet, their online experience hides huge potential.
+              </p>
+            </Link>
             {articles.map((article) => (
               <Link 
                 key={article.slug}
