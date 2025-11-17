@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function ProjectBlock({ title, subtitle, description, children, link }) {
+  const navigate = useNavigate();
+  
   const TitleContent = () => (
     <h2 className="mb-0">
       <span className="text-text-dark">{title}</span>
@@ -10,8 +12,15 @@ function ProjectBlock({ title, subtitle, description, children, link }) {
     </h2>
   );
 
+  const handleSliderClick = (e) => {
+    if (link) {
+      e.preventDefault();
+      navigate(link);
+    }
+  };
+
   return (
-    <div className="w-full mb-30 md:mb-60">
+    <div className="w-full mb-24 md:mb-60">
       {/* Title Section */}
       <div className="flex justify-center mb-4">
         <div className="text-center font-serif">
@@ -26,9 +35,21 @@ function ProjectBlock({ title, subtitle, description, children, link }) {
       </div>    
 
       {/* Slider/Content Section */}
-      <div className="max-w-full mb-4">
-        {children}
-      </div>
+      {link ? (
+        <div 
+          className="max-w-full mb-4 group hover:opacity-70 transition-opacity cursor-pointer relative"
+          onClick={handleSliderClick}
+          style={{ zIndex: 1 }}
+        >
+          <div style={{ pointerEvents: 'none' }}>
+            {children}
+          </div>
+        </div>
+      ) : (
+        <div className="max-w-full mb-4">
+          {children}
+        </div>
+      )}
 
       {/* Description Section */}
       <div className="flex justify-center">

@@ -21,7 +21,7 @@ Title:What you'll learn
 
 ## Carturesti cares about customers’ experience (in stores)
 
-Each of their 57 stores is architecturally unique, thoughtfully curated, and simply a joy to spend time. The flagship Carturesti Carusel even has an Atlas Obscura page with 2000+ reactions and over 22k+ positive review on Google.
+Each of their 57 stores is architecturally unique, thoughtfully curated, and simply a joy to spend time. The flagship Carturesti Carusel even has an [Atlas Obscura](https://www.atlasobscura.com/places/carture-ti-carusel-bookstore) page with 2000+ reactions and over 22k+ positive review on Google.
 
 I’m a loyal customer to the point of annoying my girlfriend by insisting to “buy from Carturesti, not a competitor”. Yet, we hardly ever use their website.
 
@@ -121,18 +121,17 @@ A detailed screen-by-screen showcase of how Carturesti can solve their problems 
 This design is based on public research and observation. With actual access and involvement with the team, I’d:
 
 1. **Validate assumptions**
-        - Talk with customers and understand if they have similar issues with the online experience
-        - Check customer feedback and frequent issues flagged by customer-facing teams
+        - Talk with customers and customer-facing teams to understand common problems
         - Dive into data related to time spent on website, time-to-purchase, cart value, and churn
-        - Create a list of engaged customers open to testing new ideas
-2. **Implement and test**
+        - Create a Customer Advisory Board. With Carturesti's community it should be easy to find 100 people 
+2. **Improve the existing experience**
         - Start with obvious improvements to the website
-        - Create prototypes and have customers test them
+        - Create prototypes and test with customers
+        - Implement and track data over a period of 4-6 weeks
 3. **Lay the foundation for the mobile application**
     - Put together a team highly-focused on creating and maintaing the mobile application
-    - Use the insights we’ve received from customers to inform design decisions for mobile
     - Design the ideal state of the application
-    - Break down the implementation into different phases with a clear goal of eventually creating a personalization engine.
+    - Break down the implementation into different phases with a clear goal of eventually creating a personalization engine
 
 ## Conclusion
 
