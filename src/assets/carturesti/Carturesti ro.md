@@ -2,7 +2,7 @@
 
 <!-- HERO_IMAGE:Cover.png -->
 
-Carturesti has 57 beautifully designed stores in Romania and about 1.5 million average visit for its online e-commerce platform. As much as I love going to their physical stores, I gave up on their website.
+Carturesti has 57 beautifully designed stores in Romania and about 1.5 million average visit for its online e-commerce platform. As much as I love going to their physical stores and am a loyal customer, after repeated failure and frustrating experiences, I gave up on their website.
 
 So I set out to imagine a killer online experience that cements [Carturesti.ro](http://Carturesti.ro) as Romania’s favourite library.
 
@@ -31,14 +31,16 @@ The difference between their physical and digital experience is massive. And it�
 
 ## How the idea came about
 
-1. **Loyalty card frustration** — They have a loyalty programme called Carturesti Card. Unfortunately, there is no virtual option for the Carturesti Card, so I must have it on me all the times and scan it when I purchase from the stores.
+1. **Few negative reviews (a false positive)** — You won’t find many bad reviews online. This is a false positive as most of their stores are in urban areas, and just like myself, if I’m unsuccessful online I find way to their stores. I asked at least 10 friends about Carturesti and all have similar frustrations. Rarely you'll see a review about a bad online experience, yet that doesn't mean younger generation don't expect it.
 2. **I stopped using their website** — I observed how my intention of checking for books or gifts on their website has declined. This is because I repeatedly failed to meet my goal. As I live close to all their store in my city, it’s easier to take a walk, go to their store to browse or ask for advice from their librarians. 
-3. **Few negative reviews (a false positive)** —  I asked at least 10 friends about Carturesti and all have similar frustrations. Yet, you won’t find many bad reviews online. This is a false positive as most of their stores are in urban areas, and just like myself, if I’m unsuccessful online I find way to their stores.
+3. **Loyalty card frustration** — They have a loyalty programme called Carturesti Card. Unfortunately, there is no virtual option for the Carturesti Card, so I must have it on me all the times and scan it when I purchase from the stores.
 4. **I’d trust them with my data** - Out of all the stores and e-commerce website I use, I’d be the happiest for Carturesti to take my data and use thoughtful ways to personalize, reward my purchases, and offer me a better online experience. 
 
 An improved online experience doesn’t have to feel like a money-grab. Carturesti takes a more thoughtful approach to their customer experience, and it should stay consistent from stores to digital.
 
 **However, the question remains: is it worth investing in a better web or mobile experience?**
+
+<!-- IMAGE:Cover.png -->
 
 ## Putting the investment into perspective
 
@@ -77,36 +79,36 @@ I documented 20+ specific UX & UI problems across navigation, search, shopping b
 
 <aside>
 Title:Problem TL;DR
-- Uncommon navbar adds cognitive load from the first moment
-- Homepage and lack of guidance hinders exploration
-- Poor UI choices, especially while searching, make the user feel lost
+- The homepage and uncommon navigation bar add cognitive load from the first interaction
+- Lack of personalization and guidance hinders exploration
+- Poor UI choices decrease the ability to make a decision
 - The user’s journey is filled with barriers leading to churn and cart abandonment
 </aside>
 
 <!-- END_OVERVIEW -->
 
-## How I approached the design
+## How I approached designing the solution
 
 ### Decisions grounded in psychology
 
-All decisions are grounded in e-commerce psychology and a better approach to visual design. At a foundational level, the solutions start with research or tested experiments from the Baymard Institute or Nielson/ Norman Group.
+All decisions are grounded in e-commerce psychology and a better approach to visual design. At a core level, the solutions start with research or tested experiments from the Baymard Institute or Nielson/ Norman Group and through my time spent analyzing how industry-leading companies approach design.
 
-I approached designing the interface by thinking about how Carturesti can target top-of-the-industry experience like Zalando or Emag, with a reduced amount of changes to their core design system.
+For Carturesti, this meant researching top-performing platforms in similar industries (Emag, Zalando, Apple books, Amazon, Kindle Store). It was also a conscious effort to staying true to this brand's core values and mimmicking their in-store experiences: well-designed places, lack of pressure to purchase, room for exploration and leisure.
 
-### Design system decisions
+### A UI aligned with their brand
 
-I paired a serif with a sans serif to balance the literary heritage with a modern look. I chose platform-native serifs, both because New York from Apple works perfectly for this use case, and also because of their optimisation.
+I paired a serif (New York) with a sans serif (IBM Plex Sans) to balance the literary heritage with a modern look. It's not only an aesthetic choice, the pairing also scales nicely giving enough flexibility for headings, longer descriptions, and variations in UI for visual interest.
 
-Carturesti often partners with designers, illustrators, and artist to create illustrations for an upcoming launch. Novel assets are a given, that’s why I focused on creating a good neutral foundation with a touch of an accent orange.
+Carturesti often partners with designers, illustrators, and artist to create illustrations for seasonal campaigns or new launches. That’s why  I created a good neutral foundation, as neutral colours are the most used in an interface. I kept the Carturesti green but slightly improved the colour scale to match accessibility requirements. The accent orange is used with purpose to guide users towards buying actions or attracting attention to sales and recommendations.
 
-[](https://www.notion.so)
+<!-- IMAGE:Cover.png -->
 
-### True to the brand, new ways to grow
+
+### System thinking not screen-focused design
 
 You sense that their in-person experience is designed. If you ever step into one of the Carturesti’s store you’ll see that thoughtful people have built the place, work there, and cross their doors each day.
 
 But the largest potential lies in the younger generation (15-24 years old), who are very present in their stores. This is visible in their online traffic as well.
-
 
 It only makes sense for Carturesti to ramp up their online efforts and turn this demographic into loyal customers while cementing their leadership status for the other age groups.
 
@@ -122,21 +124,16 @@ A detailed screen-by-screen showcase of how Carturesti can solve their problems 
 
 This design is based on public research and observation. With actual access and involvement with the team, I’d:
 
-1. **Validate assumptions**
-        - Talk with customers and customer-facing teams to understand common problems
-        - Dive into data related to time spent on website, time-to-purchase, cart value, and churn
-        - Create a Customer Advisory Board. With Carturesti's community it should be easy to find 100 people 
-2. **Improve the existing experience**
-        - Start with obvious improvements to the website
-        - Create prototypes and test with customers
-        - Implement and track data over a period of 4-6 weeks
-3. **Lay the foundation for the mobile application**
-    - Put together a team highly-focused on creating and maintaing the mobile application
-    - Design the ideal state of the application
-    - Break down the implementation into different phases with a clear goal of eventually creating a personalization engine
+1. **Validate assumptions** - Interview customers and analyze behavioral data to confirm which problems hurt the most. This should be easy considering the engaged community the brand has built. 
+2. **Quick wins on web** - Iteratively ship, test, and measure improvements to the web experience first. This will inform other decisions for mobile while building trust and measurable impact for stakeholders.
+3. **Lay the foundation for the mobile application** - Build a team focused on creating a mobile experience with personalization as the end goal.
 
 ## Conclusion
 
-Carturesti has earned customer loyalty through a mix of community events, great products, and thoughtful stores.
+It's clear that Carturesti has mastered how to design a bookstore. Their 57 stores are places where people spend time exploring, sipping tea, having conversations while reinforcing a positive behaviour, reading. No purchase pressure, simply places where they're encouranged to through thoughtful design to read more.
 
-Through the design proposed, their online experience stops being a mere extension of their amazing stores, and becomes a more potent side of the business.
+But for now, the gap between what current generations expect and how Carturesti approaches online mediums grows larger.
+
+When core demographics spend so much time in mobile apps, are more prone to buy from brands that offer personalization, this stops being a simple missed opportunity. It becomes strategic vulnerability.
+
+The design I created for an imaginary Carturesti mobile app doesn't take away from what makes them unique. Instead, it extends their brand and attentive approach to where their audience spend time: online. The result is simply not related to pure UX. This is a pathway to increased happinness, engagement, and loyalty to a generation that expects better experiences online. And thus, these all lead to a rise in sales.
