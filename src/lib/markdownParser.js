@@ -86,6 +86,32 @@ export function parseMarkdownToSections(markdown, carouselMap = {}, imageMap = {
       continue;
     }
 
+    // Handle inline image comment: <!-- IMAGE:imageName -->
+    if (trimmedLine.startsWith('<!-- IMAGE:')) {
+      const match = trimmedLine.match(/<!-- IMAGE:([^>]+) -->/);
+      if (match) {
+        const imageName = match[1].trim();
+        const imageSrc = imageMap[imageName] || null;
+        if (imageSrc) {
+          // Flush any accumulated paragraph before adding image
+          if (currentParagraph.length > 0) {
+            sections.push({
+              type: 'paragraph',
+              content: currentParagraph.join(' ').trim()
+            });
+            currentParagraph = [];
+          }
+          sections.push({
+            type: 'image',
+            src: imageSrc,
+            alt: imageName
+          });
+        }
+      }
+      i++;
+      continue;
+    }
+
     // Handle HTML comment blocks
     if (trimmedLine === '<!-- OVERVIEW -->') {
       inOverviewBlock = true;

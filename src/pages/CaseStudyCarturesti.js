@@ -23,7 +23,10 @@ const CaseStudyCarturesti = () => {
           'solutions': solutionImagesFormatted
         };
         
-        // Map image names to image imports (for hero images)
+        // Map image names to image imports (for hero images and inline images)
+        // Add more images here as needed, then reference them in markdown with:
+        // <!-- HERO_IMAGE:filename.png --> (full-width hero)
+        // <!-- IMAGE:filename.png --> (inline within text container)
         const imageMap = {
           'Cover.png': heroImage
         };
