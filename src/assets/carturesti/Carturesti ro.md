@@ -31,7 +31,7 @@ The difference between their physical and digital experience is massive. And it�
 
 ## How the idea came about
 
-1. **Few negative reviews (a false positive)** — You won’t find many bad reviews online. This is a false positive as most of their stores are in urban areas, and just like myself, if I’m unsuccessful online I find way to their stores. I asked at least 10 friends about Carturesti and all have similar frustrations. Rarely you'll see a review about a bad online experience, yet that doesn't mean younger generation don't expect it.
+1. **Few negative reviews (a false positive)** — You won’t find many bad reviews online. This is a false positive as most of their stores are in urban areas, and just like myself, if I’m unsuccessful online I find way to their stores. I asked at least 10 friends about Carturesti and all have similar frustrations. You'll rarely see a review about a bad online experience, yet that doesn't mean younger generation don't expect a better one.
 2. **I stopped using their website** — I observed how my intention of checking for books or gifts on their website has declined. This is because I repeatedly failed to meet my goal. As I live close to all their store in my city, it’s easier to take a walk, go to their store to browse or ask for advice from their librarians. 
 3. **Loyalty card frustration** — They have a loyalty programme called Carturesti Card. Unfortunately, there is no virtual option for the Carturesti Card, so I must have it on me all the times and scan it when I purchase from the stores.
 4. **I’d trust them with my data** - Out of all the stores and e-commerce website I use, I’d be the happiest for Carturesti to take my data and use thoughtful ways to personalize, reward my purchases, and offer me a better online experience. 
@@ -54,7 +54,7 @@ But the real gold pot for large retail businesses hides inside **mobile applicat
 
 ### Comparing usage
 
-- [78% of people](https://rubygarage.org/blog/benefits-of-mobile-app-for-ecommerce) would rather access a store from an app compared to a mobile website.
+- [78% of people](https://www.vennapps.com/blog/35-essential-stats-on-mobile-commerce-in-2025) would rather access a store from an app compared to a mobile website.
 - Retail has [3 times more](https://www.tooltester.com/en/blog/website-loading-time-statistics/) mobile sessions than desktop sessions.
 - Nearly [90% of mobile time](https://techjury.net/blog/app-usage-statistics/#gref) is spent on apps.
 - Gen Z, an important age group for Carturesti, spends 66% of their digital time using smartphone apps.
@@ -106,17 +106,13 @@ Carturesti often partners with designers, illustrators, and artist to create ill
 
 ### System thinking not screen-focused design
 
-You sense that their in-person experience is designed. If you ever step into one of the Carturesti’s store you’ll see that thoughtful people have built the place, work there, and cross their doors each day.
+I place a high importance on the UI and always look deep into the details of it. Yet, for this design and for Carturesti's case, it's more important to focus on the systems and the feeling of the app.
 
-But the largest potential lies in the younger generation (15-24 years old), who are very present in their stores. This is visible in their online traffic as well.
-
-It only makes sense for Carturesti to ramp up their online efforts and turn this demographic into loyal customers while cementing their leadership status for the other age groups.
+When I decided to work on this design, the three large goals were to improve navigability, enhance exploration, remove the large barriers to purchasing, and lay the ground for personalization. All while staying away from making it feel salesly. These are big goals that can't be fixed only through UI improvements. 
 
 <!-- CAROUSEL:solutions -->
 
 ## Improving the experience while providing ways for growth
-
-A detailed screen-by-screen showcase of how Carturesti can solve their problems while offering personalization and thinking for future growth.
 
 <!-- END_CAROUSEL -->
 
@@ -130,10 +126,10 @@ This design is based on public research and observation. With actual access and 
 
 ## Conclusion
 
-It's clear that Carturesti has mastered how to design a bookstore. Their 57 stores are places where people spend time exploring, sipping tea, having conversations while reinforcing a positive behaviour, reading. No purchase pressure, simply places where they're encouranged to through thoughtful design to read more.
+It's clear that Carturesti has mastered how to design a bookstore. Their 57 stores are places where people spend time exploring, sipping tea, having conversations. All while reinforcing a positive behaviour and personality trait "I'm a reader". No purchase pressure from Carturesti, simply places where they're encouranged to through thoughtful design to read more.
 
 But for now, the gap between what current generations expect and how Carturesti approaches online mediums grows larger.
 
 When core demographics spend so much time in mobile apps, are more prone to buy from brands that offer personalization, this stops being a simple missed opportunity. It becomes strategic vulnerability.
 
-The design I created for an imaginary Carturesti mobile app doesn't take away from what makes them unique. Instead, it extends their brand and attentive approach to where their audience spend time: online. The result is simply not related to pure UX. This is a pathway to increased happinness, engagement, and loyalty to a generation that expects better experiences online. And thus, these all lead to a rise in sales.
+The design I created for an imaginary Carturesti mobile app doesn't take away from what makes them unique. Instead, it extends their brand and attentive approach to where their audience spend time: online. The result is simply not related to pure UX improvements. This is a pathway to increased happinness, engagement, and loyalty to a generation that expects better experiences online. And thus, these all lead to a rise in sales making Carturesti more economically robust.
