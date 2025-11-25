@@ -2,6 +2,7 @@ import React from 'react';
 import NarrowContainer from './containers/NarrowContainer';
 import WideContainer from './containers/WideContainer';
 import CaseStudySlider from './CaseStudySlider';
+import ExploreSection from './ExploreSection';
 
 // Helper function to parse and render text with bold, italic, and links
 const renderTextWithBold = (text) => {
@@ -169,7 +170,8 @@ const CaseStudy = ({
   period, 
   sections = [], 
   heroImage, 
-  onBack 
+  onBack,
+  onOpenAbout 
 }) => {
 
   return (
@@ -264,7 +266,7 @@ const CaseStudy = ({
                           <img 
                             src={section.src} 
                             alt={section.alt} 
-                            className="w-full h-auto rounded-lg shadow-lg"
+                            className="w-full h-auto rounded shadow-sm"
                           />
                           {section.caption && (
                             <p className="text-text-normal mt-2 text-center">{section.caption}</p>
@@ -318,6 +320,13 @@ const CaseStudy = ({
             </div>
           );
         })}
+      </div>
+
+      {/* Footer */}
+      <div className="pt-16 pb-16">
+        <WideContainer>
+          <ExploreSection onOpenAbout={onOpenAbout} />
+        </WideContainer>
       </div>
 
     </div>
