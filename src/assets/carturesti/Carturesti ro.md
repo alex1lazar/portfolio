@@ -40,11 +40,12 @@ An improved online experience doesn’t have to feel like a money-grab. Cartures
 
 **However, the question remains: is it worth investing in a better web or mobile experience?**
 
-<!-- IMAGE:Cover.png -->
 
 ## Putting the investment into perspective
 
 I’m certain that a better web and mobile experience will increase sales over time, capture the young market (15-24y/o), and engage existing customers even more. A careful approach in improving the existing e-commerce platform, or building a mobile application, would improve their economic unit.
+
+<!-- IMAGE:Stats.png -->
 
 ### Mobile vs web
 
@@ -101,14 +102,16 @@ I paired a serif (New York) with a sans serif (IBM Plex Sans) to balance the lit
 
 Carturesti often partners with designers, illustrators, and artist to create illustrations for seasonal campaigns or new launches. That’s why  I created a good neutral foundation, as neutral colours are the most used in an interface. I kept the Carturesti green but slightly improved the colour scale to match accessibility requirements. The accent orange is used with purpose to guide users towards buying actions or attracting attention to sales and recommendations.
 
-<!-- IMAGE:Cover.png -->
+<!-- IMAGE:CarturestiDS.png -->
 
 
 ### System thinking not screen-focused design
 
-I place a high importance on the UI and always look deep into the details of it. Yet, for this design and for Carturesti's case, it's more important to focus on the systems and the feeling of the app.
+To me, UI is highly important and something I enjoy working on. Yet, for this design and for Carturesti's case, it's more important to focus on the systems and the feeling of the app.
 
-When I decided to work on this design, the three large goals were to improve navigability, enhance exploration, remove the large barriers to purchasing, and lay the ground for personalization. All while staying away from making it feel salesly. These are big goals that can't be fixed only through UI improvements. 
+When I decided to work on this design, the large goals were to improve navigability, enhance exploration, remove the large barriers to purchasing, and lay the ground for personalization. All while staying away from making it feel salesly. These are big goals that can't be fixed through UI improvements only. 
+
+Below, I'm showcasing how the mix of system thinking and UI work come together to meet the goals set.
 
 <!-- CAROUSEL:solutions -->
 

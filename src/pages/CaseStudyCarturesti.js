@@ -3,12 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import CaseStudy from '../components/CaseStudy';
 import { problemImagesFormatted, solutionImagesFormatted, heroImage } from '../lib/carturestiImages';
 import { loadMarkdownCaseStudy } from '../lib/markdownParser';
+import carturestiDSImage from '../assets/carturesti/CarturestiDS.png';
+import statsImage from '../assets/carturesti/Stats.png';
+import AboutDrawer from '../components/common/AboutDrawer';
 
 const CaseStudyCarturesti = () => {
   const navigate = useNavigate();
   const [sections, setSections] = useState([]);
   const [heroImageFromMarkdown, setHeroImageFromMarkdown] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isAboutDrawerOpen, setIsAboutDrawerOpen] = useState(false);
 
   useEffect(() => {
     // Load markdown file
@@ -28,7 +32,9 @@ const CaseStudyCarturesti = () => {
         // <!-- HERO_IMAGE:filename.png --> (full-width hero)
         // <!-- IMAGE:filename.png --> (inline within text container)
         const imageMap = {
-          'Cover.png': heroImage
+          'Cover.png': heroImage,
+          'CarturestiDS.png': carturestiDSImage,
+          'Stats.png': statsImage
         };
         
         // Parse markdown to sections and hero image
@@ -60,15 +66,19 @@ const CaseStudyCarturesti = () => {
   }
 
   return (
-    <CaseStudy
-      title="Imagining a mobile experience for Romania's largest book retailer"
-      subtitle="Carturesti has 57 beautifully designed stores and an exceptional in-store experience. Yet, their online experience hides huge potential."
-      role="Mobile Designer"
-      period="Jan - March 2023"
-      sections={sections}
-      heroImage={heroImageFromMarkdown}
-      onBack={handleBack}
-    />
+    <>
+      <CaseStudy
+        title="Imagining a mobile experience for Romania's largest book retailer"
+        subtitle="Carturesti has 57 beautifully designed stores and an exceptional in-store experience. Yet, their online experience hides huge potential."
+        role="Mobile Designer"
+        period="Jan - March 2023"
+        sections={sections}
+        heroImage={heroImageFromMarkdown}
+        onBack={handleBack}
+        onOpenAbout={() => setIsAboutDrawerOpen(true)}
+      />
+      <AboutDrawer isOpen={isAboutDrawerOpen} onClose={() => setIsAboutDrawerOpen(false)} />
+    </>
   );
 };
 
