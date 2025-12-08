@@ -1,6 +1,6 @@
 # Carturesti.ro
 
-<!-- HERO_IMAGE:Cover.png -->
+<!-- HERO_IMAGE:Cover.webp -->
 
 Carturesti has 57 beautifully designed stores in Romania and about 1.5 million average visit for its online e-commerce platform. As much as I love going to their physical stores and am a loyal customer, after repeated failure and frustrating experiences, I gave up on their website.
 
@@ -23,7 +23,7 @@ Title:What you'll learn
 
 ## Carturesti cares about customers’ experience (in stores)
 
-Each of their 57 stores is architecturally unique, thoughtfully curated, and simply a joy to spend time. The flagship Carturesti Carusel even has an [Atlas Obscura](https://www.atlasobscura.com/places/carture-ti-carusel-bookstore) page with 2000+ reactions and over 22k+ positive review on Google.
+Each of their stores is architecturally unique, thoughtfully curated, and simply a joy to spend time. The flagship Carturesti Carusel even has an [Atlas Obscura](https://www.atlasobscura.com/places/carture-ti-carusel-bookstore) page with 2000+ reactions and over 22k+ positive review on Google.
 
 I’m a loyal customer to the point of annoying my girlfriend by insisting to “buy from Carturesti, not a competitor”. Yet, we hardly ever use their website.
 
@@ -43,9 +43,9 @@ An improved online experience doesn’t have to feel like a money-grab. Cartures
 
 ## Putting the investment into perspective
 
-I’m certain that a better web and mobile experience will increase sales over time, capture the young market (15-24y/o), and engage existing customers even more. A careful approach in improving the existing e-commerce platform, or building a mobile application, would improve their economic unit.
+Based on the best market practices, a better web and mobile experience will increase sales over time, capture the young market (15-24y/o), and engage existing customers even more. A careful approach in improving the existing e-commerce platform, or building a mobile application, would improve their economic unit.
 
-<!-- IMAGE:Stats.png -->
+<!-- IMAGE:Stats.webp -->
 
 ### Mobile vs web
 
@@ -102,7 +102,7 @@ I paired a serif (New York) with a sans serif (IBM Plex Sans) to balance the lit
 
 Carturesti often partners with designers, illustrators, and artist to create illustrations for seasonal campaigns or new launches. That’s why  I created a good neutral foundation, as neutral colours are the most used in an interface. I kept the Carturesti green but slightly improved the colour scale to match accessibility requirements. The accent orange is used with purpose to guide users towards buying actions or attracting attention to sales and recommendations.
 
-<!-- IMAGE:CarturestiDS.png -->
+<!-- IMAGE:CarturestiDS.webp -->
 
 
 ### System thinking not screen-focused design
@@ -127,9 +127,19 @@ This design is based on public research and observation. With actual access and 
 2. **Quick wins on web** - Iteratively ship, test, and measure improvements to the web experience first. This will inform other decisions for mobile while building trust and measurable impact for stakeholders.
 3. **Lay the foundation for the mobile application** - Build a team focused on creating a mobile experience with personalization as the end goal.
 
+<!-- OVERVIEW -->
+<aside>
+Title:A mobile experience for 2025 and beyond
+- Investing in a mobile app means bringing the company closer to the medium where people spend more time and money
+- By reducing friction, we encourange exploration, time spent in app, lower cart abandonment, resulting in more content customers
+- Through personalization, the brand can speak each user's language, similar to a librarian's guidance 
+</aside>
+
+<!-- END_OVERVIEW -->
+
 ## Conclusion
 
-It's clear that Carturesti has mastered how to design a bookstore. Their 57 stores are places where people spend time exploring, sipping tea, having conversations. All while reinforcing a positive behaviour and personality trait "I'm a reader". No purchase pressure from Carturesti, simply places where they're encouranged to through thoughtful design to read more.
+It's clear that Carturesti has mastered how to design a bookstore. Their 57 stores are places where people spend time exploring, sipping tea, having conversations. All while reinforcing a positive behaviour and personality trait "I'm a reader". No purchase pressure from Carturesti, simply places where they're encouranged to read  through thoughtful design to read more.
 
 But for now, the gap between what current generations expect and how Carturesti approaches online mediums grows larger.
 
