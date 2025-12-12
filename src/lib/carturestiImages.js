@@ -1,5 +1,5 @@
 // Import hero/cover image
-import coverImage from '../assets/carturesti/Cover.png';
+import coverImage from '../assets/carturesti/Cover.webp';
 
 // Helper function to import all images from a folder dynamically
 // This uses webpack's require.context to import all images at build time

@@ -8,12 +8,15 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import Reading from './pages/Reading';
+import SlotWheel from './pages/SlotWheel';
 import { fadeIn } from './lib/motion';
 import WideContainer from './components/containers/WideContainer';
 import NarrowContainer from './components/containers/NarrowContainer';
 
 // Lazy load the Carturesti case study to reduce initial bundle size
 const CaseStudyCarturesti = React.lazy(() => import('./pages/CaseStudyCarturesti'));
+// Lazy load the ContentWheel exploration
+const ContentWheel = React.lazy(() => import('./pages/explore/ContentWheel'));
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -108,6 +111,40 @@ function AnimatedRoutes() {
             }>
               <CaseStudyCarturesti />
             </Suspense>
+          </motion.main>
+        } />
+        <Route path="/explore/:name" element={
+          <motion.main
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={fadeIn}
+            transition={{ duration: 0.2 }}
+            className="bg-background-primary min-h-screen pt-10 md:pt-20"
+          >
+            <Suspense fallback={
+              <div className="pt-32">
+                <WideContainer>
+                  <div className="text-center">
+                    <p className="text-text-secondary">Loading content wheel...</p>
+                  </div>
+                </WideContainer>
+              </div>
+            }>
+              <ContentWheel />
+            </Suspense>
+          </motion.main>
+        } />
+        <Route path="/slotwheel" element={
+          <motion.main
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={fadeIn}
+            transition={{ duration: 0.2 }}
+            className="bg-background-primary min-h-screen"
+          >
+            <SlotWheel />
           </motion.main>
         } />
       </Routes>

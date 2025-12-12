@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import IconClose from './icons/IconClose';
 import EmailCopy from './EmailCopy';
 import { slideRight, fadeIn, transitions } from '../../lib/motion';
-import aboutImage from '../../assets/about/About drawer image.png';
+import aboutImage from '../../assets/about/About drawer image.webp';
 import no1Icon from '../../assets/about/no1.svg';
 import no2Icon from '../../assets/about/no2.svg';
 import no3Icon from '../../assets/about/no3.svg'; 
