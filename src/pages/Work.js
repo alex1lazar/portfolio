@@ -3,30 +3,30 @@ import WideContainer from '../components/containers/WideContainer';
 import ProjectBlock from '../components/ProjectBlock';
 import Slider from '../components/Slider';
 
-import advisableImg1 from '../assets/advisable/Slider 1.png';
-import advisableImg2 from '../assets/advisable/Slider 2.png';
-import advisableImg3 from '../assets/advisable/Slider 3.png';
-import advisableImg4 from '../assets/advisable/Slider 4.png';
-import advisableImg5 from '../assets/advisable/Slider 5.png';
-import advisableImg6 from '../assets/advisable/Slider 6.png';
-import advisableImg7 from '../assets/advisable/Slider 7.png';
-import advisableImg8 from '../assets/advisable/Slider 8.png';
-import advisableImg9 from '../assets/advisable/Slider 9.png';
-import carturestiImg1 from '../assets/carturesti/Slider 1.png';
-import carturestiImg2 from '../assets/carturesti/Slider 2.png';
-import carturestiImg3 from '../assets/carturesti/Slider 3.png';
-import carturestiImg4 from '../assets/carturesti/Slider 4.png';
-import carturestiImg5 from '../assets/carturesti/Slider 5.png';
-import kotaImg1 from '../assets/kota/Slider 1.png';
-import kotaImg2 from '../assets/kota/Slider 2.png';
-import kotaImg3 from '../assets/kota/Slider 3.png';
-import kotaImg4 from '../assets/kota/Slider 4.png';
-import kotaImg5 from '../assets/kota/Slider 5.png';
+import advisableImg1 from '../assets/advisable/Slider 1.webp';
+import advisableImg2 from '../assets/advisable/Slider 2.webp';
+import advisableImg3 from '../assets/advisable/Slider 3.webp';
+import advisableImg4 from '../assets/advisable/Slider 4.webp';
+import advisableImg5 from '../assets/advisable/Slider 5.webp';
+import advisableImg6 from '../assets/advisable/Slider 6.webp';
+import advisableImg7 from '../assets/advisable/Slider 7.webp';
+import advisableImg8 from '../assets/advisable/Slider 8.webp';
+import advisableImg9 from '../assets/advisable/Slider 9.webp';
+import carturestiImg1 from '../assets/carturesti/Slider 1.webp';
+import carturestiImg2 from '../assets/carturesti/Slider 2.webp';
+import carturestiImg3 from '../assets/carturesti/Slider 3.webp';
+import carturestiImg4 from '../assets/carturesti/Slider 4.webp';
+import carturestiImg5 from '../assets/carturesti/Slider 5.webp';
+import kotaImg1 from '../assets/kota/Slider 1.webp';
+import kotaImg2 from '../assets/kota/Slider 2.webp';
+import kotaImg3 from '../assets/kota/Slider 3.webp';
+import kotaImg4 from '../assets/kota/Slider 4.webp';
+import kotaImg5 from '../assets/kota/Slider 5.webp';
 import kotaImg6 from '../assets/kota/Slider 6.png';
 import kotaImg7 from '../assets/kota/Slider 7.png';
-import kotaImg8 from '../assets/kota/Slider 8.png';
-import kotaImg9 from '../assets/kota/Slider 9.png';
-import kotaImg10 from '../assets/kota/Slider 10.png';
+import kotaImg8 from '../assets/kota/Slider 8.webp';
+import kotaImg9 from '../assets/kota/Slider 9.webp';
+import kotaImg10 from '../assets/kota/Slider 10.webp';
 
 const advisableSlides = [advisableImg1, advisableImg2, advisableImg3, advisableImg4, advisableImg5, advisableImg6, advisableImg7, advisableImg8, advisableImg9];
 const carturestiSlides = [carturestiImg1, carturestiImg2, carturestiImg3, carturestiImg4, carturestiImg5];
@@ -54,7 +54,7 @@ function Work() {
           description="Designed across product and web while building for growth with Webflow"
         >
           {/* Pass advisableSlides once you've created the array above */}
-          <Slider images={advisableSlides} />
+          <Slider images={advisableSlides} delay={1000} />
         </ProjectBlock>
 
         {/* Carturesti Project */}
@@ -65,7 +65,7 @@ function Work() {
           link="/carturesti"
         >
           {/* Pass carturestiSlides once you've created the array above */}
-          <Slider images={carturestiSlides} />
+          <Slider images={carturestiSlides} delay={2000} />
         </ProjectBlock>
       </WideContainer>
     </div>

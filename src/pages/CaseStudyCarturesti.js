@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import CaseStudy from '../components/CaseStudy';
 import { problemImagesFormatted, solutionImagesFormatted, heroImage } from '../lib/carturestiImages';
 import { loadMarkdownCaseStudy } from '../lib/markdownParser';
-import carturestiDSImage from '../assets/carturesti/CarturestiDS.png';
-import statsImage from '../assets/carturesti/Stats.png';
+import carturestiDSImage from '../assets/carturesti/CarturestiDS.webp';
+import statsImage from '../assets/carturesti/Stats.webp';
 import AboutDrawer from '../components/common/AboutDrawer';
 
 const CaseStudyCarturesti = () => {
@@ -29,12 +29,12 @@ const CaseStudyCarturesti = () => {
         
         // Map image names to image imports (for hero images and inline images)
         // Add more images here as needed, then reference them in markdown with:
-        // <!-- HERO_IMAGE:filename.png --> (full-width hero)
-        // <!-- IMAGE:filename.png --> (inline within text container)
+        // <!-- HERO_IMAGE:filename.webp --> (full-width hero)
+        // <!-- IMAGE:filename.webp --> (inline within text container)
         const imageMap = {
-          'Cover.png': heroImage,
-          'CarturestiDS.png': carturestiDSImage,
-          'Stats.png': statsImage
+          'Cover.webp': heroImage,
+          'CarturestiDS.webp': carturestiDSImage,
+          'Stats.webp': statsImage
         };
         
         // Parse markdown to sections and hero image

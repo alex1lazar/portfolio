@@ -1,13 +1,13 @@
-import heroImg1 from '../assets/hero/Slider 1.png';
-import heroImg2 from '../assets/hero/Slider 2.png';
-import heroImg3 from '../assets/hero/Slider 3.png';
-import heroImg4 from '../assets/hero/Slider 4.png';
-import heroImg5 from '../assets/hero/Slider 5.png';
-import heroImg6 from '../assets/hero/Slider 6.png';
-import heroImg7 from '../assets/hero/Slider 7.png';
+import heroImg1 from '../assets/hero/Slider 1.webp';
+import heroImg2 from '../assets/hero/Slider 2.webp';
+import heroImg3 from '../assets/hero/Slider 3.webp';
+import heroImg4 from '../assets/hero/Slider 4.webp';
+import heroImg5 from '../assets/hero/Slider 5.webp';
+import heroImg6 from '../assets/hero/Slider 6.webp';
+import heroImg7 from '../assets/hero/Slider 7.webp';
 import heroImg8 from '../assets/hero/Slider 8.png';
-import heroImg9 from '../assets/hero/Slider 9.png';
-import heroImg10 from '../assets/hero/Slider 10.png';
+import heroImg9 from '../assets/hero/Slider 9.webp';
+import heroImg10 from '../assets/hero/Slider 10.webp';
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
@@ -24,22 +24,32 @@ const defaultSlides = [
   heroImg10
 ];
 
-const Slider = ({ images = defaultSlides }) => {
+const Slider = ({ images = defaultSlides, delay = 0 }) => {
   // List of image URLs - use custom images if provided, otherwise use default
   const slides = images;
 
   // State to track the current slide index
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Autoplay functionality using useEffect
+  // Autoplay functionality using useEffect with optional delay
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 2400);
+    let interval;
+    
+    // Set up a timeout to start the interval after the delay
+    const timeout = setTimeout(() => {
+      interval = setInterval(() => {
+        setCurrentSlide((prevIndex) => (prevIndex + 1) % slides.length);
+      }, 2400);
+    }, delay);
 
-    // Cleanup interval on component unmount
-    return () => clearInterval(interval);
-  }, [slides.length]);
+    // Cleanup timeout and interval on component unmount
+    return () => {
+      clearTimeout(timeout);
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [slides.length, delay]);
 
   return (
     <div className="relative w-full">
