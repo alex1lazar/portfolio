@@ -3,11 +3,13 @@ import matter from 'gray-matter';
 // Fetch markdown files at runtime
 const creativeAngstRaw = await fetch(new URL('../articles/creative-angst.md', import.meta.url)).then(r => r.text());
 const aJobILoveRaw = await fetch(new URL('../articles/a-job-id-love.md', import.meta.url)).then(r => r.text());
+const kota2025ReviewRaw = await fetch(new URL('../articles/Kota 2025 in review.md', import.meta.url)).then(r => r.text());
 
 // Registry of all articles
 const articleRegistry = [
   { slug: 'creative-angst', raw: creativeAngstRaw },
   { slug: 'a-job-id-love', raw: aJobILoveRaw },
+  { slug: 'kota-2025-in-review', raw: kota2025ReviewRaw },
 ];
 
 export const getAllArticles = async () => {
