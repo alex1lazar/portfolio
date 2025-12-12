@@ -4,6 +4,7 @@ import NarrowContainer from '../components/containers/NarrowContainer';
 import WideContainer from '../components/containers/WideContainer';
 import ArticleContent from '../components/ArticleContent';
 import { loadArticle } from '../lib/articles';
+import { getArticleImages } from '../lib/articleImages';
 
 const Article = () => {
   const { slug } = useParams();
@@ -85,7 +86,10 @@ const Article = () => {
             </div>
           </div>
           
-          <ArticleContent content={article.content} />
+          <ArticleContent 
+            content={article.content} 
+            imageMap={getArticleImages(slug)}
+          />
         </NarrowContainer>
       </WideContainer>
     </div>
