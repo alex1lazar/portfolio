@@ -8,7 +8,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import Reading from './pages/Reading';
-import SlotWheel from './pages/SlotWheel';
+// import SlotWheel from './pages/SlotWheel'; // Commented out - causing build issues
 import { fadeIn } from './lib/motion';
 import WideContainer from './components/containers/WideContainer';
 import NarrowContainer from './components/containers/NarrowContainer';
@@ -135,6 +135,7 @@ function AnimatedRoutes() {
             </Suspense>
           </motion.main>
         } />
+        {/* Commented out - SlotWheel causing build issues
         <Route path="/slotwheel" element={
           <motion.main
             initial="initial"
@@ -147,6 +148,7 @@ function AnimatedRoutes() {
             <SlotWheel />
           </motion.main>
         } />
+        */}
       </Routes>
     </AnimatePresence>
   );
