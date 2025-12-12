@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import WideContainer from '../../components/containers/WideContainer';
 import ContentWheelGrid from '../../components/explore/ContentWheel/ContentWheelGrid';
 
@@ -36,17 +36,6 @@ const getPlaceholderData = () => {
 };
 
 const ContentWheel = () => {
-  const { name } = useParams();
-  
-  // Format the content wheel name for display
-  const formatName = (name) => {
-    if (!name) return 'ContentWheel';
-    return name
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-  };
-
   const items = getPlaceholderData();
 
   return (

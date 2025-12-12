@@ -62,7 +62,7 @@ const slotItems = [
 
 function SlotWheel() {
   const [isSpinning, setIsSpinning] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [_selectedIndex, setSelectedIndex] = useState(null);
   const scrollContainerRef = useRef(null);
   const itemsContainerRef = useRef(null);
   const isFirstSpin = useRef(true);
@@ -302,9 +302,12 @@ function SlotWheel() {
 
   // Cleanup on unmount and reset blur when not spinning
   useEffect(() => {
+    // Capture ref value for cleanup
+    const itemsContainer = itemsContainerRef.current;
+    
     // Reset blur when component mounts or when not spinning
-    if (itemsContainerRef.current && !isSpinning) {
-      itemsContainerRef.current.style.filter = 'none';
+    if (itemsContainer && !isSpinning) {
+      itemsContainer.style.filter = 'none';
     }
     
     return () => {
@@ -312,8 +315,8 @@ function SlotWheel() {
         animationRef.current.kill();
       }
       // Clean up blur on unmount
-      if (itemsContainerRef.current) {
-        itemsContainerRef.current.style.filter = 'none';
+      if (itemsContainer) {
+        itemsContainer.style.filter = 'none';
       }
     };
   }, [isSpinning]);
