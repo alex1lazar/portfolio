@@ -9,7 +9,7 @@ const ArticleContent = ({ content, imageMap = {} }) => {
     <div className="prose prose-lg max-w-none">
       <ReactMarkdown
         components={{
-          h1: ({children}) => <h1 className="text-4xl font-serif text-text-dark mb-6 mt-12">{children}</h1>,
+          h1: ({children}) => <h1 className="text-2xl font-serif text-text-dark mb-6 mt-12">{children}</h1>,
           h2: ({children}) => <h2 className="text-xl font-serif text-text-dark mb-4 mt-10">{children}</h2>,
           h3: ({children}) => <h3 className="text-lg font-serif text-text-dark mb-3 mt-8">{children}</h3>,
           p: ({children, ...props}) => {

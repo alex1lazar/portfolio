@@ -91,7 +91,7 @@ The mobile experience had fallen behind our standards. We iterated quickly on th
 
 ![Mobile app reskin](Reskin) 
 
-### Setting a new design standard for our experiences
+## Setting a new design standard for our experiences
 
 ### Colour and text system
 Over this year, the Kota's web platform design has changed massively. It all started early in the year by setting up a new colour palette and text system. This became the backbone of our new design language and patterns.
