@@ -1,46 +1,48 @@
 import matter from 'gray-matter';
+import fs from 'fs';
+import path from 'path';
 
-// Fetch markdown files at runtime
-const creativeAngstRaw = await fetch(new URL('../articles/creative-angst.md', import.meta.url)).then(r => r.text());
-const aJobILoveRaw = await fetch(new URL('../articles/a-job-id-love.md', import.meta.url)).then(r => r.text());
-const kota2025ReviewRaw = await fetch(new URL('../articles/Kota 2025 in review.md', import.meta.url)).then(r => r.text());
-
-// Registry of all articles
-const articleRegistry = [
-  { slug: 'creative-angst', raw: creativeAngstRaw },
-  { slug: 'a-job-id-love', raw: aJobILoveRaw },
-  { slug: 'kota-2025-in-review', raw: kota2025ReviewRaw },
+/**
+ * Registry: add new markdown files here (filename under src/articles/).
+ * Frontmatter should include: title, description, date, slug, tags (optional),
+ * ogImage (optional path under /public e.g. /og/my-article.png).
+ */
+const articleFileMap = [
+  { slug: 'creative-angst', filename: 'creative-angst.md' },
+  { slug: 'a-job-id-love', filename: 'a-job-id-love.md' },
+  { slug: 'kota-2025-in-review', filename: 'Kota 2025 in review.md' },
 ];
 
-export const getAllArticles = async () => {
-    const articles = articleRegistry.map(({ slug, raw }) => {
-      console.log(`Processing ${slug}, raw type:`, typeof raw);
-      console.log(`First 200 chars:`, raw?.substring(0, 200));
-      
-      const { data } = matter(raw);
-      console.log(`Parsed data for ${slug}:`, data);
-      
-      return {
-        slug: data.slug || slug,
-        title: data.title || 'Untitled',
-        description: data.description || '',
-        date: data.date || '2024',
-        tags: data.tags || [],
-      };
-    });
-  
-    return articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-  };
+function readMarkdownFile(filename) {
+  const filePath = path.join(process.cwd(), 'src', 'articles', filename);
+  return fs.readFileSync(filePath, 'utf8');
+}
 
-// Load a single article
+export const getAllArticles = async () => {
+  const articles = articleFileMap.map(({ slug, filename }) => {
+    const raw = readMarkdownFile(filename);
+    const { data } = matter(raw);
+
+    return {
+      slug: data.slug || slug,
+      title: data.title || 'Untitled',
+      description: data.description || '',
+      date: data.date || '2024',
+      tags: data.tags || [],
+    };
+  });
+
+  return articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+};
+
 export const loadArticle = async (slug) => {
-  const article = articleRegistry.find(a => a.slug === slug);
-  
-  if (!article) {
+  const entry = articleFileMap.find((a) => a.slug === slug);
+  if (!entry) {
     return null;
   }
 
-  const { data, content } = matter(article.raw);
+  const raw = readMarkdownFile(entry.filename);
+  const { data, content } = matter(raw);
 
   return {
     frontmatter: {
@@ -51,5 +53,10 @@ export const loadArticle = async (slug) => {
     },
     content,
     slug: data.slug || slug,
+    ogImage: typeof data.ogImage === 'string' ? data.ogImage : null,
   };
 };
+
+export function getArticleSlugs() {
+  return articleFileMap.map((a) => a.slug);
+}

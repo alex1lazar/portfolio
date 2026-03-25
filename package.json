@@ -18,6 +18,7 @@
     "gray-matter": "^4.0.3",
     "gsap": "^3.13.0",
     "motion": "^12.23.24",
+    "next": "^16.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^10.1.0",
@@ -27,11 +28,16 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "REACT_APP_BUILD_TIME=$(date -u +\"%Y-%m-%dT%H:%M:%SZ\") react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "dev": "next dev -p 3000",
+    "start": "next start -p 3000",
+    "build": "next build",
+    "lint": "next lint",
+    "test": "echo \"No tests configured for Next.js migration yet\" && exit 0",
     "predeploy": "npm run build",
+    "start:react": "react-scripts start",
+    "build:react": "REACT_APP_BUILD_TIME=$(date -u +\"%Y-%m-%dT%H:%M:%SZ\") react-scripts build",
+    "test:react": "react-scripts test",
+    "eject:react": "react-scripts eject",
     "deploy": "netlify deploy --prod",
     "deploy:github": "gh-pages -d build",
     "fetch-books": "node scripts/fetch-books.js"

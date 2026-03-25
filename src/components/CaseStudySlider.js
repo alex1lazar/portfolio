@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { staticAssetUrl } from '../lib/staticAssetUrl';
 
 const CaseStudySlider = ({ images, title, aspectRatio = '16/9' }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -8,11 +9,11 @@ const CaseStudySlider = ({ images, title, aspectRatio = '16/9' }) => {
     if (images && images.length > 1) {
       if (currentIndex < images.length - 1) {
         const preloadNext = new Image();
-        preloadNext.src = images[currentIndex + 1].src;
+        preloadNext.src = staticAssetUrl(images[currentIndex + 1].src);
       }
       if (currentIndex > 0) {
         const preloadPrev = new Image();
-        preloadPrev.src = images[currentIndex - 1].src;
+        preloadPrev.src = staticAssetUrl(images[currentIndex - 1].src);
       }
     }
   }, [currentIndex, images]);
@@ -41,7 +42,7 @@ const CaseStudySlider = ({ images, title, aspectRatio = '16/9' }) => {
         <div className="relative w-full" style={{ aspectRatio }}>
           <div className="absolute inset-0 overflow-hidden rounded-lg shadow-lg">
             <img 
-              src={images[currentIndex].src}
+              src={staticAssetUrl(images[currentIndex].src)}
               alt={images[currentIndex].alt}
               className="w-full h-full object-cover object-center"
               loading="lazy"

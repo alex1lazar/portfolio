@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import EmailCopy from './common/EmailCopy';
 
 const SectionHeader = ({ title }) => (
@@ -39,21 +39,21 @@ function ExploreSection({ onOpenAbout }) {
         <div className="flex flex-col md:flex-row items-start gap-3 justify-between">
           <div className="flex gap-3 items-center">
             <Link 
-              to="/work" 
+                href="/work" 
               className="font-serif font-semibold text-lg text-text-dark underline hover:text-text-accent transition-colors"
             >
               Work
             </Link>
             <span className="font-serif text-lg text-text-dark opacity-30">/</span>
             <Link 
-              to="/reading" 
+                href="/reading" 
               className="font-serif font-semibold text-lg text-text-dark underline hover:text-text-accent transition-colors"
             >
               Reading
             </Link>
             <span className="font-serif text-lg text-text-dark opacity-30">/</span>
             <Link 
-              to="/writing" 
+                href="/writing" 
               className="font-serif font-semibold text-lg text-text-dark underline hover:text-text-accent transition-colors"
             >
               Writing

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 function PrimaryButton({ children, to, onClick, className = '', ...props }) {
   const baseClasses = 'font-sans font-medium text-base text-text-accent hover:underline';
@@ -7,7 +7,7 @@ function PrimaryButton({ children, to, onClick, className = '', ...props }) {
   if (to) {
     return (
       <Link 
-        to={to}
+        href={to}
         className={`${baseClasses} ${className}`}
         {...props}
       >

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import IconClose from './icons/IconClose';
 import EmailCopy from './EmailCopy';
 import { slideRight, fadeIn, transitions } from '../../lib/motion';
+import { staticAssetUrl } from '../../lib/staticAssetUrl';
 import aboutImage from '../../assets/about/About drawer image.webp';
 import no1Icon from '../../assets/about/no1.svg';
 import no2Icon from '../../assets/about/no2.svg';
@@ -83,7 +84,7 @@ function AboutDrawer({ isOpen, onClose }) {
                 {/* Image */}
                 <div className="h-[112px] w-[176px] relative rounded-xs overflow-hidden">
                   <img 
-                    src={aboutImage} 
+                    src={staticAssetUrl(aboutImage)} 
                     alt="me buying Pocari Sweat from a Japanese vending machine" 
                     className="w-full h-full object-cover"
                   />
@@ -97,7 +98,7 @@ function AboutDrawer({ isOpen, onClose }) {
                 {/* Now Section */}
                 <div className="flex flex-col gap-3">
                 <div className="flex gap-2 items-center">
-                    <img src={no1Icon} alt="number 1 icon" className="w-8 h-8" />
+                    <img src={staticAssetUrl(no1Icon)} alt="number 1 icon" className="w-8 h-8" />
                   <p className="font-serif text-lg font-semibold text-text-dark tracking-[-0.1px]">
                     Now
                   </p>
@@ -114,7 +115,7 @@ function AboutDrawer({ isOpen, onClose }) {
                 <div className="flex flex-col gap-4">
                   
                 <div className="flex gap-2 items-center">
-                    <img src={no2Icon} alt="number 2 icon" className="w-8 h-8" />
+                    <img src={staticAssetUrl(no2Icon)} alt="number 2 icon" className="w-8 h-8" />
                   <p className="font-serif text-lg font-semibold text-text-dark tracking-[-0.1px]">
                   What I do
                   </p>
@@ -137,7 +138,7 @@ function AboutDrawer({ isOpen, onClose }) {
                 <div className="flex flex-col gap-4">
                   
                   <div className="flex gap-2 items-center">
-                    <img src={no3Icon} alt="number 3 icon" className="w-8 h-8" />
+                    <img src={staticAssetUrl(no3Icon)} alt="number 3 icon" className="w-8 h-8" />
                   <p className="font-serif text-lg font-semibold text-text-dark tracking-[-0.1px]">
                   How I do it
                   </p>
@@ -156,7 +157,7 @@ function AboutDrawer({ isOpen, onClose }) {
                 {/* Colophon Section */}
                 <div className="flex flex-col gap-4">
                 <div className="flex gap-2 items-center">
-                    <img src={no4Icon} alt="number 4 icon" className="w-8 h-8" />
+                    <img src={staticAssetUrl(no4Icon)} alt="number 4 icon" className="w-8 h-8" />
                   <p className="font-serif text-lg font-semibold text-text-dark tracking-[-0.1px]">
                   Colophon
                   </p>

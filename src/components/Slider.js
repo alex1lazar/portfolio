@@ -1,3 +1,5 @@
+'use client';
+
 import heroImg1 from '../assets/hero/Slider 1.webp';
 import heroImg2 from '../assets/hero/Slider 2.webp';
 import heroImg3 from '../assets/hero/Slider 3.webp';
@@ -9,7 +11,8 @@ import heroImg8 from '../assets/hero/Slider 8.png';
 import heroImg9 from '../assets/hero/Slider 9.webp';
 import heroImg10 from '../assets/hero/Slider 10.webp';
 import React, { useState, useEffect } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { AnimatePresence, motion } from 'motion/react';
+import { staticAssetUrl } from '../lib/staticAssetUrl';
 
 const defaultSlides = [
   heroImg1,
@@ -25,78 +28,48 @@ const defaultSlides = [
 ];
 
 const Slider = ({ images = defaultSlides, delay = 0 }) => {
-  // List of image URLs - use custom images if provided, otherwise use default
   const slides = images;
-
-  // State to track the current slide index
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Autoplay functionality using useEffect with optional delay
   useEffect(() => {
     let interval;
-    
-    // Set up a timeout to start the interval after the delay
     const timeout = setTimeout(() => {
       interval = setInterval(() => {
         setCurrentSlide((prevIndex) => (prevIndex + 1) % slides.length);
       }, 2400);
     }, delay);
 
-    // Cleanup timeout and interval on component unmount
     return () => {
       clearTimeout(timeout);
-      if (interval) {
-        clearInterval(interval);
-      }
+      if (interval) clearInterval(interval);
     };
   }, [slides.length, delay]);
 
+  const src = staticAssetUrl(slides[currentSlide]);
+
   return (
     <div className="relative w-full">
-      {/* Container with 915:518 aspect ratio (approximately 16:9) */}
       <div className="relative w-full" style={{ aspectRatio: '915/518' }}>
         <div className="absolute inset-0 overflow-hidden rounded">
-          <TransitionGroup>
-            <CSSTransition
+          <AnimatePresence mode="wait">
+            <motion.div
               key={currentSlide}
-              timeout={800}
-              classNames={{
-                enter: 'opacity-0',
-                enterActive: 'opacity-100 transition-opacity duration-600 ease-out',
-                enterDone: 'opacity-100',
-                exit: 'opacity-100',
-                exitActive: 'opacity-0 transition-opacity duration-200 ease-in',
-                exitDone: 'opacity-0'
-              }}
+              className="absolute inset-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.35, ease: 'easeOut' }}
             >
-              <div className="absolute inset-0">
-                <img
-                  src={slides[currentSlide]}
-                  alt={`Slide ${currentSlide + 1}`}
-                  className="w-full h-full object-cover"
-                  style={{ willChange: 'opacity' }}
-                />
-              </div>
-            </CSSTransition>
-          </TransitionGroup>
+              <img
+                src={src}
+                alt={`Slide ${currentSlide + 1}`}
+                className="w-full h-full object-cover"
+                style={{ willChange: 'opacity' }}
+              />
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
-
-      {/* Slider Indicators */}
-      {/* <div className="flex justify-center gap-2 mt-2">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`h-1 transition-all duration-[800ms] ease-out ${
-              index === currentSlide 
-                ? 'w-12 bg-text-dark' 
-                : 'w-12 bg-text-muted opacity-40'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div> */}
     </div>
   );
 };

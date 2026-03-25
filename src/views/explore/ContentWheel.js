@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import WideContainer from '../../components/containers/WideContainer';
 import ContentWheelGrid from '../../components/explore/ContentWheel/ContentWheelGrid';
 
@@ -44,7 +46,7 @@ const ContentWheel = () => {
         {/* Back Button */}
         <div className="mb-8">
           <Link
-            to="/work"
+            href="/work"
             className="font-serif font-semibold text-lg text-text-dark underline hover:text-text-accent transition-colors"
           >
             Back to Work

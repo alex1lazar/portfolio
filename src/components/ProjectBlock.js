@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 function ProjectBlock({ title, subtitle, description, children, link }) {
-  const navigate = useNavigate();
+  const router = useRouter();
   
   const TitleContent = () => (
     <h2 className="mb-0">
@@ -15,7 +16,7 @@ function ProjectBlock({ title, subtitle, description, children, link }) {
   const handleSliderClick = (e) => {
     if (link) {
       e.preventDefault();
-      navigate(link);
+      router.push(link);
     }
   };
 
@@ -25,7 +26,7 @@ function ProjectBlock({ title, subtitle, description, children, link }) {
       <div className="flex justify-center mb-4">
         <div className="text-center font-serif">
           {link ? (
-            <Link to={link} className="block group hover:opacity-70 transition-opacity">
+            <Link href={link} className="block group hover:opacity-70 transition-opacity">
               <TitleContent />
             </Link>
           ) : (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import NavLink from './NavLink';
 import MobileDrawer from './MobileDrawer';
 import AboutDrawer from './AboutDrawer';
@@ -39,7 +39,7 @@ function Navbar({ hideName = false, onOpenAbout }) {
         <div className="max-w-[1120px] mx-auto px-4 flex justify-between items-center">
           {/* Left side - Name */}
           {!hideName && (
-            <Link to="/" className="text-lg text-text-dark font-serif hover:text-text-accent transition-colors">
+            <Link href="/" className="text-lg text-text-dark font-serif hover:text-text-accent transition-colors">
               Alex Lazar
             </Link>
           )}

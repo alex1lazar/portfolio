@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useTransform } from 'motion/react';
+import { staticAssetUrl } from '../../../lib/staticAssetUrl';
 
 function ContentWheelItem({ item, position, onHover, parentRotation }) {
   const handleMouseEnter = () => {
@@ -39,7 +40,7 @@ function ContentWheelItem({ item, position, onHover, parentRotation }) {
         <div className="w-full h-full bg-gray-200 rounded-sm overflow-hidden relative">
           {/* Image */}
           <img
-            src={item.image}
+            src={staticAssetUrl(item.image)}
             alt={item.title}
             className="w-full h-full object-cover"
           />
