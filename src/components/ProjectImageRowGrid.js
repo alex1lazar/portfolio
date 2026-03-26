@@ -23,7 +23,7 @@ function resolveRowImageSrc(img, imageBaseUrl, imageMap) {
  */
 export default function ProjectImageRowGrid({ rows = [], imageBaseUrl = '', imageMap }) {
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-3">
       {rows.map((row, idx) => {
         if (!row || (row.layout !== 'single' && row.layout !== 'double')) return null;
         const layout = row.layout;
@@ -40,7 +40,7 @@ export default function ProjectImageRowGrid({ rows = [], imageBaseUrl = '', imag
                 <img
                   src={resolveRowImageSrc(img, imageBaseUrl, imageMap)}
                   alt={img.alt || ''}
-                  className="absolute inset-0 w-full h-full object-cover rounded-lg"
+                  className="absolute inset-0 w-full h-full object-cover rounded"
                   loading="lazy"
                 />
               </div>
@@ -56,14 +56,14 @@ export default function ProjectImageRowGrid({ rows = [], imageBaseUrl = '', imag
         return (
           <div
             key={`row-${idx}`}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full"
+            className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full"
           >
             {[left, right].map((img, imgIdx) => (
               <div key={`row-${idx}-img-${imgIdx}`} className="relative w-full" style={{ aspectRatio: '915/518' }}>
                 <img
                   src={resolveRowImageSrc(img, imageBaseUrl, imageMap)}
                   alt={img.alt || ''}
-                  className="absolute inset-0 w-full h-full object-cover rounded-lg"
+                  className="absolute inset-0 w-full h-full object-cover rounded"
                   loading="lazy"
                 />
               </div>

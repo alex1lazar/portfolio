@@ -3,7 +3,6 @@
 import React from 'react';
 import Navbar from '../../components/common/Navbar';
 import WideContainer from '../../components/containers/WideContainer';
-import NarrowContainer from '../../components/containers/NarrowContainer';
 import ProjectImageRowGrid from '../../components/ProjectImageRowGrid';
 import { getProjectConfig } from '../../lib/projectConfigs';
 import kotaSlider6 from '../../assets/kota/Slider 6.png';
@@ -28,21 +27,18 @@ export default function KotaPageContent() {
       <Navbar />
       <div className="pt-40 pb-20">
         <WideContainer>
-          <NarrowContainer>
-            <div className="flex justify-center mb-6">
-              <h2 className="text-center font-serif text-text-dark">
+            <div className="flex mb-2">
+              <h2 className="font-serif text-text-dark">
                 {kota.title}
                 <span className="text-text-muted mx-2 font-normal">/</span>
                 <span className="text-text-dark text-text-muted font-normal">{kota.subtitle}</span>
               </h2>
             </div>
 
-            <p className="text-center text-base text-text-dark max-w-3xl px-4 mb-12">
+            <p className="text-base text-text-dark max-w-l mb-12">
               {kota.description}
             </p>
-
-            <ProjectImageRowGrid rows={kota.detailGrid.rows} imageMap={kotaDetailImageMap} />
-          </NarrowContainer>
+          <ProjectImageRowGrid rows={kota.detailGrid.rows} imageMap={kotaDetailImageMap} />
         </WideContainer>
       </div>
     </div>
