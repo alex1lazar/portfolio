@@ -1,10 +1,12 @@
-  import React, { useState, useEffect } from 'react';
-  import WideContainer from '../components/containers/WideContainer';
-  import BooksByYear from '../components/BooksByYear';
-  import PageHeader from '../components/PageHeader';
-  import { getAllBooks } from '../lib/books';
+'use client';
 
-  const Reading = () => {
+import React, { useState, useEffect } from 'react';
+import WideContainer from '../components/containers/WideContainer';
+import BooksByYear from '../components/BooksByYear';
+import PageHeader from '../components/PageHeader';
+import { getAllBooks } from '../lib/books';
+
+const Reading = () => {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -46,6 +48,6 @@
         </WideContainer>
       </div>
     );
-  };
+};
 
-  export default Reading;
+export default Reading;

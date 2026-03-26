@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { motion } from 'motion/react';
 
 function NavLink({ IconComponent, text, to, onClick, className = "" }) {
@@ -45,7 +45,7 @@ function NavLink({ IconComponent, text, to, onClick, className = "" }) {
   // If to is provided, use Link; otherwise use button
   if (to) {
     return (
-      <Link to={to} {...commonProps}>
+      <Link href={to} {...commonProps}>
         {content}
       </Link>
     );

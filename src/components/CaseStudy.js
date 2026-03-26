@@ -3,6 +3,7 @@ import NarrowContainer from './containers/NarrowContainer';
 import WideContainer from './containers/WideContainer';
 import CaseStudySlider from './CaseStudySlider';
 import ExploreSection from './ExploreSection';
+import { staticAssetUrl } from '../lib/staticAssetUrl';
 
 // Helper function to parse and render text with bold, italic, and links
 const renderTextWithBold = (text) => {
@@ -192,7 +193,7 @@ const CaseStudy = ({
       {heroImage && (
         <div className="max-w-6xl mx-auto px-6 my-16">
           <img 
-            src={heroImage} 
+            src={staticAssetUrl(heroImage)} 
             alt={title}
             className="w-full h-auto rounded-lg"
           />
@@ -264,7 +265,7 @@ const CaseStudy = ({
                       {section.type === 'image' && (
                         <div className="my-8">
                           <img 
-                            src={section.src} 
+                            src={staticAssetUrl(section.src)} 
                             alt={section.alt} 
                             className="w-full h-auto rounded shadow-sm"
                           />

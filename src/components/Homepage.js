@@ -1,7 +1,8 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import Slider from './Slider';
-import { getAllArticles } from '../lib/articles';
 import { getAllBooks } from '../lib/books';
 
 // import heroImg1 from '../assets/hero/Slider 1.png';
@@ -13,25 +14,20 @@ import AboutDrawer from './common/AboutDrawer';
 import PrimaryButton from './common/PrimaryButton';
 import ExploreSection from './ExploreSection';
 
-function Homepage() {
-  const [articles, setArticles] = useState([]);
+function Homepage({ initialArticles = null }) {
+  const [articles, setArticles] = useState(() =>
+    initialArticles ? initialArticles.slice(0, 2) : []
+  );
   const [books, setBooks] = useState([]);
   const [isAboutDrawerOpen, setIsAboutDrawerOpen] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const articlesData = await getAllArticles();
-        setArticles(articlesData.slice(0, 2)); // Get first 2 articles (Carturesti + 2 articles = 3 total)
-        
-        const booksData = getAllBooks();
-        setBooks(booksData.slice(0, 4)); // Get first 4 books
-      } catch (error) {
-        console.error('Error loading data:', error);
-      }
-    };
-
-    fetchData();
+    try {
+      const booksData = getAllBooks();
+      setBooks(booksData.slice(0, 4));
+    } catch (error) {
+      console.error('Error loading books:', error);
+    }
   }, []);
 
   const SectionHeader = ({ title }) => (
@@ -89,7 +85,7 @@ function Homepage() {
           <div className="flex flex-col gap-8 w-full max-w-[480px]">
             {/* Carturesti Case Study */}
             <Link 
-              to="/carturesti"
+              href="/carturesti"
               className="flex flex-col gap-1.5"
             >
               <p className="font-sans font-medium text-base text-text-dark hover:text-text-accent transition-colors">
@@ -102,7 +98,7 @@ function Homepage() {
             {articles.map((article) => (
               <Link 
                 key={article.slug}
-                to={`/writing/${encodeURIComponent(article.slug)}`}
+                href={`/writing/${encodeURIComponent(article.slug)}`}
                 className="flex flex-col gap-1.5"
               >
                 <p className="font-sans font-medium text-base text-text-dark hover:text-text-accent transition-colors">

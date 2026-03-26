@@ -1,22 +1,22 @@
 import React, { Suspense } from 'react';
 import Navbar from './components/common/Navbar';
 import Homepage from './components/Homepage'; 
-import Writing from './pages/Writing';
-import Article from './pages/Article';
-import Work from './pages/Work';
+import Writing from './views/Writing';
+import Article from './views/Article';
+import Work from './views/Work';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
-import Reading from './pages/Reading';
+import Reading from './views/Reading';
 // import SlotWheel from './pages/SlotWheel'; // Commented out - causing build issues
 import { fadeIn } from './lib/motion';
 import WideContainer from './components/containers/WideContainer';
 import NarrowContainer from './components/containers/NarrowContainer';
 
 // Lazy load the Carturesti case study to reduce initial bundle size
-const CaseStudyCarturesti = React.lazy(() => import('./pages/CaseStudyCarturesti'));
+const CaseStudyCarturesti = React.lazy(() => import('./views/CaseStudyCarturesti'));
 // Lazy load the ContentWheel exploration
-const ContentWheel = React.lazy(() => import('./pages/explore/ContentWheel'));
+const ContentWheel = React.lazy(() => import('./views/explore/ContentWheel'));
 
 function AnimatedRoutes() {
   const location = useLocation();

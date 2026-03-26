@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import NarrowContainer from '../components/containers/NarrowContainer';
 import WideContainer from '../components/containers/WideContainer';
 import ArticleContent from '../components/ArticleContent';
 import { loadArticle } from '../lib/articles';
 import { getArticleImages } from '../lib/articleImages';
 
-const Article = () => {
-  const { slug } = useParams();
+const Article = ({ slug }) => {
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

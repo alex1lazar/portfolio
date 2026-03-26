@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
+html {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -10,6 +10,12 @@ html, body {
 }
 
 body {
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+  /* padding-top / padding-bottom: set globally in src/app/layout.js (RootLayout) */
+  min-height: 100%;
+  overflow-x: hidden;
   font-family: 'Geist', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import CaseStudy from '../components/CaseStudy';
 import { problemImagesFormatted, solutionImagesFormatted, heroImage } from '../lib/carturestiImages';
 import { loadMarkdownCaseStudy } from '../lib/markdownParser';
@@ -8,7 +10,7 @@ import statsImage from '../assets/carturesti/Stats.webp';
 import AboutDrawer from '../components/common/AboutDrawer';
 
 const CaseStudyCarturesti = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [sections, setSections] = useState([]);
   const [heroImageFromMarkdown, setHeroImageFromMarkdown] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -54,7 +56,7 @@ const CaseStudyCarturesti = () => {
   }, []);
 
   const handleBack = () => {
-    navigate('/writing');
+    router.push('/writing');
   };
 
   if (loading) {

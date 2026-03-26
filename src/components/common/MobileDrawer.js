@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
 import IconWork from './icons/IconWork';
 import IconWriting from './icons/IconWriting';
@@ -78,7 +78,7 @@ function MobileDrawer({ isOpen, onClose, onOpenAbout }) {
               {/* Navigation Links */}
               <nav className="flex flex-col gap-6">
                 <Link
-                  to="/work"
+                  href="/work"
                   onClick={handleLinkClick}
                   className="flex items-center gap-3 text-text-dark hover:text-text-accent transition-colors"
                 >
@@ -87,7 +87,7 @@ function MobileDrawer({ isOpen, onClose, onOpenAbout }) {
                 </Link>
                 
                 <Link
-                  to="/writing"
+                  href="/writing"
                   onClick={handleLinkClick}
                   className="flex items-center gap-3 text-text-dark hover:text-text-accent transition-colors"
                 >
@@ -96,7 +96,7 @@ function MobileDrawer({ isOpen, onClose, onOpenAbout }) {
                 </Link>
                 
                 <Link
-                  to="/reading"
+                  href="/reading"
                   onClick={handleLinkClick}
                   className="flex items-center gap-3 text-text-dark hover:text-text-accent transition-colors"
                 >

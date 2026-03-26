@@ -1,0 +1,14 @@
+# Next.js on Netlify: use the official runtime (do not publish the old CRA `build/` folder).
+# https://docs.netlify.com/build/frameworks/framework-setup-guides/nextjs/overview/
+# publish must differ from the site base (repo root); empty UI publish defaults to root and breaks the plugin.
+# https://github.com/netlify-templates/next-platform-starter/blob/main/netlify.toml
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

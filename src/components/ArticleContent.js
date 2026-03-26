@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import { staticAssetUrl } from '../lib/staticAssetUrl';
+
+function resolveMarkdownImageSrc(imageMap, keyOrUrl) {
+  const resolved = imageMap[keyOrUrl] ?? keyOrUrl;
+  return staticAssetUrl(resolved);
+}
 
 const ArticleContent = ({ content, imageMap = {} }) => {
-  console.log('ArticleContent render - imageMap keys:', Object.keys(imageMap));
-  console.log('ArticleContent render - content preview:', content?.substring(0, 500));
-  
   return (
     <div className="prose prose-lg max-w-none">
       <ReactMarkdown
@@ -28,20 +31,13 @@ const ArticleContent = ({ content, imageMap = {} }) => {
             const imageMatch = childrenStr.trim().match(/^!\[([^\]]*)\]\(([^)]+)\)\s*$/);
             if (imageMatch) {
               const [, alt, src] = imageMatch;
-              console.log('Found image in paragraph:', { src, alt, hasInMap: src in imageMap, imageMapKeys: Object.keys(imageMap).slice(0, 5) });
-              const imageSrc = imageMap[src] || src;
               return (
                 <img 
-                  src={imageSrc} 
+                  src={resolveMarkdownImageSrc(imageMap, src)} 
                   alt={alt || ''} 
                   className="w-full mt-2 mb-8 rounded-sm"
                 />
               );
-            }
-            
-            // Debug: log if paragraph contains image-like syntax
-            if (childrenStr.includes('![') && childrenStr.includes('](')) {
-              console.log('Paragraph contains image syntax but not matched:', childrenStr.substring(0, 100));
             }
             
             return <p className="text-text-secondary mb-4 leading-relaxed text-base" {...props}>{children}</p>;
@@ -51,38 +47,24 @@ const ArticleContent = ({ content, imageMap = {} }) => {
           blockquote: ({children}) => <blockquote className="border-l-4 border-gray-300 pl-4 italic text-text-secondary my-4">{children}</blockquote>,
           code: ({children, className, ...props}) => {
             // Check if code block contains image markdown (shouldn't happen, but just in case)
-            const codeStr = typeof children === 'string' ? children : String(children);
-            if (codeStr.includes('![') && codeStr.includes('](')) {
-              console.log('Found image syntax in code block:', codeStr.substring(0, 100));
-            }
             return <code className={className} {...props}>{children}</code>;
           },
-          img: ({src, alt, ...props}) => {
-            console.log('IMG component called:', { src, alt, hasInMap: src in imageMap, imageMapKeys: Object.keys(imageMap).slice(0, 5) });
-            // Check if src is an image key in the imageMap
-            const imageSrc = imageMap[src] || src;
-            return (
+          img: ({src, alt, ...props}) => (
               <img 
-                src={imageSrc} 
+                src={resolveMarkdownImageSrc(imageMap, src)} 
                 alt={alt || ''} 
                 className="w-full mt-2 mb-8  rounded-sm"
                 {...props}
               />
-            );
-          },
-          image: ({src, alt, ...props}) => {
-            console.log('IMAGE component called:', { src, alt, hasInMap: src in imageMap });
-            // Check if src is an image key in the imageMap
-            const imageSrc = imageMap[src] || src;
-            return (
+            ),
+          image: ({src, alt, ...props}) => (
               <img 
-                src={imageSrc} 
+                src={resolveMarkdownImageSrc(imageMap, src)} 
                 alt={alt || ''} 
                 className="w-full mt-2 mb-8  rounded-sm"
                 {...props}
               />
-            );
-          },
+            ),
         }}
       >
         {content}
