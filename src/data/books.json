@@ -1,5 +1,37 @@
 [
   {
+    "id": "3247cb51-b8b6-8086-965a-d3234345569a",
+    "title": "Normal people",
+    "author": "Sally Rooney",
+    "type": "Fiction",
+    "year": 2026,
+    "coverImage": "/book-covers/3247cb51-b8b6-8086-965a-d3234345569a.png"
+  },
+  {
+    "id": "31b7cb51-b8b6-8012-a6e2-eb63215b0030",
+    "title": "Intermezzo",
+    "author": "Sally Rooney",
+    "type": "Fiction",
+    "year": 2026,
+    "coverImage": "/book-covers/31b7cb51-b8b6-8012-a6e2-eb63215b0030.png"
+  },
+  {
+    "id": "31b7cb51-b8b6-801f-91f1-da99709ca027",
+    "title": "Grandma asked me to tell you she’s sorry",
+    "author": "Fredrik Backman",
+    "type": "Fiction",
+    "year": 2026,
+    "coverImage": "/book-covers/31b7cb51-b8b6-801f-91f1-da99709ca027.png"
+  },
+  {
+    "id": "31b7cb51-b8b6-8014-b0e1-db241a6447be",
+    "title": "Cudi",
+    "author": "Scott Mescudi",
+    "type": "Non-fiction",
+    "year": 2025,
+    "coverImage": "/book-covers/31b7cb51-b8b6-8014-b0e1-db241a6447be.png"
+  },
+  {
     "id": "29a7cb51-b8b6-801c-af6b-d9941e345789",
     "title": "The Burnout Society",
     "author": "Byung-Chul Han",
@@ -10,7 +42,7 @@
   {
     "id": "29a7cb51-b8b6-80a3-87f1-c75363aa9226",
     "title": "Never Too Small Volume 4",
-    "author": "Unknown",
+    "author": "NTS",
     "type": "Non-fiction",
     "year": 2025,
     "coverImage": "/book-covers/29a7cb51-b8b6-80a3-87f1-c75363aa9226.png"
@@ -18,7 +50,7 @@
   {
     "id": "29a7cb51-b8b6-801d-9c04-dd2d83e336f6",
     "title": "Never Too Small Volume 3",
-    "author": "Unknown",
+    "author": "NTS",
     "type": "Non-fiction",
     "year": 2025,
     "coverImage": "/book-covers/29a7cb51-b8b6-801d-9c04-dd2d83e336f6.webp"
@@ -30,6 +62,14 @@
     "type": "Fiction",
     "year": 2025,
     "coverImage": "/book-covers/29a7cb51-b8b6-8040-90d2-e626061bd990.jpg"
+  },
+  {
+    "id": "3067cb51-b8b6-8082-8014-e66448c133d8",
+    "title": "A Man Called Ove",
+    "author": "Fredrik Backman",
+    "type": "Fiction",
+    "year": 2024,
+    "coverImage": "/book-covers/3067cb51-b8b6-8082-8014-e66448c133d8.png"
   },
   {
     "id": "1af7cb51-b8b6-80c5-8c4a-e363c4770645",
