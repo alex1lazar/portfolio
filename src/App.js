@@ -17,6 +17,7 @@ import NarrowContainer from './components/containers/NarrowContainer';
 const CaseStudyCarturesti = React.lazy(() => import('./views/CaseStudyCarturesti'));
 // Lazy load the ContentWheel exploration
 const ContentWheel = React.lazy(() => import('./views/explore/ContentWheel'));
+const HeroExplorations = React.lazy(() => import('./views/work/HeroExplorations'));
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -86,6 +87,31 @@ function AnimatedRoutes() {
           >
             <Navbar />
             <Work />
+          </motion.main>
+        } />
+        <Route path="/work/hero-explorations" element={
+          <motion.main
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={fadeIn}
+            transition={{ duration: 0.2 }}
+            className="bg-background-primary min-h-screen pt-10 md:pt-20"
+          >
+            <Navbar />
+            <Suspense fallback={
+              <div className="pt-32">
+                <WideContainer>
+                  <NarrowContainer>
+                    <div className="text-center">
+                      <p className="text-text-secondary">Loading…</p>
+                    </div>
+                  </NarrowContainer>
+                </WideContainer>
+              </div>
+            }>
+              <HeroExplorations />
+            </Suspense>
           </motion.main>
         } />
         <Route path="/carturesti" element={
