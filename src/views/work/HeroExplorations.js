@@ -66,6 +66,14 @@ const explorations = wireUrls.map((wireUrl, i) => ({
   thumbKind: 'photo',
 }));
 
+function isArrowKeyNavigationBlockedTarget(target) {
+  if (!target || !(target instanceof Element)) return false;
+  const el = target.closest(
+    'input, textarea, select, [contenteditable="true"], [role="textbox"]',
+  );
+  return Boolean(el);
+}
+
 function TabThumb({ kind, imageSrc }) {
   if (kind === 'photo' && imageSrc) {
     return (
@@ -222,14 +230,19 @@ export default function HeroExplorations() {
     [applyStripDragMove, finishStripDrag],
   );
 
-  const onScrollStripKeyDown = useCallback((e) => {
-    if (e.key === 'ArrowRight') {
+  useEffect(() => {
+    const onWindowKeyDown = (e) => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      if (isArrowKeyNavigationBlockedTarget(e.target)) return;
       e.preventDefault();
-      setActiveIndex((i) => Math.min(i + 1, explorations.length - 1));
-    } else if (e.key === 'ArrowLeft') {
-      e.preventDefault();
-      setActiveIndex((i) => Math.max(i - 1, 0));
-    }
+      if (e.key === 'ArrowRight') {
+        setActiveIndex((i) => Math.min(i + 1, explorations.length - 1));
+      } else {
+        setActiveIndex((i) => Math.max(i - 1, 0));
+      }
+    };
+    window.addEventListener('keydown', onWindowKeyDown);
+    return () => window.removeEventListener('keydown', onWindowKeyDown);
   }, []);
 
   const active = explorations[activeIndex];
@@ -267,16 +280,23 @@ export default function HeroExplorations() {
 
         <div ref={containerRef} className="relative mb-10 w-full overflow-hidden">
           <div
+            className="pointer-events-none absolute inset-y-0 left-0 z-20 w-3 bg-gradient-to-r from-background-primary to-transparent"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 z-20 w-3 bg-gradient-to-l from-background-primary to-transparent"
+            aria-hidden
+          />
+          <div
             ref={scrollRef}
             tabIndex={0}
             role="region"
-            aria-label="Hero exploration thumbnails. Use arrow keys to change selection."
-            onKeyDown={onScrollStripKeyDown}
+            aria-label="Hero exploration thumbnails. Arrow keys change selection."
             onPointerDown={onScrollStripPointerDown}
             onPointerMove={onScrollStripPointerMove}
             onPointerUp={onScrollStripPointerUp}
             onPointerCancel={onScrollStripPointerUp}
-            className={`flex w-full gap-3 overflow-x-auto overflow-y-hidden overscroll-x-contain pl-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-color-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background-primary ${
+            className={`flex w-full gap-3 overflow-x-auto overflow-y-hidden overscroll-x-contain pl-1 pr-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-color-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background-primary ${
               hasOverflow
                 ? isPointerDragging
                   ? 'cursor-grabbing select-none'

@@ -1,10 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 
 function ProjectBlock({ title, subtitle, description, children, link }) {
-  const router = useRouter();
-  
   const TitleContent = () => (
     <h2 className="mb-0">
       <span className="text-text-dark">{title}</span>
@@ -12,13 +9,6 @@ function ProjectBlock({ title, subtitle, description, children, link }) {
       <span className="text-text-dark text-text-muted font-normal">{subtitle}</span>
     </h2>
   );
-
-  const handleSliderClick = (e) => {
-    if (link) {
-      e.preventDefault();
-      router.push(link);
-    }
-  };
 
   return (
     <div className="w-full mb-24 md:mb-60">
@@ -37,15 +27,15 @@ function ProjectBlock({ title, subtitle, description, children, link }) {
 
       {/* Slider/Content Section */}
       {link ? (
-        <div 
-          className="max-w-full mb-4 group hover:opacity-70 transition-opacity cursor-pointer relative"
-          onClick={handleSliderClick}
+        <Link
+          href={link}
+          className="max-w-full mb-4 group hover:opacity-70 transition-opacity cursor-pointer relative block"
           style={{ zIndex: 1 }}
         >
           <div style={{ pointerEvents: 'none' }}>
             {children}
           </div>
-        </div>
+        </Link>
       ) : (
         <div className="max-w-full mb-4">
           {children}
