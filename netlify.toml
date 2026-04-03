@@ -4,7 +4,11 @@
 # https://github.com/netlify-templates/next-platform-starter/blob/main/netlify.toml
 #
 # Do not add a CRA-style `public/_redirects` rule like `/* /index.html 200` — it rewrites
-# `/_next/static/*` to HTML and the site renders blank. The plugin handles routing.
+# `/_next/static/*` to HTML and the site renders blank.
+# Do not commit `public/index.html` (CRA shell). Netlify may serve it for `/` and you get a blank page.
+#
+# Let Netlify inject the latest OpenNext adapter (recommended for Next 13.5+). Pinning
+# @netlify/plugin-nextjs in package.json can leave you on an older runtime.
 
 [build]
   command = "npm run build"
@@ -12,6 +16,3 @@
 
 [build.environment]
   NODE_VERSION = "20"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
