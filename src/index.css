@@ -47,4 +47,13 @@ code {
   src: url('../public/fonts/LastikFamily-SemiBold.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
-} 
+}
+
+/* Pasito stepper on dark homepage background */
+.pasito-container.homepage-pasito-stepper {
+  --pill-bg: rgba(from theme('colors.text.muted') r g b / 0.35);
+  --pill-active-bg: rgba(from theme('colors.color.accent') r g b / 1);
+  --pill-fill-bg: rgba(0, 0, 0, 0.5);
+  --pill-container-bg: rgba(from theme('colors.background.primary') r g b / 0.8);
+  --pill-container-border: rgba(from theme('colors.text.muted') r g b / 0.12);
+}

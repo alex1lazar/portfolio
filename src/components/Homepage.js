@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Slider from './Slider';
+import HomepagePasitoSlider from './HomepagePasitoSlider';
 import { getAllBooks } from '../lib/books';
 
 // import heroImg1 from '../assets/hero/Slider 1.png';
@@ -63,10 +63,12 @@ function Homepage({ initialArticles = null }) {
           </div>
         </div>
 
-        {/* Slider Section */}
+        {/* Slider Section — original + Pasito variation (stacked) */}
         <div className="pt-20 mb-40">
-          <div className="rounded-xs overflow-hidden">
-            <Slider />
+          <div className="flex flex-col gap-12">
+            <div className="rounded-xs overflow-hidden">
+              <HomepagePasitoSlider />
+            </div>
           </div>
         <div className="flex gap-6 items-start mt-6 flex-col md:flex-row">
           <div className="w-[128px] hidden md:block"></div>

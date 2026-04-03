@@ -14,7 +14,7 @@ import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { staticAssetUrl } from '../lib/staticAssetUrl';
 
-const defaultSlides = [
+export const HERO_SLIDE_IMAGES = [
   heroImg1,
   heroImg2,
   heroImg3,
@@ -24,10 +24,10 @@ const defaultSlides = [
   heroImg7,
   heroImg8,
   heroImg9,
-  heroImg10
+  heroImg10,
 ];
 
-const Slider = ({ images = defaultSlides, delay = 0 }) => {
+const Slider = ({ images = HERO_SLIDE_IMAGES, delay = 0 }) => {
   const slides = images;
   const [currentSlide, setCurrentSlide] = useState(0);
 

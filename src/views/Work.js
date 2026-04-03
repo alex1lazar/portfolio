@@ -1,9 +1,8 @@
 'use client';
 
 import React from 'react';
-import WideContainer from '../components/containers/WideContainer';
-import ProjectBlock from '../components/ProjectBlock';
-import Slider from '../components/Slider';
+import XLContainer from '../components/containers/XLContainer';
+import WorkProjectRow from '../components/WorkProjectRow';
 import { getProjectConfig } from '../lib/projectConfigs';
 
 import carturestiImg1 from '../assets/carturesti/Slider 1.webp';
@@ -29,45 +28,44 @@ const advisableSlides = [advWp1, advWp2, advWp3, advWp4, advWp5];
 
 const kota = getProjectConfig('kota');
 const advisable = getProjectConfig('advisable');
+const kotaImageAlts = kota.workPreview.images.map((img) => img.alt);
+const advisableImageAlts = advisable.workPreview.images.map((img) => img.alt);
+
+const carturestiTitle = 'Carturesti.ro';
+const carturestiSubtitle = 'An imagined mobile app for their digital efforts';
+const carturestiImageAlts = carturestiSlides.map(
+  (_, i) => `${carturestiTitle} work preview ${i + 1}`
+);
 
 function Work() {
 
   return (
     <div className="bg-background-primary pt-40 pb-20">
-      <WideContainer>
-        {/* Kota Project */}
-        <ProjectBlock
+      <XLContainer>
+        <WorkProjectRow
           title={kota.title}
           subtitle={kota.subtitle}
-          description={kota.description}
-          link="/kota"
-        >
-          {/* Pass kotaSlides once you've created the array above */}
-          <Slider images={kotaSlides} />
-        </ProjectBlock>
+          href="/kota"
+          images={kotaSlides}
+          imageAlts={kotaImageAlts}
+        />
 
-        {/* Advisable Project */}
-        <ProjectBlock
+        <WorkProjectRow
           title={advisable.title}
           subtitle={advisable.subtitle}
-          description={advisable.description}
-          link="/advisable"
-        >
-          {/* Pass advisableSlides once you've created the array above */}
-          <Slider images={advisableSlides} delay={1000} />
-        </ProjectBlock>
+          href="/advisable"
+          images={advisableSlides}
+          imageAlts={advisableImageAlts}
+        />
 
-        {/* Carturesti Project */}
-        <ProjectBlock
-          title="Carturesti.ro"
-          subtitle="An imagined mobile app for their digital efforts"
-          description="A self-started project coming from my annoyance with their e-commerce experience"
-          link="/carturesti"
-        >
-          {/* Pass carturestiSlides once you've created the array above */}
-          <Slider images={carturestiSlides} delay={2000} />
-        </ProjectBlock>
-      </WideContainer>
+        <WorkProjectRow
+          title={carturestiTitle}
+          subtitle={carturestiSubtitle}
+          href="/carturesti"
+          images={carturestiSlides}
+          imageAlts={carturestiImageAlts}
+        />
+      </XLContainer>
     </div>
   );
 }
