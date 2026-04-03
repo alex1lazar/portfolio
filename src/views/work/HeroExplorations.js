@@ -12,8 +12,9 @@ import React, {
 } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
-import { useDialKit } from 'dialkit';
 import WideContainer from '../../components/containers/WideContainer';
+import IconAddCircle from '../../components/common/icons/IconAddCircle';
+import IconWriting from '../../components/common/icons/IconWriting';
 import wire01 from '../../assets/work/hero-explorations/Hero wire 1.png';
 import wire02 from '../../assets/work/hero-explorations/Hero wire 2.png';
 import wire03 from '../../assets/work/hero-explorations/Hero wire 3.png';
@@ -66,206 +67,93 @@ const explorationUrls = [
   imageSrc(exploration10),
 ];
 
-/* ─────────────────────────────────────────────────────────
- * DIALKIT → MOTION (Hero explorations)
- *
- * Open the “Hero explorations” panel (top-right) to tune timings.
- * Dropdowns map to the derived values in deriveHeroExploreMotion().
- * ───────────────────────────────────────────────────────── */
-
-const HERO_EXPLORE_DIAL_CONFIG = {
-  introReveal: {
-    staggerPreset: {
-      type: 'select',
-      default: 'comfortable',
-      options: [
-        { value: 'tight', label: 'Gap between words · tight (fast)' },
-        { value: 'comfortable', label: 'Gap between words · comfortable' },
-        { value: 'slow', label: 'Gap between words · slow' },
-        { value: 'dramatic', label: 'Gap between words · dramatic' },
-      ],
-    },
-    fadeDuration: {
-      type: 'select',
-      default: '0.2s',
-      options: [
-        { value: '0.12s', label: 'Single-word fade · 0.12s' },
-        { value: '0.2s', label: 'Single-word fade · 0.2s' },
-        { value: '0.35s', label: 'Single-word fade · 0.35s' },
-        { value: '0.5s', label: 'Single-word fade · 0.5s' },
-      ],
-    },
-    easing: {
-      type: 'select',
-      default: 'snappy',
-      options: [
-        { value: 'snappy', label: 'Word opacity curve · snappy' },
-        { value: 'smooth', label: 'Word opacity curve · smooth' },
-        { value: 'linear', label: 'Word opacity curve · linear' },
-      ],
-    },
-  },
-  thumbnailStrip: {
-    accentOverlayMs: {
-      type: 'select',
-      default: '200ms',
-      options: [
-        { value: '100ms', label: 'Thumb accent wash · 100ms' },
-        { value: '200ms', label: 'Thumb accent wash · 200ms' },
-        { value: '300ms', label: 'Thumb accent wash · 300ms' },
-        { value: '450ms', label: 'Thumb accent wash · 450ms' },
-      ],
-    },
-    accentOverlayEasing: {
-      type: 'select',
-      default: 'ease-out',
-      options: [
-        { value: 'ease-out', label: 'Thumb wash easing · ease-out' },
-        { value: 'ease-in-out', label: 'Thumb wash easing · ease-in-out' },
-        { value: 'linear', label: 'Thumb wash easing · linear' },
-      ],
-    },
-  },
-  previewSwap: {
-    crossfadeDuration: {
-      type: 'select',
-      default: '0.25s',
-      options: [
-        { value: '0.15s', label: 'Main preview crossfade · 0.15s' },
-        { value: '0.25s', label: 'Main preview crossfade · 0.25s' },
-        { value: '0.4s', label: 'Main preview crossfade · 0.4s' },
-        { value: '0.6s', label: 'Main preview crossfade · 0.6s' },
-      ],
-    },
-    crossfadeEasing: {
-      type: 'select',
-      default: 'snappy',
-      options: [
-        { value: 'snappy', label: 'Preview opacity curve · snappy' },
-        { value: 'smooth', label: 'Preview opacity curve · smooth' },
-        { value: 'linear', label: 'Preview opacity curve · linear' },
-      ],
-    },
-  },
-  backLink: {
-    arrowNudgePreset: {
-      type: 'select',
-      default: 'subtle',
-      options: [
-        { value: 'none', label: 'Back arrow hover nudge · none' },
-        { value: 'subtle', label: 'Back arrow hover nudge · subtle' },
-        { value: 'medium', label: 'Back arrow hover nudge · medium' },
-        { value: 'strong', label: 'Back arrow hover nudge · strong' },
-      ],
-    },
-    linkColorMs: {
-      type: 'select',
-      default: '200ms',
-      options: [
-        { value: '120ms', label: 'Back link color + arrow · 120ms' },
-        { value: '200ms', label: 'Back link color + arrow · 200ms' },
-        { value: '320ms', label: 'Back link color + arrow · 320ms' },
-        { value: '500ms', label: 'Back link color + arrow · 500ms' },
-      ],
-    },
-  },
-};
-
+/**
+ * Motion timings for this page (fixed). For optional local tuning with DialKit,
+ * wire `AppDialKit` in `app/layout.js` and reintroduce `useDialKit` here.
+ */
 const MOTION_EASE = {
   snappy: [0.22, 1, 0.36, 1],
   smooth: [0.4, 0, 0.2, 1],
   linear: [0, 0, 1, 1],
 };
 
-function deriveHeroExploreMotion(d) {
-  const staggerSec =
-    d.introReveal.staggerPreset === 'tight'
-      ? 0.035
-      : d.introReveal.staggerPreset === 'slow'
-        ? 0.09
-        : d.introReveal.staggerPreset === 'dramatic'
-          ? 0.14
-          : 0.055;
+const HERO_EXPLORE_WORD_FADE_DURATION = 0.2;
 
-  const fadeMap = { '0.12s': 0.12, '0.2s': 0.2, '0.35s': 0.35, '0.5s': 0.5 };
-  const wordFadeDuration = fadeMap[d.introReveal.fadeDuration] ?? 0.2;
-  const wordEase = MOTION_EASE[d.introReveal.easing] ?? MOTION_EASE.snappy;
+const HERO_EXPLORE_MOTION = {
+  wordStaggerSec: 0.09,
+  wordFadeDuration: HERO_EXPLORE_WORD_FADE_DURATION,
+  wordFirstFadeDuration: Math.min(
+    0.14,
+    Math.max(0.07, HERO_EXPLORE_WORD_FADE_DURATION * 0.42),
+  ),
+  wordEase: MOTION_EASE.smooth,
+  thumbOverlayMs: 200,
+  thumbOverlayEasing: 'ease-out',
+  previewDuration: 0.4,
+  previewEase: MOTION_EASE.smooth,
+  backArrowNudgeClass: 'group-hover:-translate-x-0.5',
+  backLinkColorMs: 200,
+};
 
-  const thumbMsMap = { '100ms': 100, '200ms': 200, '300ms': 300, '450ms': 450 };
-  const thumbOverlayMs = thumbMsMap[d.thumbnailStrip.accentOverlayMs] ?? 200;
-  const cssEaseMap = {
-    'ease-out': 'ease-out',
-    'ease-in-out': 'ease-in-out',
-    linear: 'linear',
-  };
-  const thumbOverlayEasing =
-    cssEaseMap[d.thumbnailStrip.accentOverlayEasing] ?? 'ease-out';
+/** Pause after last intro word finishes before the expand trigger fades in. */
+const INTRO_TRIGGER_AFTER_WORDS_GAP_SEC = 0.05;
 
-  const previewDurMap = { '0.15s': 0.15, '0.25s': 0.25, '0.4s': 0.4, '0.6s': 0.6 };
-  const previewDuration = previewDurMap[d.previewSwap.crossfadeDuration] ?? 0.25;
-  const previewEase =
-    MOTION_EASE[d.previewSwap.crossfadeEasing] ?? MOTION_EASE.snappy;
-
-  const nudgeMap = {
-    none: '',
-    subtle: 'group-hover:-translate-x-0.5',
-    medium: 'group-hover:-translate-x-1',
-    strong: 'group-hover:-translate-x-1.5',
-  };
-  const backArrowNudgeClass = nudgeMap[d.backLink.arrowNudgePreset] ?? nudgeMap.subtle;
-
-  const linkMsMap = { '120ms': 120, '200ms': 200, '320ms': 320, '500ms': 500 };
-  const backLinkColorMs = linkMsMap[d.backLink.linkColorMs] ?? 200;
-
-  return {
-    wordStaggerSec: staggerSec,
-    wordFadeDuration,
-    wordEase,
-    thumbOverlayMs,
-    thumbOverlayEasing,
-    previewDuration,
-    previewEase,
-    backArrowNudgeClass,
-    backLinkColorMs,
-  };
+function countWordsInText(text) {
+  return text.split(/(\s+)/).filter((p) => p && !/^\s+$/.test(p)).length;
 }
 
-const HeroExploreMotionDialContext = createContext(null);
+/** When the last word (index n-1) finishes its opacity tween. */
+function computeIntroTriggerDelay(wordCount, motion = HERO_EXPLORE_MOTION) {
+  if (wordCount <= 0) return 0;
+  const { wordStaggerSec: stagger, wordFadeDuration: fadeDuration, wordFirstFadeDuration: firstFade } =
+    motion;
+  if (wordCount === 1) {
+    return firstFade;
+  }
+  return (wordCount - 1) * stagger + fadeDuration;
+}
 
 /**
  * Progressive intro: `{ kind: 'expand' }` opens inline word-by-word disclosure.
+ * `trigger` accepts any React node; first expand uses IconWriting (accent), nested use IconAddCircle (body text).
  */
 const INTRO_SEGMENTS = [
   {
     kind: 'text',
-    text: 'The hero is the most important piece of the portfolio. End of 2025, I set out to change mine. These are some of the explorations I went through. ',
+    text: 'The hero is the most important piece of the portfolio. These are some of the explorations I went through. ',
   },
   {
     kind: 'expand',
-    trigger: '✍🏼',
+    trigger: (
+      <IconAddCircle className="inline-block h-[1.25rem] w-[1.25rem] shrink-0 translate-y-[4px] align-[-0.02em] text-text-accent group-hover:text-text-accent" />
+    ),
     ariaLabel: 'Read more about this page',
-    content: [
+    content: [  
       {
         kind: 'text',
-        text: 'The strip above runs from early wires toward later explorations—use clicks or arrow keys to move through them. ',
+        text: 'The direction was simple: a calm, minimalist vibe that allows the work and words to shine. ',
       },
       {
         kind: 'expand',
-        trigger: '·',
+        trigger: (
+          <IconAddCircle className="inline-block h-[1.25rem] w-[1.25rem] shrink-0 translate-y-[4px] align-[-0.02em] text-text-sm group-hover:text-text-sm" />
+        ),
         ariaLabel: 'Read a bit more',
         content: [
           {
             kind: 'text',
-            text: "I'm showing process, not only finals, because the hero is where layout, type, and motion decisions stack up. ",
+            text: "I saw this place as a portfolio, playground, and writing space. But the hero still needed to capture the eyes and express just enough to encourage exploration.",
           },
           {
             kind: 'expand',
-            trigger: '·',
+            trigger: (
+              <IconAddCircle className="inline-block h-[1.25rem] w-[1.25rem] shrink-0 translate-y-[4px] align-[-0.02em] text-text-sm group-hover:text-text-sm" />
+            ),
             ariaLabel: 'One more detail',
             content: [
               {
                 kind: 'text',
-                text: 'Replace these sentences with your own; add or remove `expand` blocks (up to a handful) as you like.',
+                text: 'If you got to this point, maybe it succeeded :)',
               },
             ],
           },
@@ -300,13 +188,11 @@ function usePrefersReducedMotion() {
 function TextWordStagger({ text }) {
   const indexRef = useContext(WordIndexContext);
   const reduceMotion = usePrefersReducedMotion();
-  const motionDial = useContext(HeroExploreMotionDialContext);
   if (!indexRef) {
     return text;
   }
-  const staggerSec = motionDial?.wordStaggerSec ?? 0.055;
-  const fadeDuration = motionDial?.wordFadeDuration ?? 0.2;
-  const ease = motionDial?.wordEase ?? MOTION_EASE.snappy;
+  const { wordStaggerSec: staggerSec, wordFadeDuration: fadeDuration, wordFirstFadeDuration: firstFadeDuration, wordEase: ease } =
+    HERO_EXPLORE_MOTION;
 
   const parts = text.split(/(\s+)/);
   return (
@@ -325,6 +211,7 @@ function TextWordStagger({ text }) {
             </span>
           );
         }
+        const isFirstWord = idx === 0;
         return (
           <motion.span
             key={`w-${idx}-${j}`}
@@ -332,9 +219,10 @@ function TextWordStagger({ text }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
+              type: 'tween',
               delay: idx * staggerSec,
-              duration: fadeDuration,
-              ease,
+              duration: isFirstWord ? firstFadeDuration : fadeDuration,
+              ease: isFirstWord ? MOTION_EASE.snappy : ease,
             }}
           >
             {part}
@@ -345,13 +233,17 @@ function TextWordStagger({ text }) {
   );
 }
 
-function IntroSegment({ segment }) {
+function IntroSegment({ segment, deferTriggerUntilWords, staggerText = true }) {
   if (segment.kind === 'text') {
+    if (!staggerText) {
+      return segment.text;
+    }
     return <TextWordStagger text={segment.text} />;
   }
   if (segment.kind === 'expand') {
     return (
       <ExpandInline
+        deferTriggerUntilWords={deferTriggerUntilWords}
         trigger={segment.trigger}
         ariaLabel={segment.ariaLabel}
         segments={segment.content}
@@ -361,18 +253,53 @@ function IntroSegment({ segment }) {
   return null;
 }
 
+/** Cumulative word count in `segments` before each index (for deferring expand triggers). */
+function useWordsBeforeEachSegment(segments) {
+  return useMemo(() => {
+    const before = [];
+    let acc = 0;
+    for (let i = 0; i < segments.length; i++) {
+      before[i] = acc;
+      const seg = segments[i];
+      if (seg.kind === 'text') {
+        acc += countWordsInText(seg.text);
+      }
+    }
+    return before;
+  }, [segments]);
+}
+
 function ExpandInlineRevealedContent({ segments }) {
+  const wordsBefore = useWordsBeforeEachSegment(segments);
   return (
     <WordIndexProvider>
       {segments.map((seg, i) => (
-        <IntroSegment key={i} segment={seg} />
+        <IntroSegment
+          key={i}
+          segment={seg}
+          deferTriggerUntilWords={
+            seg.kind === 'expand' ? wordsBefore[i] : undefined
+          }
+        />
       ))}
     </WordIndexProvider>
   );
 }
 
-function ExpandInline({ trigger, ariaLabel, segments }) {
+const expandTriggerButtonClass =
+  'group mx-0.5 inline-flex min-h-[1.35em] min-w-[1.35em] cursor-pointer items-center justify-center border-0 bg-transparent p-0 align-baseline font-inherit text-inherit transition-colors hover:text-text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-color-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background-primary';
+
+function ExpandInline({ trigger, ariaLabel, segments, deferTriggerUntilWords }) {
   const [open, setOpen] = useState(false);
+  const reduceMotion = usePrefersReducedMotion();
+  const shouldDeferIntroTrigger =
+    typeof deferTriggerUntilWords === 'number' && deferTriggerUntilWords > 0;
+  const deferIntroTrigger = shouldDeferIntroTrigger && !reduceMotion;
+  const [triggerFocusable, setTriggerFocusable] = useState(!deferIntroTrigger);
+
+  useEffect(() => {
+    setTriggerFocusable(!deferIntroTrigger);
+  }, [deferIntroTrigger]);
 
   if (open) {
     return (
@@ -382,28 +309,78 @@ function ExpandInline({ trigger, ariaLabel, segments }) {
     );
   }
 
+  if (reduceMotion || !shouldDeferIntroTrigger) {
+    return (
+      <button
+        type="button"
+        aria-expanded={false}
+        aria-label={ariaLabel}
+        onClick={() => setOpen(true)}
+        className={expandTriggerButtonClass}
+      >
+        <span
+          aria-hidden
+          className="inline-flex select-none items-center justify-center text-current [&_svg]:shrink-0"
+        >
+          {trigger}
+        </span>
+      </button>
+    );
+  }
+
+  const revealDelay =
+    computeIntroTriggerDelay(deferTriggerUntilWords) + INTRO_TRIGGER_AFTER_WORDS_GAP_SEC;
+
   return (
-    <button
+    <motion.button
       type="button"
       aria-expanded={false}
       aria-label={ariaLabel}
+      aria-hidden={triggerFocusable ? undefined : true}
+      tabIndex={triggerFocusable ? 0 : -1}
       onClick={() => setOpen(true)}
-      className="mx-0.5 inline-flex min-h-[1.35em] min-w-[1.35em] cursor-pointer items-center justify-center border-0 border-b border-dotted border-text-dark/35 bg-transparent p-0 align-baseline font-inherit text-inherit transition-colors hover:border-text-dark/55 hover:text-text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-color-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background-primary"
+      className={expandTriggerButtonClass}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        type: 'tween',
+        delay: revealDelay,
+        duration: 0.22,
+        ease: MOTION_EASE.snappy,
+      }}
+      onAnimationComplete={() => setTriggerFocusable(true)}
     >
-      <span aria-hidden className="select-none">
+      <span
+        aria-hidden
+        className="inline-flex select-none items-center justify-center text-current [&_svg]:shrink-0"
+      >
         {trigger}
       </span>
-    </button>
+    </motion.button>
   );
 }
 
 function IntroProgressiveParagraph({ segments, className = '' }) {
+  const firstExpandIndex = segments.findIndex((s) => s.kind === 'expand');
+  const beforeExpand =
+    firstExpandIndex === -1 ? segments : segments.slice(0, firstExpandIndex);
+  const expandSegment =
+    firstExpandIndex === -1 ? null : segments[firstExpandIndex];
+  const afterExpand =
+    firstExpandIndex === -1 ? [] : segments.slice(firstExpandIndex + 1);
+
   return (
     <p
       className={`mb-10 max-w-xl font-sans text-base leading-relaxed text-text-sm ${className}`}
     >
-      {segments.map((seg, i) => (
-        <IntroSegment key={i} segment={seg} />
+      {beforeExpand.map((seg, i) => (
+        <IntroSegment key={`pre-${i}`} segment={seg} staggerText={false} />
+      ))}
+      {expandSegment ? (
+        <IntroSegment key="expand" segment={expandSegment} staggerText={false} />
+      ) : null}
+      {afterExpand.map((seg, i) => (
+        <IntroSegment key={`post-${i}`} segment={seg} staggerText={false} />
       ))}
     </p>
   );
@@ -450,23 +427,6 @@ function TabThumb({ kind, imageSrc }) {
 }
 
 export default function HeroExplorations() {
-  const dial = useDialKit('Hero explorations', HERO_EXPLORE_DIAL_CONFIG);
-
-  const motionDial = useMemo(
-    () => deriveHeroExploreMotion(dial),
-    [
-      dial.introReveal.staggerPreset,
-      dial.introReveal.fadeDuration,
-      dial.introReveal.easing,
-      dial.thumbnailStrip.accentOverlayMs,
-      dial.thumbnailStrip.accentOverlayEasing,
-      dial.previewSwap.crossfadeDuration,
-      dial.previewSwap.crossfadeEasing,
-      dial.backLink.arrowNudgePreset,
-      dial.backLink.linkColorMs,
-    ],
-  );
-
   const [activeIndex, setActiveIndex] = useState(0);
   const [hasOverflow, setHasOverflow] = useState(false);
   const [isPointerDragging, setIsPointerDragging] = useState(false);
@@ -613,149 +573,149 @@ export default function HeroExplorations() {
   const active = explorations[activeIndex];
 
   return (
-    <HeroExploreMotionDialContext.Provider value={motionDial}>
-      <div className="bg-background-primary min-h-screen pb-16 pt-16">
-        <WideContainer>
-          <Link
-            href="/work"
-            className="group mb-10 inline-flex cursor-pointer items-center gap-1 font-sans text-sm text-text-dark transition-colors hover:text-text-accent"
-            style={{ transitionDuration: `${motionDial.backLinkColorMs}ms` }}
+    <div className="bg-background-primary min-h-screen pb-16 pt-16">
+      <WideContainer>
+        <Link
+          href="/work"
+          className="group mb-10 inline-flex cursor-pointer items-center gap-1 font-sans text-sm text-text-dark transition-colors hover:text-text-accent"
+          style={{ transitionDuration: `${HERO_EXPLORE_MOTION.backLinkColorMs}ms` }}
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={`shrink-0 text-current transition-transform ${HERO_EXPLORE_MOTION.backArrowNudgeClass}`}
+            style={{ transitionDuration: `${HERO_EXPLORE_MOTION.backLinkColorMs}ms` }}
+            aria-hidden
           >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className={`shrink-0 text-current transition-transform ${motionDial.backArrowNudgeClass}`}
-              style={{ transitionDuration: `${motionDial.backLinkColorMs}ms` }}
-              aria-hidden
-            >
-              <path
-                d="M15 18l-6-6 6-6"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            Back to Work
-          </Link>
-
-          <IntroProgressiveParagraph segments={INTRO_SEGMENTS} />
-
-          <div ref={containerRef} className="relative mb-10 w-full overflow-hidden">
-            <div
-              className="pointer-events-none absolute inset-y-0 left-0 z-20 w-3 bg-gradient-to-r from-background-primary to-transparent"
-              aria-hidden
+            <path
+              d="M15 18l-6-6 6-6"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
-            <div
-              className="pointer-events-none absolute inset-y-0 right-0 z-20 w-3 bg-gradient-to-l from-background-primary to-transparent"
-              aria-hidden
-            />
-            <div
-              ref={scrollRef}
-              tabIndex={0}
-              role="region"
-              aria-label="Hero exploration thumbnails. Arrow keys change selection."
-              onPointerDown={onScrollStripPointerDown}
-              onPointerMove={onScrollStripPointerMove}
-              onPointerUp={onScrollStripPointerUp}
-              onPointerCancel={onScrollStripPointerUp}
-              className={`flex w-full gap-3 overflow-x-auto overflow-y-hidden overscroll-x-contain pl-1 pr-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-color-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background-primary ${
-                hasOverflow
-                  ? isPointerDragging
-                    ? 'cursor-grabbing select-none'
-                    : 'cursor-grab'
-                  : 'cursor-default'
-              }`}
-            >
-              {explorations.map((item, index) => {
-                const isActive = index === activeIndex;
-                return (
-                  <button
-                    key={item.id}
-                    ref={(node) => {
-                      thumbRefs.current[index] = node;
-                    }}
-                    type="button"
-                    aria-pressed={isActive}
-                    onPointerDown={onThumbPointerDown}
-                    onClick={() => {
-                      if (suppressNextClickRef.current) {
-                        suppressNextClickRef.current = false;
-                        return;
-                      }
-                      setActiveIndex(index);
-                    }}
-                    className={`group relative h-[4.5rem] w-[6.75rem] shrink-0 cursor-pointer overflow-hidden rounded-md bg-background-white md:h-[5rem] md:w-[7.5rem] ${
-                      isActive
-                        ? 'border-2 border-color-accent shadow-sm'
-                        : 'border-2 border-transparent hover:border-text-dark/20'
-                    }`}
-                  >
-                    <div className="absolute inset-0 isolate">
-                      <div className="absolute inset-0 z-0">
-                        <TabThumb kind={item.thumbKind} imageSrc={item.thumbSrc} />
-                      </div>
-                      <span
-                        className={`pointer-events-none absolute inset-0 z-10 bg-color-accent mix-blend-soft-light ${
-                          isActive ? 'opacity-80' : 'opacity-0 group-hover:opacity-50'
-                        }`}
-                        style={{
-                          transitionProperty: 'opacity',
-                          transitionDuration: `${motionDial.thumbOverlayMs}ms`,
-                          transitionTimingFunction: motionDial.thumbOverlayEasing,
-                        }}
-                        aria-hidden
-                      />
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+          </svg>
+          Back to Work
+        </Link>
 
-          <motion.figure
-            className="relative m-0 block mx-auto w-full overflow-hidden rounded bg-background-white p-6"
-            style={{ aspectRatio: '1440 / 1024' }}
+        <IntroProgressiveParagraph segments={INTRO_SEGMENTS} />
+
+        <div ref={containerRef} className="relative mb-10 w-full overflow-hidden">
+          <div
+            className="pointer-events-none absolute inset-y-0 left-0 z-20 w-3 bg-gradient-to-r from-background-primary to-transparent"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 z-20 w-3 bg-gradient-to-l from-background-primary to-transparent"
+            aria-hidden
+          />
+          <div
+            ref={scrollRef}
+            tabIndex={0}
+            role="region"
+            aria-label="Hero exploration thumbnails. Arrow keys change selection."
+            onPointerDown={onScrollStripPointerDown}
+            onPointerMove={onScrollStripPointerMove}
+            onPointerUp={onScrollStripPointerUp}
+            onPointerCancel={onScrollStripPointerUp}
+            className={`flex w-full gap-3 overflow-x-auto overflow-y-hidden overscroll-x-contain pl-1 pr-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-color-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background-primary ${
+              hasOverflow
+                ? isPointerDragging
+                  ? 'cursor-grabbing select-none'
+                  : 'cursor-grab'
+                : 'cursor-default'
+            }`}
           >
-            <AnimatePresence mode="wait">
-              {active.previewSrc ? (
-                <motion.img
-                  key={active.id}
-                  src={active.previewSrc}
-                  alt={`Hero exploration ${active.id}`}
-                  className="h-full w-full object-cover object-top"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{
-                    duration: motionDial.previewDuration,
-                    ease: motionDial.previewEase,
+            {explorations.map((item, index) => {
+              const isActive = index === activeIndex;
+              return (
+                <button
+                  key={item.id}
+                  ref={(node) => {
+                    thumbRefs.current[index] = node;
                   }}
-                />
-              ) : (
-                <motion.div
-                  key={active.id}
-                  className="flex h-full w-full items-center justify-center bg-surface"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{
-                    duration: motionDial.previewDuration,
-                    ease: motionDial.previewEase,
+                  type="button"
+                  aria-pressed={isActive}
+                  onPointerDown={onThumbPointerDown}
+                  onClick={() => {
+                    if (suppressNextClickRef.current) {
+                      suppressNextClickRef.current = false;
+                      return;
+                    }
+                    setActiveIndex(index);
                   }}
+                  className={`group relative h-[4.5rem] w-[6.75rem] shrink-0 cursor-pointer overflow-hidden rounded-md bg-background-white md:h-[5rem] md:w-[7.5rem] ${
+                    isActive
+                      ? 'border-2 border-color-accent shadow-sm'
+                      : 'border-2 border-transparent hover:border-text-dark/20'
+                  }`}
                 >
-                  <p className="font-sans text-base text-text-secondary">
-                    Exploration preview · {active.id}
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.figure>
-        </WideContainer>
-      </div>
-    </HeroExploreMotionDialContext.Provider>
+                  <div className="absolute inset-0 isolate">
+                    <div className="absolute inset-0 z-0">
+                      <TabThumb kind={item.thumbKind} imageSrc={item.thumbSrc} />
+                    </div>
+                    <span
+                      className={`pointer-events-none absolute inset-0 z-10 bg-color-accent mix-blend-soft-light ${
+                        isActive ? 'opacity-80' : 'opacity-0 group-hover:opacity-50'
+                      }`}
+                      style={{
+                        transitionProperty: 'opacity',
+                        transitionDuration: `${HERO_EXPLORE_MOTION.thumbOverlayMs}ms`,
+                        transitionTimingFunction: HERO_EXPLORE_MOTION.thumbOverlayEasing,
+                      }}
+                      aria-hidden
+                    />
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <motion.figure
+          className="relative m-0 block mx-auto w-full overflow-hidden rounded bg-background-white p-6"
+          style={{ aspectRatio: '1440 / 1024' }}
+        >
+          <AnimatePresence mode="wait">
+            {active.previewSrc ? (
+              <motion.img
+                key={active.id}
+                src={active.previewSrc}
+                alt={`Hero exploration ${active.id}`}
+                className="h-full w-full object-cover object-top"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: HERO_EXPLORE_MOTION.previewDuration,
+                  ease: HERO_EXPLORE_MOTION.previewEase,
+                }}
+              />
+            ) : (
+              <motion.div
+                key={active.id}
+                className="flex h-full w-full items-center justify-center bg-surface"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: HERO_EXPLORE_MOTION.previewDuration,
+                  ease: HERO_EXPLORE_MOTION.previewEase,
+                }}
+              >
+                <p className="font-sans text-base text-text-secondary">
+                  Exploration preview · {active.id}
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.figure>
+      </WideContainer>
+    </div>
   );
 }
+
+
