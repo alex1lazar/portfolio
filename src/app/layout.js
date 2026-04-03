@@ -1,5 +1,6 @@
 import React from 'react';
 import '../index.css';
+import AppDialKit from '../components/dialkit/AppDialKit';
 import BodyScrollReset from '../components/layout/BodyScrollReset';
 import { getSiteBaseUrl, DEFAULT_OG_IMAGE_PATH, DEFAULT_OG_HEIGHT, DEFAULT_OG_WIDTH, absoluteUrl } from '../lib/siteMetadata';
 
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="pt-10 pb-10">
         <BodyScrollReset />
+        <AppDialKit />
         {children}
       </body>
     </html>
