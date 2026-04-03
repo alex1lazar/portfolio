@@ -5,14 +5,17 @@
 #
 # Do not add a CRA-style `public/_redirects` rule like `/* /index.html 200` — it rewrites
 # `/_next/static/*` to HTML and the site renders blank.
-# Do not commit `public/index.html` (CRA shell). Netlify may serve it for `/` and you get a blank page.
+# Do not commit `public/index.html` (CRA shell).
 #
-# Let Netlify inject the latest OpenNext adapter (recommended for Next 13.5+). Pinning
-# @netlify/plugin-nextjs in package.json can leave you on an older runtime.
+# @netlify/plugin-nextjs (in package.json dependencies) wires OpenNext: without it, Netlify
+# may publish `.next` as static files only → generic "Page not found" for `/`.
 
 [build]
   command = "npm run build"
   publish = ".next"
 
 [build.environment]
-  NODE_VERSION = "20"
+  NODE_VERSION = "22"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
