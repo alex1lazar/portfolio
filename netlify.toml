@@ -2,6 +2,9 @@
 # https://docs.netlify.com/build/frameworks/framework-setup-guides/nextjs/overview/
 # publish must differ from the site base (repo root); empty UI publish defaults to root and breaks the plugin.
 # https://github.com/netlify-templates/next-platform-starter/blob/main/netlify.toml
+#
+# Do not add a CRA-style `public/_redirects` rule like `/* /index.html 200` — it rewrites
+# `/_next/static/*` to HTML and the site renders blank. The plugin handles routing.
 
 [build]
   command = "npm run build"
