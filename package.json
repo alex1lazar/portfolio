@@ -36,6 +36,7 @@
   "scripts": {
     "dev": "next dev -p 3000",
     "start": "next start -p 3000",
+    "prebuild": "node scripts/check-netlify-public.cjs",
     "build": "next build",
     "lint": "next lint",
     "test": "echo \"No tests configured for Next.js migration yet\" && exit 0",

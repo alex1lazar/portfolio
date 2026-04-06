@@ -3,9 +3,10 @@
 # publish must differ from the site base (repo root); empty UI publish defaults to root and breaks the plugin.
 # https://github.com/netlify-templates/next-platform-starter/blob/main/netlify.toml
 #
-# Do not add a CRA-style `public/_redirects` rule like `/* /index.html 200` — it rewrites
-# `/_next/static/*` to HTML and the site renders blank.
-# Do not commit `public/index.html` (CRA shell).
+# NEVER commit these (they will break production — white screen or 404):
+#   - public/index.html     → empty #root; Netlify may prefer it over Next for /
+#   - public/_redirects     → SPA /* → index.html breaks /_next/static/* (JS/CSS as HTML)
+# `npm run build` runs scripts/check-netlify-public.cjs first and exits with an error if they exist.
 #
 # @netlify/plugin-nextjs (in package.json dependencies) wires OpenNext: without it, Netlify
 # may publish `.next` as static files only → generic "Page not found" for `/`.

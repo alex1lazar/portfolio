@@ -1,5 +1,13 @@
 [
   {
+    "id": "33a7cb51-b8b6-803d-88cc-e058a496457d",
+    "title": "The Handmaid’s Tale",
+    "author": "Margaret Atwood",
+    "type": "Fiction",
+    "year": 2026,
+    "coverImage": "/book-covers/33a7cb51-b8b6-803d-88cc-e058a496457d.png"
+  },
+  {
     "id": "3247cb51-b8b6-8086-965a-d3234345569a",
     "title": "Normal people",
     "author": "Sally Rooney",
@@ -22,6 +30,22 @@
     "type": "Fiction",
     "year": 2026,
     "coverImage": "/book-covers/31b7cb51-b8b6-801f-91f1-da99709ca027.png"
+  },
+  {
+    "id": "3317cb51-b8b6-8038-b055-e795a4a75743",
+    "title": "The Path to Senior Product Designer",
+    "author": "Artiom Dashinsky",
+    "type": "Non-fiction",
+    "year": 2025,
+    "coverImage": "/book-covers/3317cb51-b8b6-8038-b055-e795a4a75743.png"
+  },
+  {
+    "id": "3317cb51-b8b6-808c-8133-da3cd5aacac3",
+    "title": "The Answer is No",
+    "author": "Fredrik Backman",
+    "type": "Fiction",
+    "year": 2025,
+    "coverImage": "/book-covers/3317cb51-b8b6-808c-8133-da3cd5aacac3.png"
   },
   {
     "id": "31b7cb51-b8b6-8014-b0e1-db241a6447be",
