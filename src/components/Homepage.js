@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
 import HomepagePasitoSlider from './HomepagePasitoSlider';
+import HomepageTeaserLink from './HomepageTeaserLink';
 import { getAllBooks } from '../lib/books';
 
 // import heroImg1 from '../assets/hero/Slider 1.png';
@@ -70,35 +70,22 @@ function Homepage({ initialArticles = null }) {
           <div className="mt-6 flex flex-col items-start gap-6 md:flex-row">
             <div className="hidden w-[128px] md:block" />
             <div className="flex w-full max-w-[480px] flex-col gap-8">
-              <Link href="/kota" className="flex flex-col gap-1.5 mt-4">
-                <p className="font-sans text-base font-medium text-text-dark transition-colors hover:text-text-accent">
-                  Leading design initiatives at Kota
-                </p>
-                <p className="font-sans text-xs font-normal text-text-muted">
-                  Joined as the first full-time design hire and helped scale design across all
-                  surfaces.
-                </p>
-              </Link>
-              <Link 
-                href="https://kotaoffsite2026.netlify.app/" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col gap-1.5">
-                  <p className="font-sans text-base font-medium text-text-dark transition-colors hover:text-text-accent">
-                    Kota's 2026 offsite photo album
-                  </p>
-                  <p className="font-sans text-xs font-normal text-text-muted">
-                    Built a creative showcase of Kota's best photos from Marrakesh.
-                  </p>
-              </Link>
-              <Link href="/work/hero-explorations" className="flex flex-col gap-1.5">
-                <p className="font-sans text-base font-medium text-text-dark transition-colors hover:text-text-accent">
-                  Hero explorations
-                </p>
-                <p className="font-sans text-xs font-normal text-text-muted">
-                  Iterations of possible hero sections for the portfolio.
-                </p>
-              </Link>
+              <HomepageTeaserLink
+                className="mt-4"
+                href="/kota"
+                title="Leading design initiatives at Kota"
+                description="Joined as the first full-time design hire and helped scale design across all surfaces."
+              />
+              <HomepageTeaserLink
+                href="https://kotaoffsite2026.netlify.app/"
+                title="Kota's 2026 offsite photo album"
+                description="Built a creative showcase of Kota's best photos from Marrakesh."
+              />
+              <HomepageTeaserLink
+                href="/work/hero-explorations"
+                title="Hero explorations"
+                description="Iterations of possible hero sections for the portfolio."
+              />
               <PrimaryButton to="/work">View work and design explorations</PrimaryButton>
             </div>
           </div>
@@ -109,28 +96,18 @@ function Homepage({ initialArticles = null }) {
           <SectionHeader title="Writing" />
           <div className="flex flex-col gap-8 w-full max-w-[480px]">
             {/* Carturesti Case Study */}
-            <Link href="/carturesti" className="flex flex-col gap-1.5">
-              <p className="font-sans text-base font-medium text-text-dark transition-colors hover:text-text-accent">
-                Imagining a mobile experience for Romania&apos;s largest book retailer
-              </p>
-              <p className="font-sans text-xs font-normal text-text-muted">
-                Carturesti has 57 beautifully designed stores and an exceptional in-store experience.
-                Yet, their online experience hides huge potential.
-              </p>
-            </Link>
+            <HomepageTeaserLink
+              href="/carturesti"
+              title="Imagining a mobile experience for Romania's largest book retailer"
+              description="Carturesti has 57 beautifully designed stores and an exceptional in-store experience. Yet, their online experience hides huge potential."
+            />
             {articles.map((article) => (
-              <Link 
+              <HomepageTeaserLink
                 key={article.slug}
                 href={`/writing/${encodeURIComponent(article.slug)}`}
-                className="flex flex-col gap-1.5"
-              >
-                <p className="font-sans font-medium text-base text-text-dark hover:text-text-accent transition-colors">
-                  {article.title}
-                </p>
-                <p className="font-sans font-normal text-xs text-text-muted">
-                  {article.description}
-                </p>
-              </Link>
+                title={article.title}
+                description={article.description}
+              />
             ))}
             <PrimaryButton to="/writing">
               View all writing
