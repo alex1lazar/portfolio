@@ -9,32 +9,45 @@
       { "file": "Slider 2.webp", "alt": "Kota work preview screenshot 2" },
       { "file": "Slider 3.webp", "alt": "Kota work preview screenshot 3" },
       { "file": "Slider 4.webp", "alt": "Kota work preview screenshot 4" },
-      { "file": "Slider 5.webp", "alt": "Kota work preview screenshot 5" }
+      { "file": "Slider 5.webp", "alt": "Kota work preview screenshot 5" },
+      { "file": "Slider 6.png", "alt": "Kota work preview screenshot 6" },
+      { "file": "Slider 7.png", "alt": "Kota work preview screenshot 7" },
+      { "file": "Slider 8.webp", "alt": "Kota work preview screenshot 8" },
+      { "file": "Slider 9.webp", "alt": "Kota work preview screenshot 9" },
+      { "file": "Slider 10.webp", "alt": "Kota work preview screenshot 10" }
     ]
   },
   "detailGrid": {
     "rows": [
       {
         "layout": "single",
-        "images": [{ "file": "Slider 10.webp", "alt": "Kota detail grid image 5" }]
+        "images": [{ "file": "Slider 7.png", "alt": "Kota detail grid image 7" }]
       },
       {
         "layout": "double",
         "images": [
-          { "file": "Slider 6.png", "alt": "Kota detail grid image 1" },
-          { "file": "Slider 7.png", "alt": "Kota detail grid image 2" }
+          { "file": "Slider 6.png", "alt": "Kota detail grid image 6" },
+          { "file": "Slider 5.webp", "alt": "Kota detail grid image 5" }
         ]
       },
       {
         "layout": "single",
-        "images": [{ "file": "Slider 10.webp", "alt": "Kota detail grid image 5" }]
+        "images": [{ "file": "Slider 8.webp", "alt": "Kota detail grid image 8" }]
       },
       {
         "layout": "double",
         "images": [
-          { "file": "Slider 8.webp", "alt": "Kota detail grid image 3" },
-          { "file": "Slider 9.webp", "alt": "Kota detail grid image 4" }
+          { "file": "Slider 4.webp", "alt": "Kota detail grid image 4" },
+          { "file": "Slider 9.webp", "alt": "Kota detail grid image 9" }
         ]
+      },
+      {
+        "layout": "single",
+        "images": [{ "file": "Slider 1.webp", "alt": "Kota detail grid image 1" }]
+      },
+      {
+        "layout": "single",
+        "images": [{ "file": "Slider 2.webp", "alt": "Kota detail grid image 2" }]
       }
     ]
   },

@@ -9,11 +9,22 @@
       { "file": "Slider 2.webp", "alt": "Advisable work preview screenshot 2" },
       { "file": "Slider 3.webp", "alt": "Advisable work preview screenshot 3" },
       { "file": "Slider 4.webp", "alt": "Advisable work preview screenshot 4" },
-      { "file": "Slider 5.webp", "alt": "Advisable work preview screenshot 5" }
+      { "file": "Slider 5.webp", "alt": "Advisable work preview screenshot 5" },
+      { "file": "Slider 6.webp", "alt": "Advisable work preview screenshot 6" },
+      { "file": "Slider 7.webp", "alt": "Advisable work preview screenshot 7" },
+      { "file": "Slider 8.webp", "alt": "Advisable work preview screenshot 8" },
+      { "file": "Slider 9.webp", "alt": "Advisable work preview screenshot 9" }
     ]
   },
   "detailGrid": {
     "rows": [
+      {
+        "layout": "double",
+        "images": [
+          { "file": "Slider 3.webp", "alt": "Advisable detail grid image 2" },
+          { "file": "Slider 4.webp", "alt": "Advisable detail grid image 3" }
+        ]
+      },
       {
         "layout": "single",
         "images": [{ "file": "Slider 6.webp", "alt": "Advisable detail grid image 1" }]
@@ -28,6 +39,17 @@
       {
         "layout": "single",
         "images": [{ "file": "Slider 9.webp", "alt": "Advisable detail grid image 4" }]
+      },
+      {
+        "layout": "double",
+        "images": [
+          { "file": "Slider 1.webp", "alt": "Advisable detail grid image 2" },
+          { "file": "Slider 2.webp", "alt": "Advisable detail grid image 3" }
+        ]
+      },
+      {
+        "layout": "single",
+        "images": [{ "file": "Slider 5.webp", "alt": "Advisable detail grid image 4" }]
       }
     ]
   },

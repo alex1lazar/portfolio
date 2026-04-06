@@ -5,18 +5,26 @@ import Navbar from '../../components/common/Navbar';
 import XLContainer from '../../components/containers/XLContainer';
 import ProjectImageRowGrid from '../../components/ProjectImageRowGrid';
 import { getProjectConfig } from '../../lib/projectConfigs';
-import kotaSlider6 from '../../assets/kota/Slider 6.png';
-import kotaSlider7 from '../../assets/kota/Slider 7.png';
-import kotaSlider8 from '../../assets/kota/Slider 8.webp';
-import kotaSlider9 from '../../assets/kota/Slider 9.webp';
-import kotaSlider10 from '../../assets/kota/Slider 10.webp';
+import kotaImage1 from '../../assets/kota/Slider 1.webp';
+import kotaImage2 from '../../assets/kota/Slider 2.webp';
+import kotaImage3 from '../../assets/kota/Slider 3.webp';
+import kotaImage4 from '../../assets/kota/Slider 4.webp';
+import kotaImage5 from '../../assets/kota/Slider 5.webp';
+import kotaImage6 from '../../assets/kota/Slider 6.png';
+import kotaImage7 from '../../assets/kota/Slider 7.png';
+import kotaImage8 from '../../assets/kota/Slider 8.webp';
+import kotaImage9 from '../../assets/kota/Slider 9.webp';
 
 const kotaDetailImageMap = {
-  'Slider 6.png': kotaSlider6,
-  'Slider 7.png': kotaSlider7,
-  'Slider 8.webp': kotaSlider8,
-  'Slider 9.webp': kotaSlider9,
-  'Slider 10.webp': kotaSlider10,
+  'Slider 1.webp': kotaImage1,
+  'Slider 2.webp': kotaImage2,
+  'Slider 3.webp': kotaImage3,
+  'Slider 4.webp': kotaImage4,
+  'Slider 5.webp': kotaImage5,
+  'Slider 6.png': kotaImage6,
+  'Slider 7.png': kotaImage7,
+  'Slider 8.webp': kotaImage8,
+  'Slider 9.webp': kotaImage9
 };
 
 export default function KotaPageContent() {
