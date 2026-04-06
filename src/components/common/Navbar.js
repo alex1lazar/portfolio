@@ -36,7 +36,7 @@ function Navbar({ hideName = false, onOpenAbout }) {
   return (
     <>
       <nav className="w-full mx-auto">
-        <div className="max-w-[1120px] mx-auto px-4 flex justify-between items-center">
+        <div className="max-w-[1440px] mx-auto px-4 flex justify-between items-center">
           {/* Left side - Name */}
           {!hideName && (
             <Link href="/" className="text-lg text-text-dark font-serif hover:text-text-accent transition-colors">

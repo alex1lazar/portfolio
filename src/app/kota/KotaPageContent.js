@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Navbar from '../../components/common/Navbar';
-import WideContainer from '../../components/containers/WideContainer';
+import XLContainer from '../../components/containers/XLContainer';
 import ProjectImageRowGrid from '../../components/ProjectImageRowGrid';
 import { getProjectConfig } from '../../lib/projectConfigs';
 import kotaSlider6 from '../../assets/kota/Slider 6.png';
@@ -24,9 +24,9 @@ export default function KotaPageContent() {
 
   return (
     <div className="bg-background-primary min-h-screen">
+      <XLContainer>
       <Navbar />
       <div className="pt-40 pb-20">
-        <WideContainer>
             <div className="flex mb-2">
               <h2 className="font-serif text-text-dark">
                 {kota.title}
@@ -39,8 +39,8 @@ export default function KotaPageContent() {
               {kota.description}
             </p>
           <ProjectImageRowGrid rows={kota.detailGrid.rows} imageMap={kotaDetailImageMap} />
-        </WideContainer>
       </div>
+      </XLContainer>
     </div>
   );
 }

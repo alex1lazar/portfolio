@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { staticAssetUrl } from '../lib/staticAssetUrl';
 import PrimaryButton from './common/PrimaryButton';
@@ -93,14 +92,14 @@ export default function WorkProjectRow({ title, subtitle, href, images, imageAlt
 
   return (
     <div className="w-full mb-16 md:mb-24">
-      <div className="mb-4 flex items-end justify-between gap-6">
-        <h2 className="mb-0 text-left font-serif">
+      <div className="mb-4 flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-6">
+        <h2 className="mb-0 min-w-0 text-left font-serif">
           <span className="text-text-dark">{title}</span>
           <span className="mx-2 font-normal text-text-muted">/</span>
           <span className="font-normal text-text-dark text-text-muted">{subtitle}</span>
         </h2>
-        <PrimaryButton to="/work">
-              View work
+        <PrimaryButton to={href} className="hidden shrink-0 pb-0.5 md:inline-block">
+          View work
         </PrimaryButton>
       </div>
 
@@ -136,6 +135,10 @@ export default function WorkProjectRow({ title, subtitle, href, images, imageAlt
           </div>
         ))}
       </div>
+
+      <PrimaryButton to={href} className="mt-4 md:hidden">
+        View work
+      </PrimaryButton>
     </div>
   );
 }

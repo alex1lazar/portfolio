@@ -44,57 +44,78 @@ function Homepage({ initialArticles = null }) {
       <WideContainer className="flex flex-col">
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row items-start gap-6 mb-20">
-            <div className="flex flex-row w-full md:w-[128px] items-center justify-between gap-3">
-              <p className="font-serif text-lg text-text-dark">
-                Alex Lazar
-              </p>
-              <div className="block md:hidden">
-                <Navbar hideName={true} onOpenAbout={() => setIsAboutDrawerOpen(true)} />
-              </div>
+          <div className="flex flex-row w-full md:w-[128px] items-center justify-between gap-3">
+            <p className="font-serif text-lg text-text-dark">Alex Lazar</p>
+            <div className="block md:hidden">
+              <Navbar hideName={true} onOpenAbout={() => setIsAboutDrawerOpen(true)} />
             </div>
-         
+          </div>
           <div className="flex flex-row justify-between gap-3 w-full">
             <p className="font-serif font-semibold text-lg text-text-dark max-w-lg">
               Software designer working with companies that aim for a world-class customer experience
             </p>
-            <div className="flex gap-3 hidden md:block">
+            <div className="hidden md:flex gap-3">
               <Navbar hideName={true} onOpenAbout={() => setIsAboutDrawerOpen(true)} />
             </div>
           </div>
         </div>
 
-        {/* Slider Section — original + Pasito variation (stacked) */}
+        {/* Slider Section */}
         <div className="pt-20 mb-40">
           <div className="flex flex-col gap-12">
             <div className="rounded-xs overflow-hidden">
               <HomepagePasitoSlider />
             </div>
           </div>
-        <div className="flex gap-6 items-start mt-6 flex-col md:flex-row">
-          <div className="w-[128px] hidden md:block"></div>
-          <div className="flex flex-col gap-8 w-full max-w-[480px]">
-            <PrimaryButton to="/work">
-              View work and design explorations
-            </PrimaryButton>
+          <div className="mt-6 flex flex-col items-start gap-6 md:flex-row">
+            <div className="hidden w-[128px] md:block" />
+            <div className="flex w-full max-w-[480px] flex-col gap-8">
+              <Link href="/kota" className="flex flex-col gap-1.5 mt-4">
+                <p className="font-sans text-base font-medium text-text-dark transition-colors hover:text-text-accent">
+                  Leading design initiatives at Kota
+                </p>
+                <p className="font-sans text-xs font-normal text-text-muted">
+                  Joined as the first full-time design hire and helped scale design across all
+                  surfaces.
+                </p>
+              </Link>
+              <Link 
+                href="https://kotaoffsite2026.netlify.app/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col gap-1.5">
+                  <p className="font-sans text-base font-medium text-text-dark transition-colors hover:text-text-accent">
+                    Kota's 2026 offsite photo album
+                  </p>
+                  <p className="font-sans text-xs font-normal text-text-muted">
+                    Built a creative showcase of Kota's best photos from Marrakesh.
+                  </p>
+              </Link>
+              <Link href="/work/hero-explorations" className="flex flex-col gap-1.5">
+                <p className="font-sans text-base font-medium text-text-dark transition-colors hover:text-text-accent">
+                  Hero explorations
+                </p>
+                <p className="font-sans text-xs font-normal text-text-muted">
+                  Iterations of possible hero sections for the portfolio.
+                </p>
+              </Link>
+              <PrimaryButton to="/work">View work and design explorations</PrimaryButton>
+            </div>
           </div>
         </div>
-        </div>
-
 
         {/* Writing Section */}
         <div className="flex gap-6 items-start md:flex-row flex-col mb-20">
           <SectionHeader title="Writing" />
           <div className="flex flex-col gap-8 w-full max-w-[480px]">
             {/* Carturesti Case Study */}
-            <Link 
-              href="/carturesti"
-              className="flex flex-col gap-1.5"
-            >
-              <p className="font-sans font-medium text-base text-text-dark hover:text-text-accent transition-colors">
-              Imagining a mobile experience for Romania's largest book retailer
+            <Link href="/carturesti" className="flex flex-col gap-1.5">
+              <p className="font-sans text-base font-medium text-text-dark transition-colors hover:text-text-accent">
+                Imagining a mobile experience for Romania&apos;s largest book retailer
               </p>
-              <p className="font-sans font-normal text-xs text-text-muted">
-              Carturesti has 57 beautifully designed stores and an exceptional in-store experience. Yet, their online experience hides huge potential.
+              <p className="font-sans text-xs font-normal text-text-muted">
+                Carturesti has 57 beautifully designed stores and an exceptional in-store experience.
+                Yet, their online experience hides huge potential.
               </p>
             </Link>
             {articles.map((article) => (

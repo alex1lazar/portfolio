@@ -15,6 +15,10 @@
   "detailGrid": {
     "rows": [
       {
+        "layout": "single",
+        "images": [{ "file": "Slider 10.webp", "alt": "Kota detail grid image 5" }]
+      },
+      {
         "layout": "double",
         "images": [
           { "file": "Slider 6.png", "alt": "Kota detail grid image 1" },
@@ -22,15 +26,15 @@
         ]
       },
       {
+        "layout": "single",
+        "images": [{ "file": "Slider 10.webp", "alt": "Kota detail grid image 5" }]
+      },
+      {
         "layout": "double",
         "images": [
           { "file": "Slider 8.webp", "alt": "Kota detail grid image 3" },
           { "file": "Slider 9.webp", "alt": "Kota detail grid image 4" }
         ]
-      },
-      {
-        "layout": "single",
-        "images": [{ "file": "Slider 10.webp", "alt": "Kota detail grid image 5" }]
       }
     ]
   },

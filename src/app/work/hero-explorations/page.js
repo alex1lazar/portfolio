@@ -12,8 +12,6 @@ export const metadata = buildPageMetadata({
 
 export default function HeroExplorationsPage() {
   return (
-    <PageWithNavbar>
-      <HeroExplorations />
-    </PageWithNavbar>
+    <HeroExplorations />
   );
 }
