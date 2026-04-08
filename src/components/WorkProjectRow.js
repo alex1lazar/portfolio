@@ -138,7 +138,7 @@ export default function WorkProjectRow({ title, subtitle, href, images, imageAlt
         </div>
         {hasOverflow ? (
           <div
-            className="pointer-events-none absolute inset-y-0 right-0 z-[1] w-[8px] bg-gradient-to-l from-background-primary to-transparent"
+            className="pointer-events-none absolute inset-y-0 right-0 z-[1] w-[12px] bg-gradient-to-l from-background-primary to-transparent"
             aria-hidden
           />
         ) : null}
