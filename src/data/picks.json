@@ -1,11 +1,27 @@
 [
   {
+    "id": "notion-prototyping",
+    "url": "https://www.youtube.com/watch?v=s4HGbIhUgVo",
+    "title": "How Notion designer ship live prototypes",
+    "author": "How I AI",
+    "note": "",
+    "addedAt": "2026-04-22"
+  },
+  {
     "id": "the-future-favors-the-curious",
     "url": "https://mikeindustries.com/blog/archive/2025/03/the-future-favors-the-curious",
     "title": "The Future Favors the Curious",
     "author": "Mike Industries",
     "note": "",
     "addedAt": "2026-04-12"
+  },
+  {
+    "id": "entryway-bench",
+    "url": "https://www.youtube.com/watch?v=CmsHAt9PexI",
+    "title": "I built an entryway bench with hidden features",
+    "author": "Matthew Encina",
+    "note": "",
+    "addedAt": "2026-04-10"
   },
   {
     "id": "intercom-3-point-framework-for-ai",
