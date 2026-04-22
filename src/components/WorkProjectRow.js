@@ -124,7 +124,7 @@ export default function WorkProjectRow({ title, subtitle, href, images, imageAlt
           {images.map((src, index) => (
             <div
               key={index}
-              className="w-[min(640px,78%)] shrink-0 overflow-hidden rounded-lg bg-background-white"
+              className="w-[min(640px,78%)] shrink-0 overflow-hidden rounded-sm bg-background-white"
               style={{ aspectRatio: '915 / 518' }}
             >
               <img
