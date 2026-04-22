@@ -103,37 +103,45 @@ export default function WorkProjectRow({ title, subtitle, href, images, imageAlt
         </PrimaryButton>
       </div>
 
-      <div
-        ref={scrollRef}
-        role="region"
-        aria-label={`${title} project images`}
-        tabIndex={0}
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
-        onPointerCancel={onPointerUp}
-        className={`${STRIP_CLASSES} focus:outline-none focus-visible:ring-2 focus-visible:ring-color-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background-primary ${
-          hasOverflow
-            ? isPointerDragging
-              ? 'cursor-grabbing select-none'
-              : 'cursor-grab'
-            : 'cursor-default'
-        }`}
-      >
-        {images.map((src, index) => (
+      <div className="relative w-full">
+        <div
+          ref={scrollRef}
+          role="region"
+          aria-label={`${title} project images`}
+          tabIndex={0}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onPointerCancel={onPointerUp}
+          className={`${STRIP_CLASSES} focus:outline-none focus-visible:ring-2 focus-visible:ring-color-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background-primary ${
+            hasOverflow
+              ? isPointerDragging
+                ? 'cursor-grabbing select-none'
+                : 'cursor-grab'
+              : 'cursor-default'
+          }`}
+        >
+          {images.map((src, index) => (
+            <div
+              key={index}
+              className="w-[min(640px,78%)] shrink-0 overflow-hidden rounded-sm bg-background-white"
+              style={{ aspectRatio: '915 / 518' }}
+            >
+              <img
+                src={staticAssetUrl(src)}
+                alt={imageAlts[index] ?? `${title} preview ${index + 1}`}
+                className="h-full w-full object-cover"
+                draggable={false}
+              />
+            </div>
+          ))}
+        </div>
+        {hasOverflow ? (
           <div
-            key={index}
-            className="w-[min(640px,78%)] shrink-0 overflow-hidden rounded-lg bg-background-white"
-            style={{ aspectRatio: '915 / 518' }}
-          >
-            <img
-              src={staticAssetUrl(src)}
-              alt={imageAlts[index] ?? `${title} preview ${index + 1}`}
-              className="h-full w-full object-cover"
-              draggable={false}
-            />
-          </div>
-        ))}
+            className="pointer-events-none absolute inset-y-0 right-0 z-[1] w-[12px] bg-gradient-to-l from-background-primary to-transparent"
+            aria-hidden
+          />
+        ) : null}
       </div>
 
       <PrimaryButton to={href} className="mt-4 md:hidden">
