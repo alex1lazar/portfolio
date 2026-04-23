@@ -28,8 +28,8 @@ yarn-error.log*
 # Local Netlify folder
 .netlify
 
-# Claude Code worktrees (local clones; must not be committed as submodules)
-.claude/worktrees/
+# Claude Code — local worktrees, symlinks, and config (not portable; breaks CI if tracked)
+.claude/
 
 # CRA leftovers — break Next.js on Netlify (white screen). See scripts/check-netlify-public.cjs
 /public/index.html
