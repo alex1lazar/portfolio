@@ -1,43 +1,38 @@
-# Explore Pages
+# Explore pages
 
-This folder contains experimental and exploratory pages that showcase different design concepts and interactions.
+This folder contains experimental and exploratory UIs. Routes live under the **App Router** at `src/app/explore/[name]/page.js`, which composes view components from here and `src/components/explore/`.
 
 ## Structure
 
-Each exploration should be organized as follows:
-
 ```
 src/
-├── pages/
+├── app/
 │   └── explore/
-│       └── [ExplorationName].js          # Main page component
+│       └── [name]/
+│           └── page.js          # Wires a view to the URL
+├── views/
+│   └── explore/
+│       └── ContentWheel.js    # (example) full-page view
 └── components/
     └── explore/
-        └── [ExplorationName]/            # Exploration-specific components
-            ├── [Component1].js
-            ├── [Component2].js
-            └── ...
+        └── ContentWheel/      # Exploration-specific building blocks
 ```
 
-## Current Explorations
+## Current explorations
 
 ### ContentWheel
-- **Route**: `/explore/content-wheel` (or `/explore/:name` with name="content-wheel")
-- **Location**: `src/pages/explore/ContentWheel.js`
+
+- **Route**: `/explore/content-wheel`
+- **View**: `src/views/explore/ContentWheel.js`
 - **Components**: `src/components/explore/ContentWheel/`
-  - `ContentWheelGrid.js` - Main circular grid layout
-  - `ContentWheelItem.js` - Individual item component
 
-## Adding a New Exploration
+## Adding a new exploration
 
-1. Create a new page component in `src/pages/explore/[YourExploration].js`
-2. Create a corresponding folder in `src/components/explore/[YourExploration]/` for exploration-specific components
-3. Add the route to `src/App.js` using the pattern `/explore/:name`
-4. Update this README with your new exploration
+1. Add a **kebab-case** name under `src/app/explore/[name]/` (or extend `generateStaticParams` in that segment if you use SSG for names).
+2. Build the main view in `src/views/explore/` and/or `src/components/explore/<Name>/`.
+3. Use **kebab-case** in the URL (e.g. `content-wheel`).
 
-## Naming Convention
+## Naming
 
-- Use PascalCase for component names
-- Use kebab-case for route names (e.g., `content-wheel`, `interactive-grid`)
-- Keep exploration names descriptive and unique
-
+- **Components**: PascalCase
+- **URL segment**: kebab-case
