@@ -7,8 +7,7 @@ const nextConfig = {
    */
   async redirects() {
     return [
-      { source: '/Work', destination: '/work', permanent: true },
-      { source: '/Reading', destination: '/reading', permanent: true },
+      // /Work and /Reading → see src/middleware.js (case-sensitive; avoids Netlify redirect loops)
       { source: '/CaseStudyCarturesti', destination: '/carturesti', permanent: true },
       { source: '/projects/Carturesti', destination: '/carturesti', permanent: true },
       { source: '/explore/ContentWheel', destination: '/explore/content-wheel', permanent: true },
