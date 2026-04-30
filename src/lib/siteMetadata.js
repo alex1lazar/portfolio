@@ -10,7 +10,7 @@ export const DEFAULT_OG_HEIGHT = 630;
 
 export function getSiteBaseUrl() {
   return (
-    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || 'http://localhost:3000'
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || 'https://alexlazar.me'
   );
 }
 
