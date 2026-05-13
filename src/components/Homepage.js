@@ -77,7 +77,7 @@ function Homepage({ initialArticles = null }) {
                 description="Joined as the first full-time design hire and helped scale design across all surfaces."
               />
               <HomepageTeaserLink
-                href="https://kotaoffsite2026.netlify.app/"
+                href="https://offsite2026.kota.io/"
                 title="Kota's 2026 offsite photo album"
                 description="Built a creative showcase of Kota's best photos from Marrakesh."
               />
