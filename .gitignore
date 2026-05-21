@@ -28,6 +28,12 @@ yarn-error.log*
 # Local Netlify folder
 .netlify
 
+# AI assistants — local skills, config, and design context (not for the repo)
+.impeccable.md
+.agents/
+.cursor/
+skills-lock.json
+
 # Claude Code — local worktrees, symlinks, and config (not portable; breaks CI if tracked)
 .claude/
 
