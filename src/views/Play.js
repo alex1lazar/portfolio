@@ -45,6 +45,11 @@ const PLAY_ITEMS = [
     src: '/play/Create Often.mp4',
   },
   {
+    id: 'hero',
+    kind: 'video',
+    src: '/play/Hero-explorations.mp4',
+  },
+  {
     id: 'webflow-loader',
     kind: 'video',
     src: '/play/Webflow-Loader.mp4',
