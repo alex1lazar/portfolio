@@ -11,6 +11,7 @@ const articleFileMap = [
   { slug: 'creative-angst', filename: 'creative-angst.md' },
   { slug: 'a-job-id-love', filename: 'a-job-id-love.md' },
   { slug: 'kota-2025-in-review', filename: 'Kota 2025 in review.md' },
+  { slug: 'nts', filename: 'NTS.md' },
 ];
 
 function readMarkdownFile(filename) {

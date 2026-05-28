@@ -50,8 +50,17 @@ const kota2025ImagesContext = require.context(
 // Create image map for Kota 2025
 const kota2025Images = createImageMap(kota2025ImagesContext);
 
+// NTS article — src/articles/NTS assets/NTS1.png … NTS4.png (keys: NTS1, NTS2, …)
+const ntsImagesContext = require.context(
+  '../articles/NTS assets',
+  false,
+  /\.(png|jpe?g|gif|webp)$/i
+);
+const ntsImages = createImageMap(ntsImagesContext);
+
 // Debug: log available images
 console.log('Kota 2025 images loaded:', Object.keys(kota2025Images));
+console.log('NTS images loaded:', Object.keys(ntsImages));
 
 /**
  * Map article slugs to their image maps
@@ -59,9 +68,7 @@ console.log('Kota 2025 images loaded:', Object.keys(kota2025Images));
  */
 const articleImageMaps = {
   'kota-2025-in-review': kota2025Images,
-  // Add more articles here:
-  // 'another-article-slug': anotherArticleImages,
-  // 'creative-angst': creativeAngstImages,
+  nts: ntsImages,
 };
 
 /**
