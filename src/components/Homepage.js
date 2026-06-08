@@ -12,7 +12,6 @@ import WideContainer from './containers/WideContainer';
 import Navbar from './common/Navbar';
 import AboutDrawer from './common/AboutDrawer';
 import PrimaryButton from './common/PrimaryButton';
-import ExploreSection from './ExploreSection';
 
 function Homepage({ initialArticles = null }) {
   const [articles, setArticles] = useState(() =>
@@ -171,8 +170,6 @@ function Homepage({ initialArticles = null }) {
           </div>
         </div>
 
-        {/* Explore/Footer Section */}
-        <ExploreSection onOpenAbout={() => setIsAboutDrawerOpen(true)} />
       </WideContainer>
       
       {/* About Drawer */}

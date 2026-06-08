@@ -77,7 +77,6 @@ const CaseStudyCarturesti = () => {
         sections={sections}
         heroImage={heroImageFromMarkdown}
         onBack={handleBack}
-        onOpenAbout={() => setIsAboutDrawerOpen(true)}
       />
       <AboutDrawer isOpen={isAboutDrawerOpen} onClose={() => setIsAboutDrawerOpen(false)} />
     </>

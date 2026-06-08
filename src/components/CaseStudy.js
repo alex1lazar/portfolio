@@ -2,7 +2,6 @@ import React from 'react';
 import NarrowContainer from './containers/NarrowContainer';
 import WideContainer from './containers/WideContainer';
 import CaseStudySlider from './CaseStudySlider';
-import ExploreSection from './ExploreSection';
 import { staticAssetUrl } from '../lib/staticAssetUrl';
 
 // Helper function to parse and render text with bold, italic, and links
@@ -172,7 +171,6 @@ const CaseStudy = ({
   sections = [], 
   heroImage, 
   onBack,
-  onOpenAbout 
 }) => {
 
   return (
@@ -321,13 +319,6 @@ const CaseStudy = ({
             </div>
           );
         })}
-      </div>
-
-      {/* Footer */}
-      <div className="pt-16 pb-16">
-        <WideContainer>
-          <ExploreSection onOpenAbout={onOpenAbout} />
-        </WideContainer>
       </div>
 
     </div>

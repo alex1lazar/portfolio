@@ -1,6 +1,7 @@
 import React from 'react';
 import '../index.css';
 import BodyScrollReset from '../components/layout/BodyScrollReset';
+import SiteFooter from '../components/layout/SiteFooter';
 import { getSiteBaseUrl, DEFAULT_OG_IMAGE_PATH, DEFAULT_OG_HEIGHT, DEFAULT_OG_WIDTH, absoluteUrl } from '../lib/siteMetadata';
 
 export const metadata = {
@@ -35,9 +36,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="pt-10 pb-10">
+      <body className="flex min-h-screen flex-col pt-10">
         <BodyScrollReset />
-        {children}
+        <div className="flex-1">{children}</div>
+        <SiteFooter />
       </body>
     </html>
   );
