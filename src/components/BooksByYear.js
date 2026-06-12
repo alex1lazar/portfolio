@@ -1,6 +1,7 @@
 import React from 'react';
 
-const BooksByYear = ({ books }) => {
+const BooksByYear = ({ books, config }) => {
+  const grid = config?.grid;
   // Group books by year
   const groupBooksByYear = (books) => {
     const grouped = books.reduce((acc, book) => {
@@ -33,7 +34,7 @@ const BooksByYear = ({ books }) => {
   }
 
   return (
-    <div className="space-y-16">
+    <div style={{ display: 'flex', flexDirection: 'column', gap: grid?.yearSectionGap ?? 64 }}>
       {sortedYears.map((year) => (
         <div key={year} className="relative">
           {/* Year Label - styled according to Figma design */}
@@ -47,10 +48,19 @@ const BooksByYear = ({ books }) => {
           </div>
 
           {/* Books for this year - 5 column grid on large screens */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 md:gap-x-3 md:gap-y-8">
+          <div
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
+            style={{
+              columnGap: grid?.columnGap ?? 12,
+              rowGap: grid?.rowGap ?? 32,
+            }}
+          >
             {grouped[year].map((book) => (
               <div key={book.id} className="group">
-                <div className="flex flex-col max-w-40">
+                <div
+                  className="flex flex-col"
+                  style={{ maxWidth: grid?.coverMaxWidth ?? 160 }}
+                >
                   {/* Book cover - maintains original aspect ratio */}
                   {book.coverImage && (
                     <div className="w-full mb-3">
